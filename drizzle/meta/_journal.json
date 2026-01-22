@@ -8,6 +8,13 @@
       "when": 1769115690310,
       "tag": "0000_material_agent_zero",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1769120970104,
+      "tag": "0001_chief_bullseye",
+      "breakpoints": true
     }
   ]
 }
