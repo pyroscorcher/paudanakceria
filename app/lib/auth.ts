@@ -1,5 +1,9 @@
 import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { drizzle } from 'drizzle-orm/neon-http';
 
 export const auth = betterAuth({
-  //...
+    database: drizzleAdapter(db, {
+        provider: "pg", // or "mysql", "sqlite"
+    }),
 });
