@@ -12,7 +12,7 @@ export async function signInAction(formdata: FormData) {
         body: { email, password },
     });
 
-    redirect("/admin");
+    redirect("/");
 }
 
 export async function signOutAction() {
