@@ -43,3 +43,7 @@ export const users = pgTable("users", {
     .defaultNow()
     .notNull(),
 });
+
+export const schema = {
+  users,
+};
