@@ -7,10 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Show login page
+// login admin
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('admin.login');
-// Handle login
+Route::get('/admin/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
-// Handle logout
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Models\Admin;
-use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -16,23 +13,27 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function showDashboard()
+    {
+        return view('admin.dashboard');
+    }
+
     public function login(Request $request)
     {
         if (Auth::guard('admins')->attempt([
             'username' => $request->username,
             'password' => $request->password
         ])) {
-            return response()->json(['message' => 'Login berhasil']);
-            return redirect()->intended('/welcome');
+            return redirect('admin/dashboard');
         }
 
-        return response()->json(['message' => 'Login gagal'], 401);
+        return redirect('/admin/login')->with('error', 'Login gagal');
     }
 
     // LOGOUT
     public function logout()
     {
         Auth::guard('admins')->logout();
-        return response()->json(['message' => 'Logout berhasil']);
+        return redirect('/admin/login');
     }
 }
