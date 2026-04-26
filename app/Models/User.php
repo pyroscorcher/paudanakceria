@@ -16,14 +16,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', // Updated to 'name'
+        'name', 
         'email',
         'password',
-        'jenis_kelamin',
-        'nisn',
-        'tanggal_lahir',
-        'tempat_lahir',
-        'nama_orangtua',
     ];
 
     /**
@@ -44,9 +39,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'tanggal_lahir' => 'date',
     ];
 
+    /**
+     * Get the enrollment record associated with the user.
+     */
     public function pendaftaran()
     {
         return $this->hasOne(Pendaftaran::class);
