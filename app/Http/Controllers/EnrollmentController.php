@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class EnrollmentController extends Controller
 {
-    /**
-     * Handle the guest enrollment submission.
-     */
+    public function create()
+    {
+        return view('pendaftaran.create');
+    }
+
     public function store(Request $request)
     {
         // 1. Validate incoming data to ensure data integrity before hitting the DB
