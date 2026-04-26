@@ -47,12 +47,8 @@ class User extends Authenticatable
         'tanggal_lahir' => 'date',
     ];
 
-    /**
-     * Relationship: A User has many Pendaftaran (Enrollments).
-     */
     public function pendaftaran()
     {
-        // Because we are using Laravel defaults, we don't need to specify the keys!
-        return $this->hasMany(Pendaftaran::class);
+        return $this->hasOne(Pendaftaran::class);
     }
 }
