@@ -13,27 +13,34 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
-    public function showDashboard()
-    {
-        return view('admin.dashboard');
-    }
-
     public function login(Request $request)
     {
+        // Attempt to log in using the 'admins' guard
         if (Auth::guard('admins')->attempt([
             'username' => $request->username,
             'password' => $request->password
         ])) {
-            return redirect('admin/dashboard');
+            // Security best practice: regenerate the session token
+            $request->session()->regenerate();
+
+            // Redirect using the named route we set up in web.php
+            return redirect()->route('admin.dashboard');
         }
 
-        return redirect('/admin/login')->with('error', 'Login gagal');
+        // If it fails, send them back with an error and keep their old username input
+        return back()->withErrors([
+            'error' => 'Login gagal. Username atau password salah.',
+        ])->onlyInput('username');
     }
 
     // LOGOUT
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('admins')->logout();
-        return redirect('/admin/login');
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login');
     }
 }

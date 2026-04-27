@@ -50,7 +50,7 @@ class EnrollmentController extends Controller
                     'tanggal_lahir' => $validated['tanggal_lahir'],
                     'tempat_lahir'  => $validated['tempat_lahir'],
                     'nama_orangtua' => $validated['nama_orangtua'],
-                    'status'        => 'Menunggu', // Set a default starting status
+                    'status'        => 'Pending', // Set a default starting status
                 ]);
 
                 // Return the user object so we can use it outside the transaction closure
