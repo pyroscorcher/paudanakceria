@@ -9,10 +9,7 @@ class Pendaftaran extends Model
 {
     use HasFactory;
 
-    // Explicitly define the table name if it doesn't follow standard pluralization
     protected $table = 'pendaftaran';
-
-    // Protect against Mass Assignment vulnerabilities
     protected $fillable = [
         'user_id',
         'nama',
