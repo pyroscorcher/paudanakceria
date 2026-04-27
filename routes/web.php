@@ -21,7 +21,7 @@ Route::post('/daftar', [EnrollmentController::class, 'store'])->name('pendaftara
 
 // Admin dashboard routes
 Route::middleware(['auth:admins'])->group(function () {
-    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])
+    Route::get('/admin', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
     Route::get('/admin/enrollment/{id}', [AdminDashboardController::class, 'show'])->name('admin.enrollment.show');
     Route::patch('/admin/enrollment/{id}/status', [AdminDashboardController::class, 'updateStatus'])
