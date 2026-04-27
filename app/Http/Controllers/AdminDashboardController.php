@@ -34,4 +34,12 @@ class AdminDashboardController extends Controller
         return redirect()->route('admin.dashboard')
                          ->with('success', "Enrollment status for {$enrollment->nama} updated to {$validated['status']}.");
     }
+
+    // show pendaftaran etails
+    public function show($id)
+    {
+        $enrollment = Pendaftaran::with('user')->findOrFail($id);
+
+        return view('admin.show', compact('enrollment'));
+    }
 }
