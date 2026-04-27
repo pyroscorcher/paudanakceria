@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\GalleryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,12 @@ Route::middleware(['auth:admins'])->group(function () {
     Route::get('/admin/enrollment/{id}', [AdminDashboardController::class, 'show'])->name('admin.enrollment.show');
     Route::patch('/admin/enrollment/{id}/status', [AdminDashboardController::class, 'updateStatus'])
         ->name('admin.enrollment.update-status');
+    Route::resource('/admin/gallery', GalleryController::class);
+
+    Route::get('/admin/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::get('/admin/gallery/upload', [GalleryController::class, 'create'])->name('gallery.create');
+    Route::post('/admin/gallery/upload', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::delete('/admin/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 
 });
 
