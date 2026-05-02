@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
