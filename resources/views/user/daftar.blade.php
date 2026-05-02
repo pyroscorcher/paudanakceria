@@ -72,83 +72,96 @@
 
 	<!-- START LOGIN AND REGISTER -->
 	<section class="login_register section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1 col-xs-12">
-					<div class="register">
-						<h4 class="login_register_title">Formulir Pendaftaran Sekolah</h4>
-						<form>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Nama Anak</label>
-										<input type="text" id="student-name" class="form-control requiredField input-label"
-											name="student_name" placeholder="Masukkan nama anak">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Tanggal Lahir</label>
-										<input type="date" id="birth-date" class="form-control requiredField input-label"
-											name="birth_date">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Nama Ayah</label>
-										<input type="text" id="father-name" class="form-control requiredField input-label"
-											name="father_name" placeholder="Masukkan nama ayah">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Nama Ibu</label>
-										<input type="text" id="mother-name" class="form-control requiredField input-label"
-											name="mother_name" placeholder="Masukkan nama ibu">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Nomor Telepon Orang Tua</label>
-										<input type="tel" id="parent-phone" class="form-control requiredField input-label"
-											name="phone" placeholder="Masukkan nomor telepon">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label for="">Email</label>
-										<input type="email" id="contact-email" class="form-control requiredField input-label"
-											name="email" placeholder="Masukkan email">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="">Alamat Rumah</label>
-								<input type="text" id="address" class="form-control requiredField input-label"
-									name="address" placeholder="Masukkan alamat lengkap">
-							</div>
-							<div class="form-group">
-								<label for="">Username</label>
-								<input type="text" id="username" class="form-control requiredField input-label"
-									name="username" placeholder="Masukkan username">
-							</div>
-							<div class="form-group">
-								<label for="">Password</label>
-								<input type="password" id="password" class="form-control requiredField input-label"
-									name="password" placeholder="Masukkan password">
-							</div>
-							<div class="form-group">
-								<button class="btn_one" type="submit" name="submit">Daftar Sekarang</button>
-							</div>
-						</form>
-					</div>
-				</div><!--- END COL -->
-			</div><!--- END ROW -->
-		</div><!--- END CONTAINER -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 col-xs-12">
+                    <div class="register">
+                        <h4 class="login_register_title">Formulir Pendaftaran Sekolah</h4>
+                        <form action="{{ route('pendaftaran.store') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="nama">Nama Lengkap Anak</label>
+                                        <input type="text" id="nama" class="form-control requiredField input-label" 
+                                            name="nama" value="{{ old('nama') }}" required placeholder="Masukkan nama lengkap anak">
+                                        @error('nama') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                                        <input type="date" id="tanggal_lahir" class="form-control requiredField input-label"
+                                            name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required>
+                                        @error('tanggal_lahir') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="nama_ayah">Nama Ayah</label>
+                                        <input type="text" id="nama_ayah" class="form-control requiredField input-label"
+                                            name="nama_ayah" value="{{ old('nama_ayah') }}" required placeholder="Masukkan nama ayah">
+                                        @error('nama_ayah') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="nama_ibu">Nama Ibu</label>
+                                        <input type="text" id="nama_ibu" class="form-control requiredField input-label"
+                                            name="nama_ibu" value="{{ old('nama_ibu') }}" required placeholder="Masukkan nama ibu">
+                                        @error('nama_ibu') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="telp">Nomor Telepon Orang Tua</label>
+                                        <input type="tel" id="telp" class="form-control requiredField input-label"
+                                            name="telp" value="{{ old('telp') }}" required placeholder="Masukkan nomor telepon">
+                                        @error('telp') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                                        <select id="jenis_kelamin" name="jenis_kelamin" class="form-control requiredField input-label" required>
+                                            <option value="" disabled {{ old('jenis_kelamin') ? '' : 'selected' }}>Pilih jenis kelamin...</option>
+                                            <option value="L" {{ old('jenis_kelamin') == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                            <option value="P" {{ old('jenis_kelamin') == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                        </select>
+                                        @error('jenis_kelamin') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat_rumah">Alamat Rumah</label>
+                                <input type="text" id="alamat_rumah" class="form-control requiredField input-label"
+                                    name="alamat_rumah" value="{{ old('alamat_rumah') }}" required placeholder="Masukkan alamat lengkap">
+                                @error('alamat_rumah') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="nisn">NISN</label>
+                                <input type="text" id="nisn" class="form-control requiredField input-label"
+                                    name="nisn" value="{{ old('nisn') }}" required placeholder="Masukkan NISN anak">
+                                @error('nisn') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" class="form-control requiredField input-label"
+                                    name="password" required placeholder="Masukkan password">
+                                @error('password') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="form-group">
+                                <button class="btn_one" type="submit" name="submit">Daftar Sekarang</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+			</div>
+		</div>
 	</section>
 	<!-- END LOGIN AND REGISTER -->
 

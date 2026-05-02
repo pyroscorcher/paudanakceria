@@ -52,6 +52,19 @@ Route::middleware(['auth:admins'])->group(function () {
 Route::get('/', [UserController::class, 'ShowBeranda'])->name('user.home');
 Route::get('/user/info', [UserController::class, 'ShowInfo'])->name('user.info');
 Route::get('/user/daftar', [UserController::class, 'ShowDaftar'])->name('user.daftar');
-Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');
 Route::get('/user/pengumuman', [UserController::class, 'ShowPengumuman'])->name('user.pengumuman');
 Route::get('/user/kontak', [UserController::class, 'ShowKontak'])->name('user.kontak');
+
+// user login routes
+Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');
+Route::post('/user/login', [UserController::class, 'login'])->name('user.login.submit');
+Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logout');
+
+//user middleware
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'ShowDashboard'])->name('user.dashboard');
+    Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
+    Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
+    Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
+    Route::post('/user/change-password', [UserController::class, 'ChangePassword'])->name('user.change-password.update');
+});

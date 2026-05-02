@@ -21,7 +21,8 @@
         <h2 style="text-align: center; color: #1f2937;">Formulir Pendaftaran</h2>
         
         <form action="{{ route('pendaftaran.store') }}" method="POST">
-            @csrf <div class="form-group">
+            @csrf 
+            <div class="form-group">
                 <label for="nama">Nama Lengkap</label>
                 <input type="text" id="nama" name="nama" value="{{ old('nama') }}" required>
                 @error('nama') <div class="error">{{ $message }}</div> @enderror
