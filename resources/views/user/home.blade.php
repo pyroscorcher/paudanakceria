@@ -63,18 +63,6 @@
                             belajar yang aman dan penuh kasih, agar Ayah dan Bunda merasa tenang mempercayakan tumbuh
                             kembang buah hati kepada kami.
                         </p>
-                        <div class="d-flex flex-wrap justify-content-center gap-3">
-                            <div class="home_ps">
-                                <img src="{{ asset('images/icon/user2.svg') }}" alt="" />
-                                <h2>7500+</h2>
-                                <span>Active student</span>
-                            </div>
-                            <div class="home_ps">
-                                <img src="{{ asset('images/icon/file2.svg') }}" alt="" />
-                                <h2>4500+</h2>
-                                <span>Online Course</span>
-                            </div>
-                        </div>
                     </div>
                     <div class="home_btn">
                         <a href="register.html" class="cta"><span>Daftar Sekarang!</span>
@@ -109,7 +97,7 @@
                             class="img-fluid" alt="image">
                     </div>
                 </div><!--- END COL -->
-                <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+                <div class="col-lg-6 col-sm-8 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="ab_content">
                         <p>Assalamu’alaikum Warahmatullahi Wabarakatuh,
@@ -129,16 +117,6 @@
                             <br><br>
                             Wassalamu’alaikum Warahmatullahi Wabarakatuh..
                     </div>
-                    <!-- <div class="abmv">
-      <i class="fa-regular fa-lightbulb"></i>
-      <h4>Discover the joy of lifelong learning</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor ut labore.</p>
-     </div>
-     <div class="abmv">
-      <i class="fa-solid fa-satellite-dish"></i>
-      <h4>Build a real community</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor ut labore.</p>
-     </div> -->
                 </div><!--- END COL -->
             </div><!--- END ROW -->
         </div><!--- END CONTAINER -->
@@ -241,7 +219,7 @@
                 <h1>Kabar Terbaru</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
@@ -252,55 +230,36 @@
                                 ini, anak-anak belajar mengenal warna, melatih motorik halus, serta mengekspresikan
                                 imajinasi mereka dengan cara yang menyenangkan. Suasana kelas penuh dengan keceriaan dan
                                 kreativitas.</p>
-                            <a href="blog_single.html" class="cta"><span>Read More</span>
-                                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                                    <path d="M1,5 L11,5"></path>
-                                    <polyline points="8 1 12 5 8 9"></polyline>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="single_blog">
-                        <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid"
-                            alt="image" />
+                        <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">
                             <h2><a href="blog_single.html">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
                             <p>Dalam kegiatan pembelajaran minggu ini, anak-anak diajak menanam tanaman di halaman
                                 sekolah. Anak-anak belajar mengenal bagian tanaman, cara merawatnya, serta pentingnya
                                 menjaga lingkungan. Kegiatan ini membantu anak belajar sambil bermain di alam terbuka.
                             </p>
-                            <a href="blog_single.html" class="cta"><span>Read More</span>
-                                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                                    <path d="M1,5 L11,5"></path>
-                                    <polyline points="8 1 12 5 8 9"></polyline>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.3s"
                     data-wow-offset="0">
                     <div class="single_blog">
-                        <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid"
-                            alt="image" />
+                        <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">
                             <h2><a href="blog_single.html">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
                             <p>PAUD Anak Ceria merayakan Hari Kartini dengan kegiatan mengenakan pakaian adat dan
                                 berbagai aktivitas seru. Anak-anak belajar mengenal budaya Indonesia sekaligus
                                 meningkatkan rasa percaya diri saat tampil di depan teman-temannya.</p>
-                            <a href="blog_single.html" class="cta"><span>Read More</span>
-                                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                                    <path d="M1,5 L11,5"></path>
-                                    <polyline points="8 1 12 5 8 9"></polyline>
-                                </svg>
-                            </a>
-                        </div>
+                        </div><!--- END Col -->
                     </div>
-                </div><!-- END COL-->
-            </div><!-- / END ROW -->
+                </div>
+            </div><!-- END COL-->
+        </div><!-- / END ROW -->
         </div><!-- END CONTAINER  -->
     </section>
     <!-- END BLOG -->
@@ -311,7 +270,7 @@
     <div class="footer">
         <div class="container">
             <div class="row fc">
-                <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="col-lg-3 col-sm-6 col-xs-12">
                     <div class="footer_copyright">
                         <p>&copy; 2026 PAUD Anak Ceria</p>
                     </div>

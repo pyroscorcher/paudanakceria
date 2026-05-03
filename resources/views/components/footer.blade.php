@@ -26,7 +26,7 @@
     <!-- MAGNIFIC CSS -->
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
     <!--jquery-simple-mobilemenu Css-->
-    {{-- <link rel="stylesheet" href="{{ asset('css/jquery-simple-mobilemenu.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/jquery-simple-mobilemenu.css') }}">
     <!-- animate CSS -->
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- Style CSS -->
@@ -41,50 +41,19 @@
 
 <body>
 
-    <div id="navigation" class="navbar-light bg-faded site-navigation border-bottom">
+    <!-- START FOOTER -->
+    <div class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-20 align-self-center">
-                    <div class="site-logo">
-                        <a href="/"><img width="64px" height="64px"
-                                src="{{ asset('images/all-img/logo-paudanakceria.png') }}" alt=""></a>
+            <div class="row fc">
+                <div class="col-lg-6 col-sm-6 col-xs-12 justify-center">
+                    <div class="footer_copyright">
+                        <p>&copy; 2026 PAUD Anak Ceria</p>
                     </div>
-                </div><!--- END Col -->
-
-                <div class="col-60 d-flex justify-content-center">
-                    <nav id="main-menu">
-                        <ul>
-                            <li><a href="/">Beranda</a>
-                            </li>
-                            <li><a href="/user/info">Info Pendaftaran</a></li>
-                            <li><a href="/user/pengumuman">Pengumuman</a>
-                            </li>
-                            <li><a href="/user/daftar">Mulai Daftar</a>
-                            </li>
-                            <li><a href="/user/kontak">Kontak Kami</a></li>
-                        </ul>
-                    </nav>
-                </div><!--- END Col -->
-
-                <div class="col-30 d-none d-xl-block text-end align-self-center">
-                    <div class="call_to_action">
-                        <a class="btn_two" href="/user/login">Masuk<i class="fa-solid fa-arrow-right"></i></a>
-                    </div><!--- END SOCIAL PROFILE -->
-                </div><!--- END Col -->
-
-                <ul class="mobile_menu">
-                    <li><a href="/">Beranda</a>
-                    </li>
-                    <li><a href="/user/info">Info Pendaftaran</a></li>
-                    <li><a href="/user/pengumuman">Pengumuman</a>
-                    </li>
-                    <li><a href="/user/daftar">Mulai Daftar</a>
-                    </li>
-                    <li><a href="/user/kontak">Kontak Kami</a></li>
-                </ul>
-            </div><!--- END ROW -->
+                </div>
+            </div>
         </div><!--- END CONTAINER -->
     </div>
+    <!-- END FOOTER -->
 
     <!-- Latest jQuery -->
     <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
@@ -93,7 +62,7 @@
     <!-- owl-carousel min js  -->
     <script src="{{ asset('owlcarousel/js/owl.carousel.min.js') }}"></script>
     <!-- jquery-simple-mobilemenu.min -->
-    {{-- <script src="{{ asset('js/jquery-simple-mobilemenu.js') }}"></script> --}}
+    <script src="{{ asset('js/jquery-simple-mobilemenu.js') }}"></script>
     <!-- magnific-popup js -->
     <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
     <!-- jquery mixitup min js -->

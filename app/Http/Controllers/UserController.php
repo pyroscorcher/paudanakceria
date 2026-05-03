@@ -28,7 +28,8 @@ class UserController extends Controller
     public function ShowPengumuman()
     {
         return view('user.pengumuman', [
-            'navbar' => 'My Menu'
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
         ]);
     }
 

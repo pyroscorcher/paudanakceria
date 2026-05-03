@@ -914,6 +914,8 @@ p.section-title-white {
         width: 100%;
 
     }
+
+
 }
 
 @media only screen and (max-width: 575px) {
@@ -924,6 +926,12 @@ p.section-title-white {
     #sm_menu_ham {
         top: 60px;
     }
+
+    #sm_menu_ham::before {
+        display: none !important;
+        content: "" !important;
+    }
+
 }
 
 .header-btn {
@@ -1023,14 +1031,14 @@ p.section-title-white {
 }
 
 .home_bg {
-    min-height: 700px;
+    min-height: 600px;
     height: auto;
     position: relative;
-    padding: 5px 0;
 }
 
 .home_bg2 {
     height: 700px;
+    height: auto;
     position: relative;
     background-color: #009CE0;
 }
@@ -3827,10 +3835,11 @@ blockquote::before,
 
 .single_blog {
     border-radius: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     position: relative;
     text-align: center;
     border: 1px solid #eee;
+
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -3841,6 +3850,16 @@ blockquote::before,
     height: 220px;
     /* sesuaikan kebutuhan */
     object-fit: cover;
+}
+
+.single_blog p {
+    margin-bottom: 0;
+}
+
+
+
+.col-lg-4 {
+    display: flex;
 }
 
 .img_info {}
@@ -3867,6 +3886,8 @@ blockquote::before,
 .content_box {
     margin-top: 20px;
     padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .content_box h2 {
@@ -3887,9 +3908,10 @@ blockquote::before,
 }
 
 .content_box p {
-    margin-bottom: 35px;
+    margin-bottom: 0px;
     justify-content: center;
-    padding: 0 20px
+    padding: 0 20px;
+    flex-grow: 1;
 }
 
 .single_blog_two span {
@@ -4493,6 +4515,7 @@ blockquote::before,
     /* background: #2b2a5e; */
     padding-top: 40px;
     border-top: 1px solid #e7e7e9;
+    justify-content: center;
 }
 
 .footer_copyright {
@@ -5523,17 +5546,24 @@ blockquote::before,
 */
 .insfreecourse {
     background: #009CE0;
-    padding-bottom: 30px;
+    padding-bottom: 90px;
+}
+
+@media only screen and (max-width:480px) {
+    .row {
+        row-gap: 30px;
+    }
 }
 
 .single_ins {
     background: #fff;
-    padding: 40px;
+    padding: 30px;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin-top: 10px;
     /* box-shadow: rgb(255, 255, 255) -4px -4px 4px 0px, rgba(121, 144, 161, 0.35) 3px 3px 6px 0px; */
 }
 
@@ -5542,13 +5572,14 @@ blockquote::before,
     width: 100%;
     margin-top: 20px;
     text-align: center;
+    margin-bottom: 0px;
 }
 
 @media only screen and (max-width:480px) {
     .single_ins_content {
         float: left;
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 }
 
