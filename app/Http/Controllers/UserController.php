@@ -50,6 +50,22 @@ class UserController extends Controller
         ]);
     }
 
+    public function ShowDashboard()
+    {
+        return view('user.dashboard', [
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
+        ]);
+    }
+
+    public function ShowDokumen()
+    {
+        return view('user.dokumen', [
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
+        ]);
+    }
+
     // user login method
     public function login(Request $request)
     {

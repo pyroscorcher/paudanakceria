@@ -63,6 +63,7 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 //user middleware
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'ShowDashboard'])->name('user.dashboard');
+    Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
