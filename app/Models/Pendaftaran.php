@@ -9,26 +9,34 @@ class Pendaftaran extends Model
 {
     use HasFactory;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'pendaftaran';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'user_id',
         'nama',
-        'jenis_kelamin',
-        'nisn',
         'tanggal_lahir',
-        'tempat_lahir',
-        'nama_orangtua',
+        'nama_ayah',
+        'nama_ibu',
+        'telp',
+        'jenis_kelamin',
+        'alamat_rumah',
+        'nisn',
+        'password',
         'status',
     ];
 
-    // Cast the date field to a Carbon instance for easier date manipulation
-    protected $casts = [
-        'tanggal_lahir' => 'date',
-    ];
-
     /**
-     * Define the inverse one-to-one or one-to-many relationship.
-     * A Pendaftaran record belongs to a specific User.
+     * Get the user that owns the enrollment record.
      */
     public function user()
     {

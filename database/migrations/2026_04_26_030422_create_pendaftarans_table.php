@@ -17,13 +17,13 @@ return new class extends Migration
             
             // Enrollment Data
             $table->string('nama');
-            $table->enum('jenis_kelamin', ['L', 'P']); // L for Laki-laki, P for Perempuan
-            $table->string('nisn')->unique();
             $table->date('tanggal_lahir');
-            $table->string('tempat_lahir');
-            $table->string('nama_orangtua');
-            
-            // System State
+            $table->string('nama_ayah');
+            $table->string('nama_ibu');
+            $table->string('telp', 20);
+            $table->enum('jenis_kelamin', ['L', 'P']); // L for Laki-laki, P for Perempuan
+            $table->string('alamat_rumah');
+            // STATUS PENDAFTARAN - default 'Pending', can be updated to 'Accepted' or 'Rejected' by admin
             $table->string('status')->default('Pending');
             
             $table->timestamps();
