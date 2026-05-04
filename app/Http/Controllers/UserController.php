@@ -51,7 +51,7 @@ class UserController extends Controller
     }
 
     public function userDashboard(){
-        return view('user.dashboard', [
+        return view('user.dashboard_user', [
             'side_navbar' => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
@@ -75,6 +75,22 @@ class UserController extends Controller
         return view('user.upload_dokumen', [
             'side_navbar' => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
+    public function ShowDashboard()
+    {
+        return view('user.dashboard', [
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
+        ]);
+    }
+
+    public function ShowDokumen()
+    {
+        return view('user.dokumen', [
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
         ]);
     }
 

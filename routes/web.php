@@ -54,7 +54,7 @@ Route::get('/user/info', [UserController::class, 'ShowInfo'])->name('user.info')
 Route::get('/user/daftar', [UserController::class, 'ShowDaftar'])->name('user.daftar');
 Route::get('/user/pengumuman', [UserController::class, 'ShowPengumuman'])->name('user.pengumuman');
 Route::get('/user/kontak', [UserController::class, 'ShowKontak'])->name('user.kontak');
-Route::get('/user/dashboard_user', [UserController::class, 'userDashboard'])->name('user.dashboard');
+Route::get('/user/dashboard_user', [UserController::class, 'userDashboard'])->name('user.dashboard_user');
 Route::get('/user/data_anak', [UserController::class, 'dataAnak'])->name('user.data_anak');
 Route::get('user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
 Route::get('user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
@@ -66,7 +66,8 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 
 //user middleware
 Route::middleware(['auth'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'ShowDashxboard'])->name('user.dashboard');
+    Route::get('/user/dashboard', [UserController::class, 'ShowDashboard'])->name('user.dashboard');
+    Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
