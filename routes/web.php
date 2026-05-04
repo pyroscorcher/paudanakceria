@@ -39,7 +39,7 @@ Route::middleware(['auth:admins'])->group(function () {
     Route::get('/admin/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/admin/news/create', [NewsController::class, 'create'])->name('news.create');
     Route::post('/admin/news/create', [NewsController::class, 'store'])->name('news.store');
-    
+
     // Add this GET route to display the form
     Route::get('/admin/news/{id}/update', [NewsController::class, 'showUpdate'])->name('news.showUpdate');
 
@@ -54,6 +54,10 @@ Route::get('/user/info', [UserController::class, 'ShowInfo'])->name('user.info')
 Route::get('/user/daftar', [UserController::class, 'ShowDaftar'])->name('user.daftar');
 Route::get('/user/pengumuman', [UserController::class, 'ShowPengumuman'])->name('user.pengumuman');
 Route::get('/user/kontak', [UserController::class, 'ShowKontak'])->name('user.kontak');
+Route::get('/user/dashboard_user', [UserController::class, 'userDashboard'])->name('user.dashboard');
+Route::get('/user/data_anak', [UserController::class, 'dataAnak'])->name('user.data_anak');
+Route::get('user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
+Route::get('user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
 
 // user login routes
 Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');
@@ -62,7 +66,7 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 
 //user middleware
 Route::middleware(['auth'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'ShowDashboard'])->name('user.dashboard');
+    Route::get('/user/dashboard', [UserController::class, 'ShowDashxboard'])->name('user.dashboard');
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');

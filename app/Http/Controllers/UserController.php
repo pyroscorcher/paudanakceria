@@ -50,6 +50,34 @@ class UserController extends Controller
         ]);
     }
 
+    public function userDashboard(){
+        return view('user.dashboard', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
+    public function dataAnak(){
+        return view('user.data_anak', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
+    public function dataOrangTua(){
+        return view('user.data_orangtua', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
+    public function uploadDokumen(){
+        return view('user.upload_dokumen', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
     // user login method
     public function login(Request $request)
     {
@@ -74,17 +102,17 @@ class UserController extends Controller
             'nisn' => 'The provided NISN or password does not match our records.',
         ])->onlyInput('nisn'); // Keeps the NISN filled in the form, but clears the password
     }
-    
+
     /**
      * Log the user out of the application.
      */
     public function logout(Request $request)
     {
         Auth::logout();
-    
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-    
+
         return redirect('/');
     }
 }

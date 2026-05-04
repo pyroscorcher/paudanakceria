@@ -710,6 +710,10 @@ p.section-title-white {
     }
 }
 
+.navbar-logo {
+    width: 64px;
+}
+
 #main-menu {}
 
 #main-menu ul {
@@ -3455,7 +3459,7 @@ blockquote::before,
     color: #FFF;
     display: inline-block;
     zoom: 1;
-    *display: inline;
+    display: inline;
     margin: 5px;
     padding: 3px 10px;
     font-size: 12px;
@@ -3697,13 +3701,13 @@ blockquote::before,
     margin: 15px 0;
 }
 
-.our-team 2.team-prof h3 {
+.our-team2 .team-prof h3 {
     font-weight: 600;
     margin: 15px 0 5px;
     font-size: 20px;
 }
 
-.our-team 2.team-prof span {
+.our-team2 .team-prof span {
     display: block;
 }
 
