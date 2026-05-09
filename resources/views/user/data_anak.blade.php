@@ -76,8 +76,8 @@
                         <!-- Full Name -->
                         <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>Nama Murid</label>
-                                <input type="text" placeholder="Nama Murid">
+                                <label>Nama Lengkap</label>
+                                <input type="text" placeholder="Nama Lengkap">
                             </div>
                         </div>
 
@@ -86,13 +86,6 @@
                             <div class="input-style-1">
                                 <label>NISN</label>
                                 <input type="text" placeholder="NISN">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Tempat Lahir</label>
-                                <input type="text" placeholder="Tempat Lahir">
                             </div>
                         </div>
 
@@ -114,14 +107,6 @@
                                         <option value="P">Perempuan</option>
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Date -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Date</label>
-                                <input type="date">
                             </div>
                         </div>
 

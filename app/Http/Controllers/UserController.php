@@ -110,7 +110,7 @@ class UserController extends Controller
 
             // 4. Redirect to the user dashboard on success
             // Note: Ensure 'user.dashboard' matches the route name in your web.php
-            return redirect()->intended(route('user.dashboard'));
+            return redirect()->intended(route('user.dashboard_user'));
         }
 
         // 5. If authentication fails, redirect back with a localized error message
