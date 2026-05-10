@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Pendaftaran::class);
     }
+    public function orangtua()
+    {
+        return $this->hasOne(Orangtua::class);
+    }
 }
