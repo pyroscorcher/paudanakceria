@@ -44,9 +44,9 @@
 <body>
 
     <!-- START PRELOADER -->
-    <!-- <div class="preloaders">
-  <span class="loader">Loading</span>
- </div> -->
+    <div class="preloaders">
+        <span class="loader">Loading</span>
+    </div>
     <!-- END PRELOADER -->
 
     @include('components.navbar', ['navbar' => $navbar])
@@ -219,8 +219,8 @@
                 <h1>Kabar Terbaru</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
                             alt="image" />
@@ -233,8 +233,8 @@
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">
@@ -246,8 +246,8 @@
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.3s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.3s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">

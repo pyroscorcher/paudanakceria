@@ -43,12 +43,10 @@
 
 <body>
 
-	<!-- START PRELOADER -->
-	<!--
+
 	<div class="preloaders">
 		<span class="loader">Loading</span>
 	</div>
-	-->
 	<!-- END PRELOADER -->
 
 	<!-- START NAVBAR -->
@@ -83,7 +81,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="nama">Nama Lengkap Anak</label>
-                                        <input type="text" id="nama" class="form-control requiredField input-label" 
+                                        <input type="text" id="nama" class="form-control requiredField input-label"
                                             name="nama" value="{{ old('nama') }}" required placeholder="Masukkan nama lengkap anak">
                                         @error('nama') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>

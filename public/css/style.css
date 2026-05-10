@@ -5315,32 +5315,41 @@ blockquote::before,
 }
 
 .single_address {
-    padding: 40px;
-    border-radius: 5px;
+    padding: 40px 25px;
+    border-radius: 10px;
     background: #009CE0;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s;
 }
 
-@media only screen and (max-width:480px) {
-    .single_address {
-        margin-bottom: 30px;
-    }
+.single_address:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .single_address i {
-    font-size: 32px;
-    display: inline-block;
-    color: #fff;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .single_address h4 {
-    text-transform: capitalize;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 700;
     color: #fff;
 }
 
 .single_address p {
-    color: #fff;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* spacing antar card di mobile */
+@media (max-width: 768px) {
+    .single_address {
+        margin-bottom: 20px;
+    }
 }
 
 .map {
