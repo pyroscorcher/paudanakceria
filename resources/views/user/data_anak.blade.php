@@ -67,91 +67,208 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                <div class="card-style mb-2">
-                    <div class="row g-2">
+                <form action="{{ route('user.data_anak.update') }}" method="POST">
+                    @csrf
+                    @method('PUT') <!-- Spoofs the PUT method for RESTful updates -->
 
-                        <!-- Full Name -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Nama Lengkap</label>
-                                <input type="text" placeholder="Nama Lengkap">
-                            </div>
-                        </div>
+                    <div class="card-style mb-2">
+                        <div class="row g-2">
 
-                        <!-- Full Name Icon -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>NISN</label>
-                                <input type="text" placeholder="NISN">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Tanggal Lahir</label>
-                                <input type="date" placeholder="Tanggal Lahir">
-                            </div>
-                        </div>
-
-                        <!-- Category -->
-                        <div class="col-md-6">
-                            <div class="select-style-1">
-                                <label>Jenis Kelamin</label>
-                                <div class="select-position">
-                                    <select required>
-                                        <option value="" disabled selected>Pilih jenis kelamin</option>
-                                        <option value="L">Laki - Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
+                            <!-- Full Name -->
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" placeholder="Nama Lengkap" value="{{ old('nama_lengkap', $dataAnak->nama_lengkap ?? '') }}" name="nama_lengkap" required>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Date -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Date</label>
-                                <input type="date">
+                            <div class="col-md-6">
+                                <div class="select-style-1">
+                                    <label>Jenis Kelamin</label>
+                                    <div class="select-position">
+                                        <select name="jenis_kelamin" required>
+                                            <option value="" disabled selected>Pilih jenis kelamin</option>
+                                            <option value="L" {{ old('jenis_kelamin', $dataAnak->jenis_kelamin ?? '') == 'L' ? 'selected' : '' }}>Laki - Laki</option>
+                                            <option value="P" {{ old('jenis_kelamin', $dataAnak->jenis_kelamin ?? '') == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="button-size">
-                            <li>
-                                <a href="#0" class="main-btn primary-btn-outline btn-hover">Simpan</a>
-                            </li>
-                        </div>
-
-                        <!-- Message (FULL WIDTH / “satu lajur”) -->
-                        {{-- <div class="col-12">
-
-                            <div class="input-style-1">
-                                <label>Message</label>
-                                <textarea rows="4" placeholder="Message"></textarea>
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>NISN</label>
+                                    <input type="text" placeholder="NISN" value="{{ old('nisn', $dataAnak->nisn ?? '') }}" name="nisn" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Checkbox -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="checkbox" id="checkbox-1" class="form-check-input">
-                                <label for="checkbox-1" class="form-check-label">
-                                    Default Checkbox
-                                </label>
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>NIS</label>
+                                    <input type="text" placeholder="NIS" value="{{ old('nis', $dataAnak->nis ?? '') }}" name="nis" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Radio -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="radio" id="radio-1" class="form-check-input">
-                                <label for="radio-1" class="form-check-label">
-                                    Default Radio
-                                </label>
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Tanggal Lahir</label>
+                                    <input type="date" placeholder="Tanggal Lahir" value="{{ old('tanggal_lahir', $dataAnak->tanggal_lahir ?? '') }}" name="tanggal_lahir" required>
+                                </div>
                             </div>
-                        </div> --}}
 
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor Seri Ijazah</label>
+                                    <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriijazah', $dataAnak->nomor_seri_ijazah ?? '') }}" name="nomor_seri_ijazah">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor Seri SKHUN</label>
+                                    <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriskhun', $dataAnak->nomor_seri_skhun ?? '') }}" name="nomor_seri_skhun">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor Seri UN</label>
+                                    <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriun', $dataAnak->nomor_seri_un ?? '') }}" name="nomor_seri_un">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>NIK</label>
+                                    <input type="text" placeholder="Nomor Induk Kependudukan" value="{{ old('nik', $dataAnak->nik ?? '') }}" name="nik" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>NPSN Sekolah Asal</label>
+                                    <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('npsn', $dataAnak->npsn_sekolah_asal ?? '') }}" name="npsn_sekolah_asal">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nama Sekolah Asal</label>
+                                    <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('asal_sekolah', $dataAnak->nama_sekolah_asal ?? '') }}" name="nama_sekolah_asal">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Agama</label>
+                                    <input type="text" placeholder="Agama" value="{{ old('agama', $dataAnak->agama ?? '') }}" name="agama">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="input-style-1">
+                                    <label>Alamat</label>
+                                    <textarea rows="4" placeholder="Alamat">{{ old('alamat_rumah', $dataAnak->alamat ?? '') }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Kebutuhan Khusus</label>
+                                    <input type="text" placeholder="Kebutuhan Khusus (isi jika ada)" value="{{ old('kebutuhankhusus', $dataAnak->kebutuhan_khusus ?? '') }}" name="kebutuhan_khusus">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Transportasi</label>
+                                    <input type="text" placeholder="Transportasi yang digunakan untuk ke sekolah" value="{{ old('transportasi', $dataAnak->transportasi ?? '') }}" name="transportasi">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor Telepon</label>
+                                    <input type="text" placeholder="Nomor Telepon" value="{{ old('telp', $dataAnak->nomor_telepon ?? '') }}" name="nomor_telepon">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Email Pribadi</label>
+                                    <input type="email" placeholder="Email Pribadi" value="{{ old('emailpribadi', $dataAnak->email ?? '') }}" name="email">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor KKS</label>
+                                    <input type="text" placeholder="Nomor Kartu Keluarga Sejahtera (isi jika penerima)" value="{{ old('kks', $dataAnak->nomor_kks ?? '') }}" name="nomor_kks">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor KPS</label>
+                                    <input type="text" placeholder="Nomor Kartu Perlindungan Sosial (isi jika penerima)" value="{{ old('kps', $dataAnak->nomor_kps ?? '') }}" name="nomor_kps">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Nomor KIP</label>
+                                    <input type="text" placeholder="Nomor Kartu Indonesia Pintar (isi jika penerima)" value="{{ old('kip', $dataAnak->nomor_kip ?? '') }}" name="nomor_kip">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Lintang</label>
+                                    <input type="text" placeholder="Lintang (koordinat lokasi rumah)" value="{{ old('lintang', $dataAnak->lintang ?? '') }}" name="lintang">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Bujur</label>
+                                    <input type="text" placeholder="Bujur (koordinat lokasi rumah)" value="{{ old('bujur', $dataAnak->bujur ?? '') }}" name="bujur">
+                                </div>
+                            </div>
+
+                            
+
+                            <!-- Message (FULL WIDTH / “satu lajur”) -->
+                            {{-- <div class="col-12">
+
+                                <div class="input-style-1">
+                                    <label>Message</label>
+                                    <textarea rows="4" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input type="checkbox" id="checkbox-1" class="form-check-input">
+                                    <label for="checkbox-1" class="form-check-label">
+                                        Default Checkbox
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Radio -->
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input type="radio" id="radio-1" class="form-check-input">
+                                    <label for="radio-1" class="form-check-label">
+                                        Default Radio
+                                    </label>
+                                </div>
+                            </div> --}}
+
+                        </div>
                     </div>
-                </div>
+                </form>
                 <!-- ========== form-elements-wrapper end ========== -->
             </div>
             <!-- end container -->
