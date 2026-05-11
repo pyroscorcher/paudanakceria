@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title>Dashboard - Data Orang Tua</title>
+    <title>Dashboard - Data Prestasi</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -44,7 +44,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="title">
-                                <h2>Data Orang Tua</h2>
+                                <h2>Data Prestasi</h2>
                             </div>
                         </div>
                         <!-- end col -->
@@ -58,50 +58,85 @@
                 <div class="card-style mb-2">
                     <div class="row g-2">
 
-                        <!-- Nama Orang Tua -->
+                        <!-- Full Name -->
                         <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>Nama Ayah</label>
-                                <input type="text" name="nama_ayah" placeholder="Nama Ayah">
+                                <label>Nama Lengkap</label>
+                                <input type="text" placeholder="Nama Lengkap">
                             </div>
                         </div>
 
-                        <!-- NIK -->
+                        <!-- Full Name Icon -->
                         <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>NIK</label>
-                                <input type="text" name="nik" placeholder="NIK">
+                                <label>NISN</label>
+                                <input type="text" placeholder="NISN">
                             </div>
                         </div>
 
-                        <!-- Pekerjaan -->
                         <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>Pekerjaan</label>
-                                <input type="text" name="pekerjaan" placeholder="Pekerjaan">
+                                <label>Tanggal Lahir</label>
+                                <input type="date" placeholder="Tanggal Lahir">
                             </div>
                         </div>
 
-                        <!-- Email -->
-                        <div class="col-12">
-                            <div class="input-style-1">
-                                <label>Email yang Bisa Dihubungi</label>
-                                <input type="email" rows="3" name="email" placeholder="email@gmail.com">
+                        <!-- Category -->
+                        <div class="col-md-6">
+                            <div class="select-style-1">
+                                <label>Jenis Kelamin</label>
+                                <div class="select-position">
+                                    <select required>
+                                        <option value="" disabled selected>Pilih jenis kelamin</option>
+                                        <option value="L">Laki - Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Alamat (FULL WIDTH) -->
-                        <div class="col-12">
+                        <!-- Date -->
+                        <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>Alamat</label>
-                                <textarea name="alamat" rows="3" placeholder="Alamat lengkap"></textarea>
+                                <label>Date</label>
+                                <input type="date">
                             </div>
                         </div>
+
                         <div class="button-size">
                             <li>
                                 <a href="#0" class="main-btn primary-btn-outline btn-hover">Simpan</a>
                             </li>
                         </div>
+
+                        <!-- Message (FULL WIDTH / “satu lajur”) -->
+                        {{-- <div class="col-12">
+
+                            <div class="input-style-1">
+                                <label>Message</label>
+                                <textarea rows="4" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" id="checkbox-1" class="form-check-input">
+                                <label for="checkbox-1" class="form-check-label">
+                                    Default Checkbox
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Radio -->
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="radio" id="radio-1" class="form-check-input">
+                                <label for="radio-1" class="form-check-label">
+                                    Default Radio
+                                </label>
+                            </div>
+                        </div> --}}
 
                     </div>
                 </div>

@@ -26,14 +26,14 @@
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
-    @include('components.side_navbar', ['side_navbar' => $side_navbar])
+    @include('components.side_navbar', ['side_navbar' => $side_navbar ?? []])
     <div class="overlay"></div>
     <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->
     <main class="main-wrapper">
         <!-- ========== header start ========== -->
-        @include('components.header_dashboard', ['header_dashboard' => $header_dashboard])
+        @include('components.header_dashboard', ['header_dashboard' => $header_dashboard ?? []])
         <!-- ========== header end ========== -->
 
         <!-- ========== tab components start ========== -->
@@ -48,18 +48,6 @@
                             </div>
                         </div>
                         <!-- end col -->
-                        <div class="col-md-6">
-                            <div class="breadcrumb-wrapper">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <a href="#0">Dashboard</a>
-                                        </li>
-                                        <li class="breadcrumb-item"><a href="#0">Data Anak</a></li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
                         <!-- end col -->
                     </div>
                     <!-- end row -->

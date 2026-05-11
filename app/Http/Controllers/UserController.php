@@ -79,6 +79,20 @@ class UserController extends Controller
         ]);
     }
 
+    public function dataPeriodik(){
+        return view('user.data_periodik', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
+    public function dataPrestasi(){
+        return view('user.data_prestasi', [
+            'side_navbar' => 'Slide Menu',
+            'header_dashboard' => 'Header Dashboard'
+        ]);
+    }
+
     public function uploadDokumen(){
         return view('user.upload_dokumen', [
             'side_navbar' => 'Slide Menu',

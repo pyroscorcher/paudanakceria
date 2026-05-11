@@ -23,12 +23,11 @@
                                             </div> --}}
                                             <div>
                                                 <h6 class="fw-500">Adam Joe</h6>
-                                                <p>Admin</p>
                                             </div>
                                         </div>
                                     </div>
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                                {{-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                                     <li>
                                         <div class="author-info flex items-center p-1">
                                             <div class="image">

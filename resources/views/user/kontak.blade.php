@@ -96,8 +96,7 @@
                     <div class="single_address">
                         <i class="ti-email"></i>
                         <h4>Email</h4>
-                        <p>Info@example.com</p>
-                        <p>admin@example.com</p>
+                        <p>paudanakceria@gmail.com</p>
                     </div>
                 </div><!-- END COL -->
             </div><!--- END ROW -->

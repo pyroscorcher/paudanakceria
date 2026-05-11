@@ -39,7 +39,8 @@
         <!-- ========== section start ========== -->
         <section class="section">
             <div class="container-fluid">
-                <!-- ========== title-wrapper start ========== -->
+
+                <!-- ========== Title Wrapper ========== -->
                 <div class="title-wrapper pt-30">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -47,29 +48,142 @@
                                 <h2>Dashboard Orang Tua</h2>
                             </div>
                         </div>
-                        <!-- end col -->
-                        <div class="col-md-6">
-                            <div class="breadcrumb-wrapper">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <a href="#0">Dashboard</a>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">
-                                            Menu Utama
-                                        </li>
-                                    </ol>
-                                </nav>
+                    </div>
+                </div>
+                <!-- ========== End Title Wrapper ========== -->
+
+
+                <!-- ========== Welcome Card ========== -->
+                <div class="card-style mb-30">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="welcome-content">
+                                <h3 class="mb-2">Selamat Datang, Orang Tua/Wali 👋</h3>
+                                <p class="text-medium">
+                                    Pantau informasi pendaftaran, perkembangan data siswa,
+                                    serta pengumuman terbaru melalui dashboard ini.
+                                </p>
                             </div>
                         </div>
-                        <!-- end col -->
+
+                        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                            <a href="#" class="main-btn primary-btn btn-hover">
+                                Lihat Status Pendaftaran
+                            </a>
+                        </div>
                     </div>
-                    <!-- end row -->
                 </div>
-                <!-- ========== title-wrapper end ========== -->
-                <!-- End Row -->
+                <!-- ========== End Welcome Card ========== -->
+
+
+                <!-- ========== Info Cards ========== -->
+                <div class="row">
+
+                    <!-- Status -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card-style mb-30">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6>Status Pendaftaran</h6>
+                                <span class="badge bg-success">Aktif</span>
+                            </div>
+
+                            <p class="text-medium">
+                                Data pendaftaran telah berhasil dikirim dan sedang dalam proses verifikasi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pengumuman -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card-style mb-30">
+                            <h6 class="mb-3">Pengumuman</h6>
+
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    Jadwal verifikasi berkas dimulai tanggal 15 Mei 2026.
+                                </li>
+
+                                <li class="mb-2">
+                                    Pastikan data periodik siswa telah lengkap.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Informasi Anak -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card-style mb-30">
+                            <h6 class="mb-3">Data Siswa</h6>
+
+                            <div class="mb-2">
+                                <strong>Nama:</strong> -
+                            </div>
+
+                            <div class="mb-2">
+                                <strong>NISN:</strong> -
+                            </div>
+
+                            <div class="mb-2">
+                                <strong>Status:</strong>
+                                <span class="text-success">Terverifikasi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ========== End Info Cards ========== -->
+
+
+                <!-- ========== Timeline / Progress ========== -->
+                <div class="card-style mb-30">
+                    <h5 class="mb-25">Progress Pendaftaran</h5>
+
+                    <div class="row text-center">
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>1</h6>
+                                <p class="text-sm">Isi Formulir</p>
+                                <ol class="custom-bar">
+                                    <li class="is-complete"><span>Data Anak</span></li>
+                                    <li class="is-active"><span>Data Orang Tua</span></li>
+                                    <li><span>Data Periodik</span></li>
+                                    <li><span>Data Prestasi</span></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>2</h6>
+                                <p class="text-sm">Upload Dokumen</p>
+                                <ol class="custom-bar">
+                                    <li class="is-active"><span>Belum</span></li>
+                                    <li class=""><span>Sudah</span></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>3</h6>
+                                <p class="text-sm">Verifikasi</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>4</h6>
+                                <p class="text-sm">Selesai</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ========== End Timeline ========== -->
+
+
             </div>
-            <!-- end container -->
         </section>
         <!-- ========== section end ========== -->
 

@@ -45,9 +45,9 @@
 
     <!-- START PRELOADER -->
 
- <div class="preloaders">
-  <span class="loader">Loading</span>
- </div>
+    <div class="preloaders">
+        <span class="loader">Loading</span>
+    </div>
 
     <!-- END PRELOADER -->
 
@@ -74,23 +74,13 @@
                 <div class="col-lg-12 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="announcement_box">
-                        <div class="sf_top">
-                            <h2>Persyaratan Pendaftaran</a></h2>
-                        </div>
-                        <p>Untuk mendaftarkan anak di PAUD Anak Ceria, orang tua/wali diminta menyiapkan beberapa
-                            dokumen berikut:<br>
-                            1. Fotokopi Akta Kelahiran Anak (1 lembar)<br>
-                            2. Fotokopi Kartu Keluarga (KK) (1 lembar)<br>
-                            3. Fotokopi KTP Orang Tua/Wali (1 lembar)<br>
-                            4. Pas Foto Anak ukuran 3x4 (2 lembar)<br>
-                            5. Mengisi Formulir Pendaftaran yang disediakan oleh sekolah<br>
-                            6. Membayar biaya pendaftaran sesuai ketentuan sekolah</p>
-                        <p style="font-weight: 800;">Catatan</p>
-                        <p>Usia anak minimal 3–5 tahun pada saat pendaftaran.<br>
-                            Semua dokumen harus dalam kondisi yang jelas dan dapat dibaca.<br>
-                            Semua berkas dapat diserahkan langsung ke sekolah atau diunggah melalui sistem
-                            pendaftaran<br>
-                            online.</p>
+                        <strong style="margin-bottom: 30px"> Pendaftaran: Sedang Diproses</strong>
+
+                        </p>Terima kasih kasih telah melakukan pendaftaran di PAUD Anak Ceria. Saat ini data dan dokumen yang
+                            Anda kirimkan sedang dalam proses verifikasi oleh pihak sekolah.</p><br>
+
+                            Silakan menunggu hingga pengumuman hasil seleksi diumumkan sesuai jadwal yang telah
+                            ditentukan. Informasi lebih lanjut akan ditampilkan pada halaman ini.</p>
                     </div>
                 </div><!-- END COL -->
             </div><!--- END ROW -->

@@ -48,6 +48,54 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/user/data_periodik">
+                        <span class="icon">
+                            <!-- Ruler Icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                                <!-- Body -->
+                                <rect x="3" y="7" width="18" height="10" rx="2" fill="none"
+                                    stroke="currentColor" stroke-width="2" />
+
+                                <!-- Lines -->
+                                <line x1="7" y1="7" x2="7" y2="11" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+
+                                <line x1="11" y1="7" x2="11" y2="10" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+
+                                <line x1="15" y1="7" x2="15" y2="11" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+
+                                <line x1="19" y1="7" x2="19" y2="10" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </span>
+
+                        <span class="text">Data Periodik</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/user/data_prestasi">
+                        <span class="icon">
+                            <!-- Trophy / Achievement Icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 21H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M12 17V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M7 4H17V8C17 10.7614 14.7614 13 12 13C9.23858 13 7 10.7614 7 8V4Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M17 5H19C20.1046 5 21 5.89543 21 7C21 9.20914 19.2091 11 17 11"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M7 5H5C3.89543 5 3 5.89543 3 7C3 9.20914 4.79086 11 7 11" stroke="currentColor"
+                                    stroke-width="2" />
+                            </svg>
+                        </span>
+                        <span class="text">Data Prestasi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/user/upload_dokumen">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -64,9 +112,9 @@
                 <li class="nav-item">
                     <a href="/">
                         <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
 
                                 <!-- pintu -->
                                 <path d="M4 3h10v18H4z" />
