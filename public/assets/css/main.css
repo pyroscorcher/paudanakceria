@@ -582,8 +582,10 @@ h6,
     .button-size {
         padding: 5px 12px;
         font-size: 13px;
-        width: 100%;        /* full lebar */
-        display: block;     /* biar turun ke bawah */
+        width: 100%;
+        /* full lebar */
+        display: block;
+        /* biar turun ke bawah */
         text-align: center;
         list-style: none;
     }
@@ -2977,7 +2979,6 @@ h6,
     border: 2px dashed #ccc;
     border-radius: 12px;
     height: 220px;
-    /* 🔥 lebih besar */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2986,6 +2987,9 @@ h6,
     transition: 0.3s;
     width: 100%;
     margin-bottom: 30px;
+
+    overflow: hidden;
+    /* penting */
 }
 
 .upload-box:hover {
@@ -2994,8 +2998,14 @@ h6,
 }
 
 .upload-content {
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #777;
+    overflow: hidden;
 }
 
 .upload-content img {

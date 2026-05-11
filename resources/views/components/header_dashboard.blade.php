@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="divider"></li>
+                                    {{-- <li class="divider"></li>
                                     <li>
                                         <a href="#0">
                                             <i class="lni lni-user"></i> View Profile
@@ -61,7 +61,7 @@
                                     <li class="divider"></li>
                                     <li>
                                         <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                             <!-- profile end -->

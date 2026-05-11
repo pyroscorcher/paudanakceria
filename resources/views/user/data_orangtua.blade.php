@@ -95,7 +95,7 @@
                         </div>
 
                         <!-- Email -->
-                        <div class="col-md-9">
+                        <div class="col-12">
                             <div class="input-style-1">
                                 <label>Email yang Bisa Dihubungi</label>
                                 <input type="email" rows="3" name="email" placeholder="email@gmail.com">

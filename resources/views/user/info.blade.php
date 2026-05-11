@@ -83,83 +83,166 @@
     <!-- END ABOUT US HOME ONE -->
 
     <!-- START ABOUT US HOME ONE -->
-    <section class="ab_one section-padding">
-        <div class="section-title">
-            <h1>Informasi Pendaftaran</h1>
+<section class="ab_one section-padding">
+    <div class="section-title">
+        <h1>Informasi Pendaftaran</h1>
+    </div>
+
+    <div class="container">
+
+        <!-- Persyaratan -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay="0.1s"
+                data-wow-offset="0">
+
+                <div class="information_box">
+                    <div class="sf_top">
+                        <h2>Persyaratan Pendaftaran</h2>
+                    </div>
+
+                    <p>
+                        Untuk mendaftarkan anak di PAUD Anak Ceria,
+                        orang tua/wali diminta menyiapkan beberapa dokumen berikut:
+                    </p>
+
+                    <ol class="info-list">
+                        <li>Fotokopi Akta Kelahiran Anak (1 lembar)</li>
+                        <li>Fotokopi Kartu Keluarga (KK) (1 lembar)</li>
+                        <li>Fotokopi KTP Orang Tua/Wali (1 lembar)</li>
+                        <li>Pas Foto Anak ukuran 3x4 (2 lembar)</li>
+                        <li>Mengisi Formulir Pendaftaran yang disediakan oleh sekolah</li>
+                        <li>Membayar biaya pendaftaran sesuai ketentuan sekolah</li>
+                    </ol>
+
+                    <p class="fw-bold mb-2">Catatan</p>
+
+                    <p>
+                        Usia anak minimal 3–5 tahun pada saat pendaftaran.<br>
+                        Semua dokumen harus dalam kondisi yang jelas dan dapat dibaca.<br>
+                        Semua berkas dapat diserahkan langsung ke sekolah atau diunggah
+                        melalui sistem pendaftaran online.
+                    </p>
+                </div>
+
+            </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
-                    <div class="information_box">
-                        <div class="sf_top">
-                            <h2>Persyaratan Pendaftaran</a></h2>
-                        </div>
-                        <p>Untuk mendaftarkan anak di PAUD Anak Ceria, orang tua/wali diminta menyiapkan beberapa
-                            dokumen berikut:<br>
-                            1. Fotokopi Akta Kelahiran Anak (1 lembar)<br>
-                            2. Fotokopi Kartu Keluarga (KK) (1 lembar)<br>
-                            3. Fotokopi KTP Orang Tua/Wali (1 lembar)<br>
-                            4. Pas Foto Anak ukuran 3x4 (2 lembar)<br>
-                            5. Mengisi Formulir Pendaftaran yang disediakan oleh sekolah<br>
-                            6. Membayar biaya pendaftaran sesuai ketentuan sekolah</p>
-                        <p style="font-weight: 800;">Catatan</p>
-                        <p>Usia anak minimal 3–5 tahun pada saat pendaftaran.<br>
-                            Semua dokumen harus dalam kondisi yang jelas dan dapat dibaca.<br>
-                            Semua berkas dapat diserahkan langsung ke sekolah atau diunggah melalui sistem
-                            pendaftaran<br>
-                            online.</p>
+
+        <!-- Prosedur -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay="0.1s"
+                data-wow-offset="0">
+
+                <div class="information_box">
+                    <div class="sf_top">
+                        <h2>Prosedur Pendaftaran</h2>
                     </div>
-                </div><!-- END COL -->
-            </div><!--- END ROW -->
-            <div class="row">
-                <div class="col-lg-12 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
-                    <div class="information_box">
-                        <div class="sf_top">
-                            <h2>Persyaratan Pendaftaran</a></h2>
-                        </div>
-                        <p>Prosedur Pendaftaran :<br>
-                            1. Mengisi Formulir Pendaftaran Orang tua atau wali mengisi formulir pendaftaran yang
-                            tersedia melalui website atau langsung di sekolah.<br>
-                            2. Mengunggah / Menyerahkan Dokumen Orang tua melengkapi dokumen persyaratan seperti akta
-                            kelahiran, kartu keluarga, dan pas foto anak.<br>
-                            3. Verifikasi Data oleh Sekolah Pihak sekolah akan melakukan pengecekan data dan dokume yang
-                            telah dikirimkan.<br>
-                            4. Konfirmasi Penerimaan Setelah proses verifikasi selesai, orang tua akan menerima
-                            informasi mengenai status penerimaan anak.<br>
-                            5. Melakukan Pembayaran Administrasi Jika anak dinyatakan diterima, orang tua dapat
-                            melanjutkan proses dengan melakukan pembayaran administrasi sesuai ketentuan sekolah.<br>
-                            6. Anak Resmi Terdaftar Setelah semua proses selesai, anak resmi terdaftar sebagai pesert
-                            didik di PAUD Anak Ceria.</p>
+
+                    <ol class="info-list">
+                        <li>
+                            <strong>Mengisi Formulir Pendaftaran</strong><br>
+                            Orang tua atau wali mengisi formulir pendaftaran
+                            yang tersedia melalui website atau langsung di sekolah.
+                        </li>
+
+                        <li>
+                            <strong>Mengunggah / Menyerahkan Dokumen</strong><br>
+                            Orang tua melengkapi dokumen persyaratan seperti
+                            akta kelahiran, kartu keluarga, dan pas foto anak.
+                        </li>
+
+                        <li>
+                            <strong>Verifikasi Data oleh Sekolah</strong><br>
+                            Pihak sekolah akan melakukan pengecekan data
+                            dan dokumen yang telah dikirimkan.
+                        </li>
+
+                        <li>
+                            <strong>Konfirmasi Penerimaan</strong><br>
+                            Setelah proses verifikasi selesai, orang tua akan menerima
+                            informasi mengenai status penerimaan anak.
+                        </li>
+
+                        <li>
+                            <strong>Melakukan Pembayaran Administrasi</strong><br>
+                            Jika anak dinyatakan diterima, orang tua dapat
+                            melanjutkan proses pembayaran administrasi.
+                        </li>
+
+                        <li>
+                            <strong>Anak Resmi Terdaftar</strong><br>
+                            Setelah semua proses selesai, anak resmi terdaftar
+                            sebagai peserta didik di PAUD Anak Ceria.
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Pendaftaran Ulang -->
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp"
+                data-wow-duration="1s"
+                data-wow-delay="0.1s"
+                data-wow-offset="0">
+
+                <div class="information_box">
+                    <div class="sf_top">
+                        <h2>Pendaftaran Ulang</h2>
                     </div>
-                </div><!-- END COL -->
-            </div><!--- END ROW -->
-            <div class="row">
-                <div class="col-lg-12 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
-                    <div class="information_box">
-                        <div class="sf_top">
-                            <h2>Pendaftaran Ulang Pendaftaran</a></h2>
-                        </div>
-                        <p>Pendaftaran ulang dilakukan oleh orang tua/wali untuk memastikan bahwa anak yang telah
-                            diterima resmi melanjutkan proses administrasi di PAUD Anak Ceria.
-                        <p style="font-weight: 800;">Prosedur Pendaftaran Ulang</p>
-                        1. Login ke Sistem Pendaftaran Orang tua/wali masuk ke akun pendaftaran yang telah dibuat
-                        sebelumnya. <br>
-                        2. Memeriksa Data Anak Pastikan data anak dan orang tua sudah benar dan lengkap pada sistem.
-                        <br>
-                        3. Mengunggah Dokumen Tambahan (Jika Diperlukan) Orang tua dapat mengunggah dokumen tambahan
-                        yang diminta oleh pihak sekolah. <br>
-                        4. Melakukan Pembayaran Administrasi Lakukan pembayaran biaya pendaftaran ulang sesuai
-                        dengan informasi yang diberikan oleh sekolah. <br>
-                        5. Konfirmasi Pendaftaran Ulang Setelah pembayaran berhasil, sistem akan menampilkan status
-                        bahwa pendaftaran ulang telah selesai.</p>
-                    </div>
-                </div><!-- END COL -->
-            </div><!--- END ROW -->
-        </div><!--- END CONTAINER -->
-    </section>
+
+                    <p>
+                        Pendaftaran ulang dilakukan oleh orang tua/wali
+                        untuk memastikan bahwa anak yang telah diterima
+                        resmi melanjutkan proses administrasi di
+                        PAUD Anak Ceria.
+                    </p>
+
+                    <p class="fw-bold mb-2">Prosedur Pendaftaran Ulang</p>
+
+                    <ol class="info-list">
+                        <li>
+                            <strong>Login ke Sistem Pendaftaran</strong><br>
+                            Orang tua/wali masuk ke akun pendaftaran
+                            yang telah dibuat sebelumnya.
+                        </li>
+
+                        <li>
+                            <strong>Memeriksa Data Anak</strong><br>
+                            Pastikan data anak dan orang tua sudah benar
+                            dan lengkap pada sistem.
+                        </li>
+
+                        <li>
+                            <strong>Mengunggah Dokumen Tambahan</strong><br>
+                            Orang tua dapat mengunggah dokumen tambahan
+                            yang diminta oleh pihak sekolah.
+                        </li>
+
+                        <li>
+                            <strong>Melakukan Pembayaran Administrasi</strong><br>
+                            Lakukan pembayaran biaya pendaftaran ulang
+                            sesuai informasi dari sekolah.
+                        </li>
+
+                        <li>
+                            <strong>Konfirmasi Pendaftaran Ulang</strong><br>
+                            Setelah pembayaran berhasil, sistem akan menampilkan
+                            status bahwa pendaftaran ulang telah selesai.
+                        </li>
+                    </ol>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
     <!-- END ABOUT US HOME ONE -->
 
     <!-- START FOOTER -->
