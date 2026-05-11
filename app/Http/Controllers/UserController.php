@@ -100,14 +100,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function ShowDashboard()
-    {
-        return view('user.dashboard', [
-            'navbar' => 'My Menu',
-            'footer' => 'My Footer'
-        ]);
-    }
-
     public function ShowDokumen()
     {
         return view('user.dokumen', [
@@ -125,20 +117,20 @@ class UserController extends Controller
             'password' => ['required'],
         ]);
 
-        // 2. Attempt to authenticate the user using the provided NISN and password
+        // 2. Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            // 3. Prevent session fixation attacks by regenerating the session
+            // 3. Prevent session fixation attacks
             $request->session()->regenerate();
 
-            // 4. Redirect to the user dashboard on success
-            // Note: Ensure 'user.dashboard' matches the route name in your web.php
-            return redirect()->intended(route('user.dashboard_user'));
+            // 4. Redirect to the secure user dashboard
+            // FIXED: Pointing to the correct route name
+            return redirect()->intended(route('user.dashboard')); 
         }
 
-        // 5. If authentication fails, redirect back with a localized error message
+        // 5. If authentication fails, redirect back
         return back()->withErrors([
             'nisn' => 'The provided NISN or password does not match our records.',
-        ])->onlyInput('nisn'); // Keeps the NISN filled in the form, but clears the password
+        ])->onlyInput('nisn');
     }
 
     /**

@@ -49,33 +49,46 @@ Route::middleware(['auth:admins'])->group(function () {
 
 });
 
-//user view dan user dashboard routes
+// ==========================================
+// PUBLIC USER ROUTES (No login required)
+// ==========================================
 Route::get('/', [UserController::class, 'ShowBeranda'])->name('user.home');
 Route::get('/user/info', [UserController::class, 'ShowInfo'])->name('user.info');
 Route::get('/user/daftar', [UserController::class, 'ShowDaftar'])->name('user.daftar');
 Route::get('/user/pengumuman', [UserController::class, 'ShowPengumuman'])->name('user.pengumuman');
 Route::get('/user/kontak', [UserController::class, 'ShowKontak'])->name('user.kontak');
 Route::get('/user/news', [UserController::class, 'ShowNews'])->name('user.news');
-Route::get('/user/dashboard_user', [UserController::class, 'userDashboard'])->name('user.dashboard_user');
-Route::get('/user/data_anak', [UserController::class, 'dataAnak'])->name('user.data_anak');
-Route::get('/user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
-Route::get('/user/data_periodik', [UserController::class, 'dataPeriodik'])->name('user.data_periodik');
-Route::get('/user/data_prestasi', [UserController::class, 'dataPrestasi'])->name('user.data_prestasi');
-Route::get('/user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
 
-// user login routes
+// User Login & Logout
 Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');
 Route::post('/user/login', [UserController::class, 'login'])->name('user.login.submit');
 Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logout');
 
 //user middleware
-Route::middleware(['auth'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'ShowDashboard'])->name('user.dashboard');
+// ==========================================
+// PROTECTED USER DASHBOARD ROUTES
+// ==========================================
+Route::middleware(['auth', 'user.access'])->group(function () {
+    // Core Dashboard
+    Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
+    
+    // Data Anak (Using your new dedicated controller)
+    Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');
+    Route::put('/user/data_anak', [DataAnakController::class, 'update'])->name('user.data_anak.update'); // Removed {id} for security
+    
+    // Other Dashboard Data Routes (Moved here for protection)
+    Route::get('/user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
+    Route::get('/user/data_periodik', [UserController::class, 'dataPeriodik'])->name('user.data_periodik');
+    Route::get('/user/data_prestasi', [UserController::class, 'dataPrestasi'])->name('user.data_prestasi');
+    
+    // Documents & Profile
     Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
+    Route::get('/user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
+    
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
+    
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
     Route::post('/user/change-password', [UserController::class, 'ChangePassword'])->name('user.change-password.update');
-    Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');
-    Route::put('/user/data_anak/{id}', [DataAnakController::class, 'update'])->name('user.data_anak.update');
+
 });

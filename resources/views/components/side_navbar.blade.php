@@ -1,6 +1,6 @@
     <aside class="sidebar-nav-wrapper">
         <div class="navbar-logo">
-            <a href="/user/dashboard_user">
+            <a href="/user/dashboard">
                 <img style="width: 128px; justify-content: center;"
                     src="{{ asset('images/all-img/logo-paudanakceria.png') }}" alt="logo" />
             </a>
@@ -8,7 +8,7 @@
         <nav class="sidebar-nav">
             <ul>
                 <li class="nav-item">
-                    <a href="/user/dashboard_user">
+                    <a href="/user/dashboard">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
