@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
+    <title>Dashboard - Data Orang Tua</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -55,10 +55,7 @@
                                         <li class="breadcrumb-item">
                                             <a href="#0">Dashboard</a>
                                         </li>
-                                        <li class="breadcrumb-item"><a href="#0">Forms</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">
-                                            Form Elements
-                                        </li>
+                                        <li class="breadcrumb-item"><a href="#0">Data Orang Tua</a></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -98,7 +95,7 @@
                         </div>
 
                         <!-- Email -->
-                        <div class="col-md-9">
+                        <div class="col-12">
                             <div class="input-style-1">
                                 <label>Email yang Bisa Dihubungi</label>
                                 <input type="email" rows="3" name="email" placeholder="email@gmail.com">
@@ -111,6 +108,11 @@
                                 <label>Alamat</label>
                                 <textarea name="alamat" rows="3" placeholder="Alamat lengkap"></textarea>
                             </div>
+                        </div>
+                        <div class="button-size">
+                            <li>
+                                <a href="#0" class="main-btn primary-btn-outline btn-hover">Simpan</a>
+                            </li>
                         </div>
 
                     </div>

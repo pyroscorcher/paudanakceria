@@ -58,6 +58,7 @@ Route::get('/user/dashboard_user', [UserController::class, 'userDashboard'])->na
 Route::get('/user/data_anak', [UserController::class, 'dataAnak'])->name('user.data_anak');
 Route::get('user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
 Route::get('user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
+Route::get('user/news', [UserController::class, 'ShowNews'])->name('user.news');
 
 // user login routes
 Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');

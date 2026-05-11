@@ -44,11 +44,11 @@
 <body>
 
     <!-- START PRELOADER -->
-    <!--
+
  <div class="preloaders">
   <span class="loader">Loading</span>
  </div>
- -->
+
     <!-- END PRELOADER -->
 
     @include('components.navbar', ['navbar' => $navbar])

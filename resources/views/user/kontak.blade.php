@@ -44,11 +44,11 @@
 <body>
 
     <!-- START PRELOADER -->
-    <!--
- <div class="preloaders">
-  <span class="loader">Loading</span>
- </div>
- -->
+
+    <div class="preloaders">
+        <span class="loader">Loading</span>
+    </div>
+
     <!-- END PRELOADER -->
 
     <!-- START NAVBAR -->
@@ -73,7 +73,7 @@
     <section class="address_area  section-padding-contact">
         <div class="container">
             <div class="row text-center">
-                <div class="col-lg-4 col-sm-4 col-xs6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+                <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="single_address">
                         <i class="ti-map"></i>
@@ -82,7 +82,7 @@
                             Kota Tangerang Selatan Banten 15414</p>
                     </div>
                 </div><!-- END COL -->
-                <div class="col-lg-4 col-sm-4 col-xs6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
                     data-wow-offset="0">
                     <div class="single_address">
                         <i class="ti-mobile"></i>
@@ -91,7 +91,7 @@
                         <p>(+62) 878-8320-1411</p>
                     </div>
                 </div><!-- END COL -->
-                <div class="col-lg-4 col-sm-4 col-xs6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
+                <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
                     data-wow-offset="0">
                     <div class="single_address">
                         <i class="ti-email"></i>

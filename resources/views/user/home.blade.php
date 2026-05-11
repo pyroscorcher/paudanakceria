@@ -44,9 +44,9 @@
 <body>
 
     <!-- START PRELOADER -->
-    <!-- <div class="preloaders">
-  <span class="loader">Loading</span>
- </div> -->
+    <div class="preloaders">
+        <span class="loader">Loading</span>
+    </div>
     <!-- END PRELOADER -->
 
     @include('components.navbar', ['navbar' => $navbar])
@@ -93,7 +93,7 @@
                 <div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
                     data-wow-offset="0">
                     <div class="home_me_img2">
-                        <img src="{{ asset('images/all-img/home-banner.png') }}" style="border-radius: 15px;"
+                        <img src="{{ asset('images/all-img/home-banner2.png') }}" style="border-radius: 15px;"
                             class="img-fluid" alt="image">
                     </div>
                 </div><!--- END COL -->
@@ -126,35 +126,88 @@
     <!-- START WHY CHOOSE US-->
     <section class="marketing_content_area section-padding">
         <div class="container">
+
             <div class="section-title">
                 <h4>PAUD Anak Ceria</h4>
                 <h1>Visi Misi Kami</h1>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+
+            <div class="row justify-content-center align-items-stretch">
+
+                <!-- VISI -->
+                <div class="col-lg-5 col-sm-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
-                    <div class="single_feature_one">
+
+                    <div class="single_feature_one h-100">
                         <div class="sf_top">
                             <i class="fa-solid fa-school"></i>
-                            <h2><a href="about.html">Learn More <br />Anywhere</a></h2>
+                            <h2>Visi</h2>
                         </div>
-                        <p>The results with a friend who couldn’t believe it was written by an AI. is worth every Yaley
-                            and then some.</p>
+
+                        <p style="text-align: justify;">
+                            “Menjadi lembaga PAUD yang membentuk anak usia dini
+                            yang ceria, mandiri, kreatif, berakhlak mulia,
+                            dan siap belajar sesuai tahap perkembangannya.”
+                        </p>
                     </div>
-                </div><!-- END COL -->
-                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
+
+                </div>
+                <!-- END VISI -->
+
+
+                <!-- MISI -->
+                <div class="col-lg-5 col-sm-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
                     data-wow-offset="0">
-                    <div class="single_feature_one">
+
+                    <div class="single_feature_one h-100">
                         <div class="sf_top">
                             <i class="fa-solid fa-person-chalkboard"></i>
-                            <h2><a href="about.html">Expert <br />Instructor</a></h2>
+                            <h2>Misi</h2>
                         </div>
-                        <p>The results with a friend who couldn’t believe it was written by an AI. is worth every Yaley
-                            and then some.</p>
+
+                        <ol style="text-align: left; padding-left: 20px; list-style-type: decimal;">
+
+                            <li style="margin-bottom: 10px;">
+                                Menyelenggarakan kegiatan belajar yang menyenangkan,
+                                aman, dan ramah anak.
+                            </li>
+
+                            <li style="margin-bottom: 10px;">
+                                Menanamkan nilai agama, moral,
+                                dan karakter positif sejak dini.
+                            </li>
+
+                            <li style="margin-bottom: 10px;">
+                                Mengembangkan kemampuan anak dalam aspek kognitif,
+                                bahasa, motorik, sosial, dan emosional secara seimbang.
+                            </li>
+
+                            <li style="margin-bottom: 10px;">
+                                Mendorong kreativitas dan rasa percaya diri anak
+                                melalui bermain dan eksplorasi.
+                            </li>
+
+                            <li style="margin-bottom: 10px;">
+                                Menjalin kerja sama yang baik antara sekolah,
+                                orang tua, dan masyarakat dalam mendukung tumbuh kembang anak.
+                            </li>
+
+                            <li style="margin-bottom: 10px;">
+                                Menciptakan lingkungan belajar yang bersih,
+                                sehat, dan nyaman bagi anak.
+                            </li>
+
+                        </ol>
                     </div>
-                </div><!-- END COL -->
-            </div><!-- END ROW -->
-        </div><!-- END CONTAINER -->
+
+                </div>
+                <!-- END MISI -->
+
+            </div>
+            <!-- END ROW -->
+
+        </div>
+        <!-- END CONTAINER -->
     </section>
     <!-- END WHY CHOOSE US -->
 
@@ -219,13 +272,13 @@
                 <h1>Kabar Terbaru</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
                             alt="image" />
                         <div class="content_box">
-                            <h2><a href="blog_single.html">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
+                            <h2><a href="/user/news">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
                             <p>Anak-anak PAUD Anak Ceria mengikuti kegiatan mewarnai bersama di kelas. Melalui aktivitas
                                 ini, anak-anak belajar mengenal warna, melatih motorik halus, serta mengekspresikan
                                 imajinasi mereka dengan cara yang menyenangkan. Suasana kelas penuh dengan keceriaan dan
@@ -233,12 +286,12 @@
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">
-                            <h2><a href="blog_single.html">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
+                            <h2><a href="/user/news">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
                             <p>Dalam kegiatan pembelajaran minggu ini, anak-anak diajak menanam tanaman di halaman
                                 sekolah. Anak-anak belajar mengenal bagian tanaman, cara merawatnya, serta pentingnya
                                 menjaga lingkungan. Kegiatan ini membantu anak belajar sambil bermain di alam terbuka.
@@ -246,12 +299,12 @@
                         </div>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.3s"
-                    data-wow-offset="0">
+                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
+                    data-wow-delay="0.3s" data-wow-offset="0">
                     <div class="single_blog">
                         <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid" alt="image" />
                         <div class="content_box">
-                            <h2><a href="blog_single.html">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
+                            <h2><a href="/user/news">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
                             <p>PAUD Anak Ceria merayakan Hari Kartini dengan kegiatan mengenakan pakaian adat dan
                                 berbagai aktivitas seru. Anak-anak belajar mengenal budaya Indonesia sekaligus
                                 meningkatkan rasa percaya diri saat tampil di depan teman-temannya.</p>

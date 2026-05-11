@@ -50,6 +50,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function ShowNews()
+    {
+        return view('user.news', [
+            'navbar' => 'My Menu',
+            'footer' => 'My Footer'
+        ]);
+    }
+
     public function userDashboard(){
         return view('user.dashboard_user', [
             'side_navbar' => 'Slide Menu',
