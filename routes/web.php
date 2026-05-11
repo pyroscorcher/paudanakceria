@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserDashboard\DataAnakController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -72,4 +73,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
     Route::post('/user/change-password', [UserController::class, 'ChangePassword'])->name('user.change-password.update');
+    Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');
+    Route::put('/user/data_anak/{id}', [DataAnakController::class, 'update'])->name('user.data_anak.update');
 });
