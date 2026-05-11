@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Models\Orangtua;
 
 class EnrollmentController extends Controller
 {
@@ -41,9 +42,21 @@ class EnrollmentController extends Controller
                     'name'     => $validated['nama'], 
                     'nisn'     => $validated['nisn'],
                     'password' => Hash::make($validated['password']),
+                    'tanggal_lahir' => $validated['tanggal_lahir'],
+                    'jenis_kelamin' => $validated['jenis_kelamin'],
+                    'telp' => $validated['telp'],
+                    'alamat_rumah' => $validated['alamat_rumah'],
                 ]);
 
-                // B. Create the Enrollment record using ONLY the $fillable attributes
+
+                // B. Create the Orangtua record using ONLY the $fillable attributes
+                Orangtua::create([
+                    'user_id' => $newUser->id,
+                    'nama_ayah' => $validated['nama_ayah'],
+                    'nama_ibu' => $validated['nama_ibu'],
+                ]);
+
+                // C. Create the Enrollment record using ONLY the $fillable attributes
                 Pendaftaran::create([
                     'user_id'       => $newUser->id,
                     'nama'          => $validated['nama'],

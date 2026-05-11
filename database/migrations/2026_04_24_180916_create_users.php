@@ -26,9 +26,9 @@ return new class extends Migration
             $table->string('asal_sekolah')->nullable();
             $table->string('agama')->nullable();
             $table->string('kebutuhankhusus')->nullable();
-            $table->string('alamat');
+            $table->string('alamat_rumah');
             $table->string('transportasi')->nullable();
-            $table->string('teleponrumah')->nullable();
+            $table->string('telp')->nullable();
             $table->string('emailpribadi')->nullable();
             $table->string('kks')->nullable();
             $table->string('kps')->nullable();

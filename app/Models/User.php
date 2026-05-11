@@ -19,6 +19,27 @@ class User extends Authenticatable
         'name',
         'nisn',
         'password',
+        'jenis_kelamin',
+        'tanggal_lahir',
+        'tempatlahir',
+        'nis',
+        'nomorseriijazah',
+        'nomorseriskhun',
+        'nomorseriun',
+        'nik',
+        'npsn',
+        'asal_sekolah',
+        'agama',
+        'kebutuhankhusus',
+        'alamat_rumah',
+        'transportasi',
+        'telp',
+        'emailpribadi',
+        'kks',
+        'kps',
+        'kip',
+        'lintang',
+        'bujur',
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -50,5 +71,10 @@ class User extends Authenticatable
     public function orangtua()
     {
         return $this->hasOne(Orangtua::class);
+    }
+
+    public function prestasi()
+    {
+        return $this->hasMany(Prestasi::class);
     }
 }
