@@ -8,6 +8,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboard\DataAnakController;
+use App\Http\Controllers\UserDashboard\DataOrangtuaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -76,8 +77,10 @@ Route::middleware(['auth', 'user.access'])->group(function () {
     Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');
     Route::put('/user/data_anak', [DataAnakController::class, 'update'])->name('user.data_anak.update'); // Removed {id} for security
     
-    // Other Dashboard Data Routes (Moved here for protection)
-    Route::get('/user/data_orangtua', [UserController::class, 'dataOrangtua'])->name('user.data_orangtua');
+    // Data Orangtua
+    Route::get('/user/data_orangtua', [DataOrangtuaController::class, 'index'])->name('user.data_orangtua');
+    Route::put('/user/data_orangtua', [DataOrangtuaController::class, 'update'])->name('user.data_orangtua.update');
+    
     Route::get('/user/data_periodik', [UserController::class, 'dataPeriodik'])->name('user.data_periodik');
     Route::get('/user/data_prestasi', [UserController::class, 'dataPrestasi'])->name('user.data_prestasi');
     

@@ -129,7 +129,7 @@ class UserController extends Controller
 
         // 5. If authentication fails, redirect back
         return back()->withErrors([
-            'nisn' => 'The provided NISN or password does not match our records.',
+            'nisn' => __('auth.failed_user'),
         ])->onlyInput('nisn');
     }
 

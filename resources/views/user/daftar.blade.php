@@ -116,9 +116,9 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="telp">Nomor Telepon Orang Tua</label>
+                                        <label for="telp">Nomor Telepon</label>
                                         <input type="tel" id="telp" class="form-control requiredField input-label"
-                                            name="telp" value="{{ old('telp') }}" required placeholder="Masukkan nomor telepon">
+                                            name="telp" value="{{ old('telp') }}" required placeholder="Nomor telepon yang dapat dihubungi">
                                         @error('telp') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>
                                 </div>

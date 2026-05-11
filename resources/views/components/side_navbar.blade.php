@@ -110,26 +110,26 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/">
+                    <a href="{{ route('user.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
 
-                                <!-- pintu -->
                                 <path d="M4 3h10v18H4z" />
 
-                                <!-- gagang pintu -->
                                 <circle cx="11" cy="12" r="1" />
 
-                                <!-- panah keluar -->
                                 <path d="M14 12h7" />
                                 <path d="M18 8l4 4-4 4" />
                             </svg>
                         </span>
-
                         <span class="text">Keluar</span>
                     </a>
+
+                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
                 {{-- <li class="nav-item nav-item-has-children">
                     <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5"

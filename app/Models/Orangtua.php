@@ -7,6 +7,7 @@ class Orangtua extends Model
 {
     protected $table = 'orangtuas'; 
     
+    // You MUST add all the columns you want to update here
     protected $fillable = [
         'user_id',
         'nama_ayah',
