@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('data_periodiks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('tinggi_badan');
+            $table->string('berat_badan');
+            $table->string('jarak');
+            $table->string('waktu');
+            $table->string('jumlahsaudara');
+            
             $table->timestamps();
         });
     }
