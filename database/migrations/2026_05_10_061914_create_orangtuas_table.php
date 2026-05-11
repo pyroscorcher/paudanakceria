@@ -14,21 +14,21 @@ return new class extends Migration
         Schema::create('orangtuas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('namaayah');
-            $table->string('namaibu');
-            $table->string('tahunlahirayah')->nullable();
-            $table->string('tahunlahiribu')->nullable();
-            $table->string('pekerjaanayah')->nullable();
-            $table->string('pekerjaanibu')->nullable();
-            $table->string('pendidikanayah')->nullable();
-            $table->string('pendidikanibu')->nullable();
-            $table->string('namawali')->nullable();
-            $table->string('tahunlahirwali')->nullable();
-            $table->string('pekerjaanwali')->nullable();
-            $table->string('pendidikanwali')->nullable( );
-            $table->string('penghasilanayah')->nullable();
-            $table->string('penghasilanibu')->nullable();
-            $table->string('penghasilanwali')->nullable();
+            $table->string('nama_ayah');
+            $table->string('nama_ibu');
+            $table->string('tahun_lahir_ayah')->nullable();
+            $table->string('tahun_lahir_ibu')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
+            $table->string('pendidikan_ayah')->nullable();
+            $table->string('pendidikan_ibu')->nullable();
+            $table->string('nama_wali')->nullable();
+            $table->string('tahun_lahir_wali')->nullable();
+            $table->string('pekerjaan_wali')->nullable();
+            $table->string('pendidikan_wali')->nullable( );
+            $table->string('penghasilan_ayah')->nullable();
+            $table->string('penghasilan_ibu')->nullable();
+            $table->string('penghasilan_wali')->nullable();
 
             $table->timestamps();
         });
