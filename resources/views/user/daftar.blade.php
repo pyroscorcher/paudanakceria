@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="alamat_rumah">Alamat Rumah</label>
+                                <label for="alamat_rumah">Alamat</label>
                                 <input type="text" id="alamat_rumah" class="form-control requiredField input-label"
                                     name="alamat_rumah" value="{{ old('alamat_rumah') }}" required placeholder="Masukkan alamat lengkap">
                                 @error('alamat_rumah') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror

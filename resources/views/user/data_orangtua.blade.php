@@ -73,8 +73,8 @@
                         <!-- Nama Orang Tua -->
                         <div class="col-md-6">
                             <div class="input-style-1">
-                                <label>Nama Orang Tua</label>
-                                <input type="text" name="nama_ortu" placeholder="Nama Orang Tua">
+                                <label>Nama Ayah</label>
+                                <input type="text" name="nama_ayah" placeholder="Nama Ayah">
                             </div>
                         </div>
 
@@ -94,19 +94,11 @@
                             </div>
                         </div>
 
-                        <!-- No HP -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>No HP</label>
-                                <input type="text" name="no_hp" placeholder="08xxxxxxxxxx">
-                            </div>
-                        </div>
-
                         <!-- Email -->
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <div class="input-style-1">
-                                <label>Email</label>
-                                <input type="email" name="email" placeholder="email@gmail.com">
+                                <label>Email yang Bisa Dihubungi</label>
+                                <input type="email" rows="3" name="email" placeholder="email@gmail.com">
                             </div>
                         </div>
 

@@ -63,7 +63,7 @@ class EnrollmentController extends Controller
             Auth::login($user);
 
             // 4. Redirect to the authenticated dashboard
-            return redirect()->route('user.home')
+            return redirect()->route('user.login')
                              ->with('success', 'Your enrollment has been successfully submitted!');
 
         } catch (ValidationException $e) {
