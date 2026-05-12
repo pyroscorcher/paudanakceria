@@ -1,11 +1,8 @@
 <?php
-
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
-use App\Http\Middleware\UserMiddleware; // <-- Ensure your middleware is imported here
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,19 +12,17 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         
-        // 1. Correct Array Syntax for Middleware Aliases
-        $middleware->alias([
-            'user.access' => UserMiddleware::class,
-        ]);
-
-        // 2. Context-aware redirection for unauthenticated users
+        // Customizing the unauthenticated redirect logic
         $middleware->redirectGuestsTo(function (Request $request) {
+            // If the guest attempted to access an admin route
             if ($request->is('admin') || $request->is('admin/*')) {
                 return route('admin.login');
             }
+
+            // Default fallback for standard users
             return route('user.login');
         });
-        
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
