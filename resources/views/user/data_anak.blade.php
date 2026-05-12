@@ -55,12 +55,30 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                    @if(session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Pembaruan dibatalkan!</strong> Silakan periksa kesalahan berikut:
+                        <ul class="mb-0 mt-1">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                     <form action="{{ route('user.data_anak.update') }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -127,6 +145,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor Seri Ijazah</label>
                                         <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriijazah', $user->nomorseriijazah ?? '') }}" name="nomorseriijazah">
+                                        @error('nomorseriijazah') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -134,6 +153,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor Seri SKHUN</label>
                                         <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriskhun', $user->nomorseriskhun ?? '') }}" name="nomorseriskhun">
+                                        @error('nomorseriskhun') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -141,6 +161,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor Seri UN</label>
                                         <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('nomorseriun', $user->nomorseriun ?? '') }}" name="nomorseriun">
+                                        @error('nomorseriun') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -156,6 +177,7 @@
                                     <div class="input-style-1">
                                         <label>NPSN Sekolah Asal</label>
                                         <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('npsn', $user->npsn ?? '') }}" name="npsn">
+                                        @error('npsn') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -163,6 +185,7 @@
                                     <div class="input-style-1">
                                         <label>Nama Sekolah Asal</label>
                                         <input type="text" placeholder="*Data dari jenjang sebelumnya" value="{{ old('asal_sekolah', $user->asal_sekolah ?? '') }}" name="asal_sekolah">
+                                        @error('asal_sekolah') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -170,6 +193,7 @@
                                     <div class="input-style-1">
                                         <label>Agama</label>
                                         <input type="text" placeholder="Agama" value="{{ old('agama', $user->agama ?? '') }}" name="agama">
+                                        @error('agama') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -177,6 +201,7 @@
                                     <div class="input-style-1">
                                         <label>Kebutuhan Khusus</label>
                                         <input type="text" placeholder="Kebutuhan Khusus (isi jika ada)" value="{{ old('kebutuhankhusus', $user->kebutuhankhusus ?? '') }}" name="kebutuhankhusus">
+                                        @error('kebutuhankhusus') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 
@@ -184,6 +209,7 @@
                                     <div class="input-style-1">
                                         <label>Alamat</label>
                                         <textarea name="alamat_rumah" rows="4" placeholder="Alamat">{{ old('alamat_rumah', $user->alamat_rumah ?? '') }}</textarea>
+                                        @error('alamat_rumah') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -191,6 +217,7 @@
                                     <div class="input-style-1">
                                         <label>Transportasi</label>
                                         <input type="text" placeholder="Transportasi yang digunakan untuk ke sekolah" value="{{ old('transportasi', $user->transportasi ?? '') }}" name="transportasi">
+                                        @error('transportasi') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -198,13 +225,15 @@
                                     <div class="input-style-1">
                                         <label>Nomor Telepon</label>
                                         <input type="text" placeholder="Nomor Telepon" value="{{ old('telp', $user->telp ?? '') }}" name="telp">
+                                        @error('telp') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="input-style-1">
                                         <label>Email Pribadi</label>
-                                        <input type="email" placeholder="Email Pribadi" value="{{ old('emailpribadi', $user->emailpribadi ?? '') }}" name="emailpribadi">
+                                        <input type="text" placeholder="Email Pribadi" value="{{ old('emailpribadi', $user->emailpribadi ?? '') }}" name="emailpribadi">
+                                        @error('emailpribadi') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -212,6 +241,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor KKS</label>
                                         <input type="text" placeholder="Nomor Kartu Keluarga Sejahtera (isi jika penerima)" value="{{ old('kks', $user->kks ?? '') }}" name="kks">
+                                        @error('kks') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -219,6 +249,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor KPS</label>
                                         <input type="text" placeholder="Nomor Kartu Perlindungan Sosial (isi jika penerima)" value="{{ old('kps', $user->kps ?? '') }}" name="kps">
+                                        @error('kps') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -226,6 +257,7 @@
                                     <div class="input-style-1">
                                         <label>Nomor KIP</label>
                                         <input type="text" placeholder="Nomor Kartu Indonesia Pintar (isi jika penerima)" value="{{ old('kip', $user->kip ?? '') }}" name="kip">
+                                        @error('kip') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -233,6 +265,7 @@
                                     <div class="input-style-1">
                                         <label>Lintang</label>
                                         <input type="text" placeholder="Lintang (koordinat lokasi rumah)" value="{{ old('lintang', $user->lintang ?? '') }}" name="lintang">
+                                        @error('lintang') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 
@@ -240,6 +273,7 @@
                                     <div class="input-style-1">
                                         <label>Bujur</label>
                                         <input type="text" placeholder="Bujur (koordinat lokasi rumah)" value="{{ old('bujur', $user->bujur ?? '') }}" name="bujur">
+                                        @error('bujur') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
 

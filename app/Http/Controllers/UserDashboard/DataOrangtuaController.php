@@ -29,20 +29,20 @@ class DataOrangtuaController extends Controller{
 
         // 1. Validate the incoming HTTP Request
         $validatedData = $request->validate([
-            'nama_ayah' => 'nullable|string|max:255',
-            'nama_ibu' => 'nullable|string|max:255',
-            'tahun_lahir_ayah' => 'nullable|integer|min:1900|max:' . date('Y'),
-            'tahun_lahir_ibu' => 'nullable|integer|min:1900|max:' . date('Y'),
-            'pekerjaan_ayah' => 'nullable|string|max:255',
-            'pekerjaan_ibu' => 'nullable|string|max:255',
-            'pendidikan_ayah' => 'nullable|string|max:255',
-            'pendidikan_ibu' => 'nullable|string|max:255',
+            'nama_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
+            'tahun_lahir_ayah' => 'required|integer|min:1900|max:' . date('Y'),
+            'tahun_lahir_ibu' => 'required|integer|min:1900|max:' . date('Y'),
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'pendidikan_ayah' => 'required|string|max:255',
+            'pendidikan_ibu' => 'required|string|max:255',
             'nama_wali' => 'nullable|string|max:255',
             'tahun_lahir_wali' => 'nullable|integer|min:1900|max:' . date('Y'),
             'pekerjaan_wali' => 'nullable|string|max:255',
             'pendidikan_wali' => 'nullable|string|max:255',
-            'penghasilan_ayah' => 'nullable|numeric|min:0',
-            'penghasilan_ibu' => 'nullable|numeric|min:0',
+            'penghasilan_ayah' => 'required|numeric|min:0',
+            'penghasilan_ibu' => 'required|numeric|min:0',
             'penghasilan_wali' => 'nullable|numeric|min:0',
         ]);
 

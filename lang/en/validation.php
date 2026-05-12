@@ -184,25 +184,196 @@ return [
             'unique' => 'NIK ini sudah terdaftar di sistem kami.',
         ],
 
+        // Data Anak
+        'name' => [
+            'required' => 'Nama wajib diisi.',
+            'string' => 'Nama harus berupa teks.',
+            'max' => 'Nama tidak boleh lebih dari 255 karakter.',
+        ],
+        'jenis_kelamin' => [
+            'required' => 'Jenis kelamin wajib diisi.',
+            'in' => 'Jenis kelamin harus berupa "L" untuk laki-laki atau "P" untuk perempuan.',
+        ],
+        'tanggal_lahir' => [
+            'required' => 'Tanggal lahir wajib diisi.',
+            'date' => 'Tanggal lahir harus berupa tanggal yang valid.',
+        ],
+         'tempatlahir' => [
+            'required' => 'Tempat lahir wajib diisi.',
+            'string' => 'Tempat lahir harus berupa teks.',
+            'max' => 'Tempat lahir tidak boleh lebih dari 255 karakter.',
+        ],
+        'nis' => [
+            'required' => 'NIS wajib diisi.',
+            'integer' => 'NIS harus berupa angka.',
+        ],
+        'nomorseriijazah' => [
+            'required' => 'Nomor seri ijazah wajib diisi.',
+            'integer' => 'Nomor seri ijazah harus berupa angka.',
+        ],
+        'nomorseriskhun' => [
+            'required' => 'Nomor seri SKHUN wajib diisi.',
+            'integer' => 'Nomor seri SKHUN harus berupa angka.',
+        ],
+        'nomorseriun' => [
+            'required' => 'Nomor seri UN wajib diisi.',
+            'integer' => 'Nomor seri UN harus berupa angka.',
+        ],
+        'npsn' => [
+            'required' => 'NPSN wajib diisi.',
+            'integer' => 'NPSN harus berupa angka.',
+        ],
+        'asal_sekolah' => [
+            'required' => 'Asal sekolah wajib diisi.',
+            'string' => 'Asal sekolah harus berupa teks.',
+            'max' => 'Asal sekolah tidak boleh lebih dari 255 karakter.',
+        ],
+        'agama' => [
+            'required' => 'Agama wajib diisi.',
+            'string' => 'Agama harus berupa teks.',
+            'max' => 'Agama tidak boleh lebih dari 50 karakter.',
+        ],
+        'kebutuhankhusus' => [
+            'nullable' => 'Kebutuhan khusus boleh dikosongkan.',
+            'string' => 'Kebutuhan khusus harus berupa teks.',
+            'max' => 'Kebutuhan khusus tidak boleh lebih dari 100 karakter.',
+        ],
+        'alamat_rumah' => [
+            'required' => 'Alamat rumah wajib diisi.',
+            'string' => 'Alamat rumah harus berupa teks.',
+        ],
+        'transportasi' => [
+            'required' => 'Transportasi wajib diisi.',
+            'string' => 'Transportasi harus berupa teks.',
+            'max' => 'Transportasi tidak boleh lebih dari 100 karakter.',
+        ],
+         'telp' => [
+            'required' => 'Nomor telepon wajib diisi.',
+            'integer' => 'Nomor telepon harus berupa angka.',
+            'max' => 'Nomor telepon tidak boleh lebih dari 20 digit.',
+        ],
+        'emailpribadi' => [
+            'required' => 'Email pribadi wajib diisi.',
+            'email' => 'Email pribadi harus berupa alamat email yang valid.',
+            'max' => 'Email pribadi tidak boleh lebih dari 255 karakter.',
+        ],
+        'kks'=> [
+            'integer'=> 'Nomor KKS harus berupa angka.',
+        ],
+        'kps'=> [
+            'integer'=> 'Nomor KPS harus berupa angka.',
+        ],
+        'kip'=> [
+            'integer'=> 'Nomor KIP harus berupa angka.',
+        ],
+        'lintang'=> [
+            'max' => 'Lintang tidak boleh lebih dari 50 karakter.',
+        ],
+        'bujur'=> [
+            'max' => 'Bujur tidak boleh lebih dari 50 karakter.',
+        ],
+
+        
+        // Data Periodik
         'tinggi_badan'=> [
             'required' => 'Tinggi badan wajib diisi.',
-            'integer' => 'Tinggi badan harus berupa angka.',
+            'integer' => 'Isi angka saja',
         ],
         'berat_badan'=> [
             'required' => 'Berat badan wajib diisi.',
-            'integer' => 'Berat badan harus berupa angka.',
+            'integer' => 'Isi angka saja',
         ],
         'jarak'=> [
             'required' => 'Jarak wajib diisi.',
-            'integer' => 'Jarak harus berupa angka.',
+            'integer' => 'Isi angka saja',
         ],
         'waktu'=> [
             'required' => 'Waktu wajib diisi.',
-            'integer' => 'Waktu harus berupa angka.',
+            'integer' => 'Isi angka saja',
         ],
         'jumlahsaudara'=> [
             'required' => 'Jumlah saudara wajib diisi.',
-            'integer' => 'Jumlah saudara harus berupa angka.',
+            'integer' => 'Isi angka saja',
+        ],
+
+        // Data Orangtua
+        'nama_ayah' => [
+            'required' => 'Nama ayah wajib diisi.',
+            'string' => 'Nama ayah harus berupa teks.',
+            'max' => 'Nama ayah tidak boleh lebih dari 255 karakter.',
+        ],
+        'nama_ibu' => [
+            'required' => 'Nama ibu wajib diisi.',
+            'string' => 'Nama ibu harus berupa teks.',
+            'max' => 'Nama ibu tidak boleh lebih dari 255 karakter.',
+        ],
+        'nama_wali' => [
+            'required' => 'Nama wali wajib diisi.',
+            'string' => 'Nama wali harus berupa teks.',
+            'max' => 'Nama wali tidak boleh lebih dari 255 karakter.',
+        ],
+        'tahun_lahir_ayah'=> [
+            'required' => 'Tahun lahir ayah wajib diisi.',
+            'integer' => 'Tahun lahir ayah harus berupa angka.',
+            'min' => 'Tahun lahir ayah tidak valid.',
+            'max' => 'Tahun lahir ayah tidak valid.',
+        ],
+        'tahun_lahir_ibu'=> [
+            'required' => 'Tahun lahir ibu wajib diisi.',
+            'integer' => 'Tahun lahir ibu harus berupa angka.',
+            'min' => 'Tahun lahir ibu tidak valid.',
+            'max' => 'Tahun lahir ibu tidak valid.',
+        ],
+        'tahun_lahir_wali'=> [
+            'required' => 'Tahun lahir wali wajib diisi.',
+            'integer' => 'Tahun lahir wali harus berupa angka.',
+            'min' => 'Tahun lahir wali tidak valid.',
+            'max' => 'Tahun lahir wali tidak valid.',
+        ],
+        'pekerjaan_ayah'=> [
+            'required' => 'Pekerjaan ayah wajib diisi.',
+            'string' => 'Pekerjaan ayah harus berupa teks.',
+            'max' => 'Pekerjaan ayah tidak boleh lebih dari 255 karakter.',
+        ],
+        'pekerjaan_ibu'=> [
+            'required' => 'Pekerjaan ibu wajib diisi.',
+            'string' => 'Pekerjaan ibu harus berupa teks.',
+            'max' => 'Pekerjaan ibu tidak boleh lebih dari 255 karakter.',
+        ],
+        'pekerjaan_wali'=> [
+            'required' => 'Pekerjaan wali wajib diisi.',
+            'string' => 'Pekerjaan wali harus berupa teks.',
+            'max' => 'Pekerjaan wali tidak boleh lebih dari 255 karakter.',
+        ],
+        'pendidikan_ayah'=> [
+            'required' => 'Pendidikan ayah wajib diisi.',
+            'string' => 'Pendidikan ayah harus berupa teks.',
+            'max' => 'Pendidikan ayah tidak boleh lebih dari 255 karakter.',
+        ],
+        'pendidikan_ibu'=> [
+            'required' => 'Pendidikan ibu wajib diisi.',
+            'string' => 'Pendidikan ibu harus berupa teks.',
+            'max' => 'Pendidikan ibu tidak boleh lebih dari 255 karakter.',
+        ],
+        'pendidikan_wali'=> [
+            'required' => 'Pendidikan wali wajib diisi.',
+            'string' => 'Pendidikan wali harus berupa teks.',
+            'max' => 'Pendidikan wali tidak boleh lebih dari 255 karakter.',
+        ],
+        'penghasilan_ayah'=> [
+            'required' => 'Penghasilan ayah wajib diisi.',
+            'numeric' => 'Penghasilan ayah harus berupa angka.',
+            'min' => 'Penghasilan ayah tidak valid.',
+        ],
+        'penghasilan_ibu'=> [
+            'required' => 'Penghasilan ibu wajib diisi.',
+            'numeric' => 'Penghasilan ibu harus berupa angka.',
+            'min' => 'Penghasilan ibu tidak valid.',
+        ],
+        'penghasilan_wali'=> [
+            'required' => 'Penghasilan wali wajib diisi.',
+            'numeric' => 'Penghasilan wali harus berupa angka.',
+            'min' => 'Penghasilan wali tidak valid.',
         ],
     ],
 

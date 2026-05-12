@@ -97,7 +97,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Tahun Lahir Ayah</label>
-                                    <input type="number" placeholder="YYYY" value="{{ old('tahun_lahir_ayah', $user->orangtua->tahun_lahir_ayah ?? '') }}" name="tahun_lahir_ayah" min="1900" max="{{ date('Y') }}">
+                                    <input type="text" placeholder="YYYY" value="{{ old('tahun_lahir_ayah', $user->orangtua->tahun_lahir_ayah ?? '') }}" name="tahun_lahir_ayah" min="1900" max="{{ date('Y') }}">
                                     @error('tahun_lahir_ayah') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Penghasilan Ayah (Per Bulan)</label>
-                                    <input type="number" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_ayah', $user->orangtua->penghasilan_ayah ?? '') }}" name="penghasilan_ayah" min="0">
+                                    <input type="text" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_ayah', $user->orangtua->penghasilan_ayah ?? '') }}" name="penghasilan_ayah" min="0">
                                     @error('penghasilan_ayah') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Tahun Lahir Ibu</label>
-                                    <input type="number" placeholder="YYYY" value="{{ old('tahun_lahir_ibu', $user->orangtua->tahun_lahir_ibu ?? '') }}" name="tahun_lahir_ibu" min="1900" max="{{ date('Y') }}">
+                                    <input type="text" placeholder="YYYY" value="{{ old('tahun_lahir_ibu', $user->orangtua->tahun_lahir_ibu ?? '') }}" name="tahun_lahir_ibu" min="1900" max="{{ date('Y') }}">
                                     @error('tahun_lahir_ibu') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Penghasilan Ibu (Per Bulan)</label>
-                                    <input type="number" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_ibu', $user->orangtua->penghasilan_ibu ?? '') }}" name="penghasilan_ibu" min="0">
+                                    <input type="text" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_ibu', $user->orangtua->penghasilan_ibu ?? '') }}" name="penghasilan_ibu" min="0">
                                     @error('penghasilan_ibu') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Tahun Lahir Wali</label>
-                                    <input type="number" placeholder="YYYY" value="{{ old('tahun_lahir_wali', $user->orangtua->tahun_lahir_wali ?? '') }}" name="tahun_lahir_wali" min="1900" max="{{ date('Y') }}">
+                                    <input type="text" placeholder="YYYY" value="{{ old('tahun_lahir_wali', $user->orangtua->tahun_lahir_wali ?? '') }}" name="tahun_lahir_wali" min="1900" max="{{ date('Y') }}">
                                     @error('tahun_lahir_wali') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Penghasilan Wali (Per Bulan)</label>
-                                    <input type="number" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_wali', $user->orangtua->penghasilan_wali ?? '') }}" name="penghasilan_wali" min="0">
+                                    <input type="text" placeholder="Nominal Penghasilan" value="{{ old('penghasilan_wali', $user->orangtua->penghasilan_wali ?? '') }}" name="penghasilan_wali" min="0">
                                     @error('penghasilan_wali') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                             </div>
