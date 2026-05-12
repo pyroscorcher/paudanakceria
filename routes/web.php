@@ -69,7 +69,7 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 // ==========================================
 // PROTECTED USER DASHBOARD ROUTES
 // ==========================================
-Route::middleware(['auth', 'user.access'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Core Dashboard
     Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
     
