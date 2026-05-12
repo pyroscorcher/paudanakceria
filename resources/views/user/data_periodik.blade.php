@@ -55,91 +55,93 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                <div class="card-style mb-2">
-                    <div class="row g-2">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
-                        <!-- Full Name -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Nama Lengkap</label>
-                                <input type="text" placeholder="Nama Lengkap">
-                            </div>
-                        </div>
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Pembaruan dibatalkan!</strong> Silakan periksa kesalahan berikut:
+                        <ul class="mb-0 mt-1">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <form action="{{ route('user.data_periodik.update') }}" method="POST">
+                    @csrf
+                    @method('PUT')
 
-                        <!-- Full Name Icon -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>NISN</label>
-                                <input type="text" placeholder="NISN">
-                            </div>
-                        </div>
+                    <div class="card-style mb-2">
+                        <div class="row g-2">
 
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Tanggal Lahir</label>
-                                <input type="date" placeholder="Tanggal Lahir">
-                            </div>
-                        </div>
-
-                        <!-- Category -->
-                        <div class="col-md-6">
-                            <div class="select-style-1">
-                                <label>Jenis Kelamin</label>
-                                <div class="select-position">
-                                    <select required>
-                                        <option value="" disabled selected>Pilih jenis kelamin</option>
-                                        <option value="L">Laki - Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Tinggi Badan (Centimeter)</label>
+                                    <input type="text" name="tinggi_badan" placeholder="Tinggi Badan" value="{{ old('tinggi_badan', $user->data_periodik->tinggi_badan ?? '') }}">
+                                    @error('tinggi_badan')
+                                        <span class="text-danger" style="color: red; font-size: 0.875em;">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Date -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Date</label>
-                                <input type="date">
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Berat Badan (Kilogram)</label>
+                                    <input type="text" name="berat_badan" placeholder="Berat Badan" value="{{ old('berat_badan', $user->data_periodik->berat_badan ?? '') }}">
+                                    @error('berat_badan')
+                                        <span class="text-danger" style="color: red; font-size: 0.875em;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Jarak Tempat Tinggal ke Sekolah (Kilometer)</label>
+                                    <input type="text" name="jarak" placeholder="Jarak Tempat Tinggal ke Sekolah" value="{{ old('jarak', $user->data_periodik->jarak ?? '') }}">
+                                    @error('jarak')
+                                        <span class="text-danger" style="color: red; font-size: 0.875em;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Waktu Tempuh ke Sekolah (Menit)</label>
+                                    <input type="text" name="waktu" placeholder="Waktu Tempuh ke Sekolah" value="{{ old('waktu', $user->data_periodik->waktu ?? '') }}">
+                                    @error('waktu')
+                                        <span class="text-danger" style="color: red; font-size: 0.875em;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input-style-1">
+                                    <label>Jumlah Saudara</label>
+                                    <input type="text" name="jumlahsaudara" placeholder="Jumlah Saudara" value="{{ old('jumlahsaudara', $user->data_periodik->jumlahsaudara ?? '') }}">
+                                    @error('jumlahsaudara')
+                                        <span class="text-danger" style="color: red; font-size: 0.875em;">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="button-size mt-4">
+                                <button type="submit" class="main-btn primary-btn-outline btn-hover">Simpan</button>
                             </div>
                         </div>
-
-                        <div class="button-size">
-                            <li>
-                                <a href="#0" class="main-btn primary-btn-outline btn-hover">Simpan</a>
-                            </li>
-                        </div>
-
-                        <!-- Message (FULL WIDTH / “satu lajur”) -->
-                        {{-- <div class="col-12">
-
-                            <div class="input-style-1">
-                                <label>Message</label>
-                                <textarea rows="4" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Checkbox -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="checkbox" id="checkbox-1" class="form-check-input">
-                                <label for="checkbox-1" class="form-check-label">
-                                    Default Checkbox
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Radio -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="radio" id="radio-1" class="form-check-input">
-                                <label for="radio-1" class="form-check-label">
-                                    Default Radio
-                                </label>
-                            </div>
-                        </div> --}}
-
                     </div>
-                </div>
+                </form>
                 <!-- ========== form-elements-wrapper end ========== -->
             </div>
             <!-- end container -->

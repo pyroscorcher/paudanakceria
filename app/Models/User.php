@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Prestasi::class);
     }
+
+    public function data_periodik()
+    {
+        return $this->hasOne(DataPeriodik::class);
+    }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboard\DataAnakController;
 use App\Http\Controllers\UserDashboard\DataOrangtuaController;
+use App\Http\Controllers\UserDashboard\DataPeriodikController; 
 
 Route::get('/', function () {
     return view('welcome');
@@ -81,7 +82,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/data_orangtua', [DataOrangtuaController::class, 'index'])->name('user.data_orangtua');
     Route::put('/user/data_orangtua', [DataOrangtuaController::class, 'update'])->name('user.data_orangtua.update');
     
-    Route::get('/user/data_periodik', [UserController::class, 'dataPeriodik'])->name('user.data_periodik');
+    // Data Periodik
+    Route::get('/user/data_periodik', [DataPeriodikController::class, 'index'])->name('user.data_periodik');
+    Route::put('/user/data_periodik', [DataPeriodikController::class, 'update'])->name('user.data_periodik.update');
+
     Route::get('/user/data_prestasi', [UserController::class, 'dataPrestasi'])->name('user.data_prestasi');
     
     // Documents & Profile

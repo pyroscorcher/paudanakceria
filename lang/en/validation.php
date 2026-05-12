@@ -183,6 +183,27 @@ return [
             'size' => 'Nomor Induk Kependudukan (NIK) tidak valid. Harus tepat 16 karakter.',
             'unique' => 'NIK ini sudah terdaftar di sistem kami.',
         ],
+
+        'tinggi_badan'=> [
+            'required' => 'Tinggi badan wajib diisi.',
+            'integer' => 'Tinggi badan harus berupa angka.',
+        ],
+        'berat_badan'=> [
+            'required' => 'Berat badan wajib diisi.',
+            'integer' => 'Berat badan harus berupa angka.',
+        ],
+        'jarak'=> [
+            'required' => 'Jarak wajib diisi.',
+            'integer' => 'Jarak harus berupa angka.',
+        ],
+        'waktu'=> [
+            'required' => 'Waktu wajib diisi.',
+            'integer' => 'Waktu harus berupa angka.',
+        ],
+        'jumlahsaudara'=> [
+            'required' => 'Jumlah saudara wajib diisi.',
+            'integer' => 'Jumlah saudara harus berupa angka.',
+        ],
     ],
 
     /*
