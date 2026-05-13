@@ -55,91 +55,131 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                <div class="card-style mb-2">
-                    <div class="row g-2">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
-                        <!-- Full Name -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Nama Lengkap</label>
-                                <input type="text" placeholder="Nama Lengkap">
-                            </div>
-                        </div>
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
-                        <!-- Full Name Icon -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>NISN</label>
-                                <input type="text" placeholder="NISN">
-                            </div>
-                        </div>
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Pembaruan dibatalkan!</strong> Silakan periksa kesalahan berikut:
+                        <ul class="mb-0 mt-1">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Tanggal Lahir</label>
-                                <input type="date" placeholder="Tanggal Lahir">
-                            </div>
-                        </div>
+                <form action="{{ route('user.data_prestasi.update') }}" method="POST">
+                    @csrf
+                    @method('PUT') 
 
-                        <!-- Category -->
-                        <div class="col-md-6">
-                            <div class="select-style-1">
-                                <label>Jenis Kelamin</label>
-                                <div class="select-position">
-                                    <select required>
-                                        <option value="" disabled selected>Pilih jenis kelamin</option>
-                                        <option value="L">Laki - Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
+                    <div id="prestasi-wrapper">
+                        @forelse ($user->prestasi as $index => $prestasi)
+                            <div class="card-style mb-4 prestasi-item">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="text-medium">Data Prestasi</h5>
+                                    <button type="button" class="btn btn-sm btn-danger remove-row">Hapus</button>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Jenis Prestasi</label>
+                                            <input type="text" placeholder="Jenis Prestasi" value="{{ old('prestasi.' . $index . '.jenis', $prestasi->jenis) }}" name="prestasi[{{ $index }}][jenis]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Tingkat</label>
+                                            <input type="text" placeholder="Tingkat" value="{{ old('prestasi.' . $index . '.tingkat', $prestasi->tingkat) }}" name="prestasi[{{ $index }}][tingkat]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Nama Prestasi</label>
+                                            <input type="text" placeholder="Nama Prestasi" value="{{ old('prestasi.' . $index . '.nama', $prestasi->nama) }}" name="prestasi[{{ $index }}][nama]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Tahun</label>
+                                            <input type="text" placeholder="Tahun" value="{{ old('prestasi.' . $index . '.tahun', $prestasi->tahun) }}" name="prestasi[{{ $index }}][tahun]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Penyelenggara</label>
+                                            <input type="text" placeholder="Penyelenggara" value="{{ old('prestasi.' . $index . '.penyelenggara', $prestasi->penyelenggara) }}" name="prestasi[{{ $index }}][penyelenggara]">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @empty
+                            <div class="card-style mb-4 prestasi-item">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="text-medium">Data Prestasi</h5>
+                                    <button type="button" class="btn btn-sm btn-danger remove-row">Hapus</button>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Jenis Prestasi</label>
+                                            <input type="text" placeholder="Jenis Prestasi" value="{{ old('prestasi.0.jenis') }}" name="prestasi[0][jenis]">
+                                        </div>
+                                    </div>
 
-                        <!-- Date -->
-                        <div class="col-md-6">
-                            <div class="input-style-1">
-                                <label>Date</label>
-                                <input type="date">
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Tingkat</label>
+                                            <input type="text" placeholder="Tingkat" value="{{ old('prestasi.0.tingkat') }}" name="prestasi[0][tingkat]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Nama Prestasi</label>
+                                            <input type="text" placeholder="Nama Prestasi" value="{{ old('prestasi.0.nama') }}" name="prestasi[0][nama]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Tahun</label>
+                                            <input type="text" placeholder="Tahun" value="{{ old('prestasi.0.tahun') }}" name="prestasi[0][tahun]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-style-1">
+                                            <label>Penyelenggara</label>
+                                            <input type="text" placeholder="Penyelenggara" value="{{ old('prestasi.0.penyelenggara') }}" name="prestasi[0][penyelenggara]">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="button-size">
-                            <li>
-                                <a href="#0" class="main-btn primary-btn-outline btn-hover">Simpan</a>
-                            </li>
-                        </div>
-
-                        <!-- Message (FULL WIDTH / “satu lajur”) -->
-                        {{-- <div class="col-12">
-
-                            <div class="input-style-1">
-                                <label>Message</label>
-                                <textarea rows="4" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Checkbox -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="checkbox" id="checkbox-1" class="form-check-input">
-                                <label for="checkbox-1" class="form-check-label">
-                                    Default Checkbox
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Radio -->
-                        <div class="col-md-6">
-                            <div class="form-check">
-                                <input type="radio" id="radio-1" class="form-check-input">
-                                <label for="radio-1" class="form-check-label">
-                                    Default Radio
-                                </label>
-                            </div>
-                        </div> --}}
-
+                        @endforelse
                     </div>
-                </div>
+
+                    <div class="d-flex gap-3 mt-4">
+                        <button type="button" id="btn-add-prestasi" class="main-btn primary-btn-outline btn-hover">+ Tambah Prestasi</button>
+                        <button type="submit" class="main-btn primary-btn btn-hover">Simpan Semua</button>
+                    </div>
+                </form>
                 <!-- ========== form-elements-wrapper end ========== -->
             </div>
             <!-- end container -->
@@ -177,5 +217,42 @@
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let wrapper = document.getElementById('prestasi-wrapper');
+        let addButton = document.getElementById('btn-add-prestasi');
+        let indexCounter = wrapper.children.length;
+
+        // Add new form row
+        addButton.addEventListener('click', function() {
+            // Clone the first element in the wrapper
+            let newRow = wrapper.firstElementChild.cloneNode(true);
+            
+            // Clear the input values and update the name attributes with the new index
+            let inputs = newRow.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.value = '';
+                // Update the name attribute dynamically (e.g., prestasi[0][jenis] -> prestasi[1][jenis])
+                input.name = input.name.replace(/\[\d+\]/, '[' + indexCounter + ']'); 
+            });
+
+            // Add the new row to the DOM
+            wrapper.appendChild(newRow);
+            indexCounter++;
+        });
+
+        // Remove a form row
+        wrapper.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('remove-row')) {
+                if (wrapper.children.length > 1) {
+                    e.target.closest('.prestasi-item').remove();
+                } else {
+                    alert('Anda harus menyisakan setidaknya satu baris formulir. Jika tidak memiliki prestasi, kosongkan saja kolomnya.');
+                }
+            }
+        });
+    });
+</script>
 
 </html>

@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboard\DataAnakController;
 use App\Http\Controllers\UserDashboard\DataOrangtuaController;
 use App\Http\Controllers\UserDashboard\DataPeriodikController; 
+use App\Http\Controllers\UserDashboard\DataPrestasiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -86,8 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/data_periodik', [DataPeriodikController::class, 'index'])->name('user.data_periodik');
     Route::put('/user/data_periodik', [DataPeriodikController::class, 'update'])->name('user.data_periodik.update');
 
-    Route::get('/user/data_prestasi', [UserController::class, 'dataPrestasi'])->name('user.data_prestasi');
-    
+    // Data Prestasi
+    Route::get('/user/data_prestasi', [DataPrestasiController::class, 'index'])->name('user.data_prestasi');
+    Route::put('/user/data_prestasi', [DataPrestasiController::class, 'update'])->name('user.data_prestasi.update');
+
     // Documents & Profile
     Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
     Route::get('/user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');

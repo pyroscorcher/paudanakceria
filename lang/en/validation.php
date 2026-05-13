@@ -375,6 +375,34 @@ return [
             'numeric' => 'Penghasilan wali harus berupa angka.',
             'min' => 'Penghasilan wali tidak valid.',
         ],
+
+        // Data Prestasi
+        'prestasi.*.jenis' => [
+            'required' => 'Jenis prestasi wajib diisi.',
+            'string' => 'Jenis prestasi harus berupa teks.',
+            'max' => 'Jenis prestasi tidak boleh lebih dari 255 karakter.',
+        ],
+        'prestasi.*.tingkat' => [
+            'required' => 'Tingkat prestasi wajib diisi.',
+            'string' => 'Tingkat prestasi harus berupa teks.',
+            'max' => 'Tingkat prestasi tidak boleh lebih dari 255 karakter.',
+        ],
+        'prestasi.*.nama' => [
+            'required' => 'Nama prestasi wajib diisi.',
+            'string' => 'Nama prestasi harus berupa teks.',
+            'max' => 'Nama prestasi tidak boleh lebih dari 255 karakter.',
+        ],
+        'prestasi.*.tahun' => [
+            'required' => 'Tahun prestasi wajib diisi.',
+            'integer' => 'Tahun prestasi harus berupa angka.',
+            'min' => 'Tahun prestasi tidak valid.',
+            'max' => 'Tahun prestasi tidak valid.',
+        ],
+        'prestasi.*.penyelenggara' => [
+            'required' => 'Penyelenggara prestasi wajib diisi.',
+            'string' => 'Penyelenggara prestasi harus berupa teks.',
+            'max' => 'Penyelenggara prestasi tidak boleh lebih dari 255 karakter.',
+        ],
     ],
 
     /*
