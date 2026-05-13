@@ -13,7 +13,10 @@ class AdminDashboardController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return view('admin.dashboard', compact('enrollments'));
+        return view('admin.dashboard', [
+            'admin_navbar' => 'My Menu',
+            'admin_header' => 'Header'],
+            compact('enrollments'));
     }
 
     public function updateStatus(Request $request, $id)
