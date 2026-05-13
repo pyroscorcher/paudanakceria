@@ -22,7 +22,7 @@
                                                 <img src="assets/images/profile/profile-image.png" alt="" />
                                             </div> --}}
                                             <div>
-                                                <h6 class="fw-500">Adam Joe</h6>
+                                                <h6 class="fw-500">{{ Auth::user()->name ?? 'User' }}</h6>
                                             </div>
                                         </div>
                                     </div>

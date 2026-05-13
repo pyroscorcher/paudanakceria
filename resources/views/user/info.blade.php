@@ -13,6 +13,7 @@
     <meta name="author" content="theme_ocean">
     <!-- SITE TITLE -->
     <title>PAUD Anak Ceria</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
     <!-- Latest Bootstrap min CSS -->
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <!-- Google Font -->

@@ -13,6 +13,7 @@
     <meta name="author" content="theme_ocean">
     <!-- SITE TITLE -->
     <title>PAUD Anak Ceria</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
     <!-- Latest Bootstrap min CSS -->
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <!-- Google Font -->
@@ -58,35 +59,35 @@
                 <div class="col-lg-6 offset-lg-3 col-xs-12">
                     <div class="login">
                         <h4 class="login_register_title">Login</h4>
-                        
+
                         <form action="{{ route('user.login.submit') }}" method="POST">
-                            
+
                             @csrf
-                            
+
                             <div class="form-group">
                                 <label for="nisn">NISN</label>
                                 <input type="text" id="nisn" class="form-control requiredField input-label"
                                     name="nisn" value="{{ old('nisn') }}" required autofocus>
-                                
+
                                 @error('nisn')
                                     <span class="text-danger" style="color:red; font-size: 0.875em;">
                                         {{ $message }}
                                     </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" id="password" class="form-control requiredField input-label"
                                     name="password" required>
-                                
+
                                 @error('password')
                                     <span class="text-danger" style="color:red; font-size: 0.875em;">
                                         {{ $message }}
                                     </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group col-lg-12">
                                 <button class="btn_one" type="submit" name="submit">Login</button>
                             </div>

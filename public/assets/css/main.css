@@ -2670,6 +2670,11 @@ h6,
 }
 
 /* ========= select style ========== */
+
+/* =========================
+   STATUS BADGE
+========================= */
+
 .select-style-1 {
     margin-bottom: 10px;
 }
@@ -3341,16 +3346,13 @@ h6,
 }
 
 .header .header-right button {
-    border: 1px solid #F6F6F6;
-    background: #F6F6F6;
-    border-radius: 50%;
-    height: 46px;
-    width: 46px;
+    padding: 10px 16px;
+    border-radius: 8px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-    color: #1A2142;
+    justify-content: center;
+    background-color: #009CE0;
+    color: #fff;
 }
 
 .header .header-right button svg {
