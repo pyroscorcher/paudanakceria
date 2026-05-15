@@ -56,88 +56,159 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                <div class="form-elements-wrapper">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card-style mb-2">
-                                <div class="row">
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
-                                    <!-- Akta Kelahiran -->
-                                    <div class="col-12">
-                                        <label class="form-label">Akta Kelahiran</label>
+                @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Upload Dokumen Dibatalkan!</strong> Silakan periksa kesalahan berikut:
+                        <ul class="mb-0 mt-1">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <form action="{{ route('user.upload_dokumen.update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')   
+                    <div class="form-elements-wrapper">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-style mb-2">
+                                    <div class="row">
 
-                                        <div class="upload-box" onclick="document.getElementById('akta').click()">
-                                            <input type="file" id="akta" name="akta" accept="image/*,.pdf"
-                                                hidden onchange="previewFile(event, 'preview-akta')">
-
-                                            <div class="upload-content" id="preview-akta">
-                                                <p>Klik untuk upload</p>
-                                                <small>JPG, PNG, PDF</small>
+                                        <!-- Akta Kelahiran -->
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label fw-bold">Akta Kelahiran</label>
+                                            @if(isset($user->dokumen) && $user->dokumen->akta_kelahiran)
+                                                <div class="mb-2">
+                                                    <span class="badge bg-success" style="padding: 5px 10px; border-radius: 4px; color: white; background-color: #198754;">Sudah Diunggah</span>
+                                                    <a href="{{ asset('storage/' . $user->dokumen->akta_kelahiran) }}" target="_blank" class="ms-2" style="font-size: 0.9em; text-decoration: underline;">
+                                                        Lihat Dokumen Saat Ini
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="upload-box" onclick="document.getElementById('akta_kelahiran').click()" style="cursor: pointer;">
+                                                <input type="file" id="akta_kelahiran" name="akta_kelahiran" accept="image/*,.pdf" hidden onchange="previewFile(event, 'preview-akta')">
+                                                <div class="upload-content" id="preview-akta">
+                                                    <p>Klik untuk upload {{ (isset($user->dokumen) && $user->dokumen->akta_kelahiran) ? 'dokumen baru' : 'dokumen' }}</p>
+                                                    <small>JPG, PNG, PDF (Maks. 2MB)</small>
+                                                </div>
                                             </div>
+                                            @error('akta_kelahiran')
+                                                <div class="text-danger mt-1" style="color: red; font-size: 0.875em;">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <label class="form-label">Kartu Keluarga (KK)</label>
-
-                                        <div class="upload-box" onclick="document.getElementById('kk').click()">
-                                            <input type="file" id="kk" name="kk" accept="image/*,.pdf"
-                                                hidden onchange="previewFile(event, 'preview-kk')">
-
-                                            <div class="upload-content" id="preview-kk">
-                                                <p>Klik untuk upload</p>
-                                                <small>JPG, PNG, PDF</small>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label fw-bold">Kartu Keluarga (KK)</label>
+                                            @if(isset($user->dokumen) && $user->dokumen->kk)
+                                                <div class="mb-2">
+                                                    <span class="badge bg-success" style="padding: 5px 10px; border-radius: 4px; color: white; background-color: #198754;">Sudah Diunggah</span>
+                                                    <a href="{{ asset('storage/' . $user->dokumen->kk) }}" target="_blank" class="ms-2" style="font-size: 0.9em; text-decoration: underline;">
+                                                        Lihat Dokumen Saat Ini
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="upload-box" onclick="document.getElementById('kk').click()" style="cursor: pointer;">
+                                                <input type="file" id="kk" name="kk" accept="image/*,.pdf" hidden onchange="previewFile(event, 'preview-kk')">
+                                                <div class="upload-content" id="preview-kk">
+                                                    <p>Klik untuk upload {{ (isset($user->dokumen) && $user->dokumen->kk) ? 'dokumen baru' : 'dokumen' }}</p>
+                                                    <small>JPG, PNG, PDF (Maks. 2MB)</small>
+                                                </div>
                                             </div>
+                                            @error('kk')
+                                                <div class="text-danger mt-1" style="color: red; font-size: 0.875em;">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <label class="form-label">Foto Anak</label>
-
-                                        <div class="upload-box" onclick="document.getElementById('foto_anak').click()">
-                                            <input type="file" id="foto_anak" name="foto_anak" accept="image/*"
-                                                hidden onchange="previewFile(event, 'preview-foto')">
-
-                                            <div class="upload-content" id="preview-foto">
-                                                <p>Klik untuk upload</p>
-                                                <small>JPG, PNG</small>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label fw-bold">Foto Anak</label>
+                                            @if(isset($user->dokumen) && $user->dokumen->foto_anak)
+                                                <div class="mb-2">
+                                                    <span class="badge bg-success" style="padding: 5px 10px; border-radius: 4px; color: white; background-color: #198754;">Sudah Diunggah</span>
+                                                    <a href="{{ asset('storage/' . $user->dokumen->foto_anak) }}" target="_blank" class="ms-2" style="font-size: 0.9em; text-decoration: underline;">
+                                                        Lihat Dokumen Saat Ini
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="upload-box" onclick="document.getElementById('foto_anak').click()" style="cursor: pointer;">
+                                                <input type="file" id="foto_anak" name="foto_anak" accept="image/*" hidden onchange="previewFile(event, 'preview-foto')">
+                                                <div class="upload-content" id="preview-foto">
+                                                    <p>Klik untuk upload {{ (isset($user->dokumen) && $user->dokumen->foto_anak) ? 'foto baru' : 'foto' }}</p>
+                                                    <small>JPG, PNG (Maks. 2MB)</small>
+                                                </div>
                                             </div>
+                                            @error('foto_anak')
+                                                <div class="text-danger mt-1" style="color: red; font-size: 0.875em;">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <label class="form-label">KTP Orang Tua</label>
-
-                                        <div class="upload-box" onclick="document.getElementById('ktp').click()">
-                                            <input type="file" id="ktp" name="ktp_ortu" accept="image/*,.pdf"
-                                                hidden onchange="previewFile(event, 'preview-ktp')">
-
-                                            <div class="upload-content" id="preview-ktp">
-                                                <p>Klik untuk upload</p>
-                                                <small>JPG, PNG, PDF</small>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label fw-bold">KTP Orang Tua</label>
+                                            @if(isset($user->dokumen) && $user->dokumen->ktp)
+                                                <div class="mb-2">
+                                                    <span class="badge bg-success" style="padding: 5px 10px; border-radius: 4px; color: white; background-color: #198754;">Sudah Diunggah</span>
+                                                    <a href="{{ asset('storage/' . $user->dokumen->ktp) }}" target="_blank" class="ms-2" style="font-size: 0.9em; text-decoration: underline;">
+                                                        Lihat Dokumen Saat Ini
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="upload-box" onclick="document.getElementById('ktp').click()" style="cursor: pointer;">
+                                                <input type="file" id="ktp" name="ktp" accept="image/*,.pdf" hidden onchange="previewFile(event, 'preview-ktp')">
+                                                <div class="upload-content" id="preview-ktp">
+                                                    <p>Klik untuk upload {{ (isset($user->dokumen) && $user->dokumen->ktp) ? 'dokumen baru' : 'dokumen' }}</p>
+                                                    <small>JPG, PNG, PDF (Maks. 2MB)</small>
+                                                </div>
                                             </div>
+                                            @error('ktp')
+                                                <div class="text-danger mt-1" style="color: red; font-size: 0.875em;">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <label class="form-label">Dokumen Tambahan (Opsional)</label>
-
-                                        <div class="upload-box" onclick="document.getElementById('lain').click()">
-                                            <input type="file" id="lain" name="dokumen_lain"
-                                                accept="image/*,.pdf" hidden
-                                                onchange="previewFile(event, 'preview-lain')">
-
-                                            <div class="upload-content" id="preview-lain">
-                                                <p>Klik untuk upload</p>
-                                                <small>JPG, PNG, PDF</small>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label fw-bold">Bukti Pembayaran</label>
+                                            @if(isset($user->dokumen) && $user->dokumen->bukti_pembayaran)
+                                                <div class="mb-2">
+                                                    <span class="badge bg-success" style="padding: 5px 10px; border-radius: 4px; color: white; background-color: #198754;">Sudah Diunggah</span>
+                                                    <a href="{{ asset('storage/' . $user->dokumen->bukti_pembayaran) }}" target="_blank" class="ms-2" style="font-size: 0.9em; text-decoration: underline;">
+                                                        Lihat Dokumen Saat Ini
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="upload-box" onclick="document.getElementById('bukti_pembayaran').click()" style="cursor: pointer;">
+                                                <input type="file" id="bukti_pembayaran" name="bukti_pembayaran" accept="image/*,.pdf" hidden onchange="previewFile(event, 'preview-bukti')">
+                                                <div class="upload-content" id="preview-bukti">
+                                                    <p>Klik untuk upload {{ (isset($user->dokumen) && $user->dokumen->bukti_pembayaran) ? 'dokumen baru' : 'dokumen' }}</p>
+                                                    <small>JPG, PNG, PDF (Maks. 2MB)</small>
+                                                </div>
                                             </div>
+                                            @error('bukti_pembayaran')
+                                                <div class="text-danger mt-1" style="color: red; font-size: 0.875em;">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                    </div>
 
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary">Simpan Dokumen</button>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                     <!-- end row -->
                 </div>
                 <!-- ========== form-elements-wrapper end ========== -->
