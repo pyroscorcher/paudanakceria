@@ -66,7 +66,7 @@ class EnrollmentController extends Controller
                     'telp'          => $validated['telp'],
                     'jenis_kelamin' => $validated['jenis_kelamin'],
                     'alamat_rumah'  => $validated['alamat_rumah'],
-                    'status'        => 'Pending',
+                    'status'        => 'Menunggu',
                 ]);
 
                 return $newUser; 
