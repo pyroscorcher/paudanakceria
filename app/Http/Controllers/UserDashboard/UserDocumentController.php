@@ -24,13 +24,13 @@ class UserDocumentController extends Controller
         /** @var \App\Models\User $user */
         $user = auth()->user();
 
-        // 1. Validate the incoming HTTP Request (Changed to nullable for progressive uploads)
+        // 1. Validate the incoming HTTP Request (Changed to required for progressive uploads)
         $validatedData = $request->validate([
-            'akta_kelahiran'   => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'kk'               => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'foto_anak'        => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
-            'ktp'              => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'bukti_pembayaran' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'akta_kelahiran'   => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'kk'               => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'foto_anak'        => 'required|file|mimes:jpg,jpeg,png|max:2048',
+            'ktp'              => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'bukti_pembayaran' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
         // 2. Handle file uploads and save paths to the array
