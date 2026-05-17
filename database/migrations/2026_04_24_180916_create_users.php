@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('kebutuhankhusus')->nullable();
             $table->string('alamat_rumah');
             $table->string('transportasi')->nullable();
-            $table->string('telp')->nullable();
+            $table->string('telp', 20)->nullable();
             $table->string('emailpribadi')->nullable();
             $table->string('kks')->nullable();
             $table->string('kps')->nullable();

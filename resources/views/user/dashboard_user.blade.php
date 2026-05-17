@@ -104,48 +104,41 @@
                             <table class="table table-sm table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="fw-bold py-1" style="width: 150px;">
-                                            Nama
-                                        </td>
-                                        <td class="py-1">
-                                            : {{ Auth::user()->name ?? 'User' }}
-                                        </td>
+                                        <td class="fw-bold py-1" style="width: 150px;">Nama</td>
+                                        <td class="py-1">: {{ Auth::user()->name ?? 'User' }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold py-1">
-                                            NISN
-                                        </td>
-                                        <td class="py-1">
-                                            : {{ Auth::user()->nisn ?? '-' }}
-                                        </td>
+                                        <td class="fw-bold py-1">NISN</td>
+                                        <td class="py-1">: {{ Auth::user()->nisn ?? '-' }}</td>
                                     </tr>
-                                    @foreach ($enrollments as $enrollment)
+                                    
+                                    @if ($enrollment)
                                         <tr>
-                                            <td class="fw-bold py-1">
-                                                Status Verifikasi
-                                            </td>
+                                            <td class="fw-bold py-1">Status Verifikasi</td>
                                             <td class="py-1">
+                                                : 
                                                 @if ($enrollment->status == 'Diterima')
-                                                    <span class="badge bg-success">
-                                                        Diterima
-                                                    </span>
+                                                    <span class="badge bg-success">Diterima</span>
                                                 @elseif($enrollment->status == 'Menunggu')
-                                                    <span class="badge bg-warning text-dark">
-                                                        Menunggu
-                                                    </span>
+                                                    <span class="badge bg-warning text-dark">Menunggu</span>
                                                 @elseif($enrollment->status == 'Ditolak')
-                                                    <span class="badge bg-danger">
-                                                        Ditolak
-                                                    </span>
+                                                    <span class="badge bg-danger">Ditolak</span>
+                                                @else
+                                                    <span class="badge bg-secondary">{{ $enrollment->status }}</span>
                                                 @endif
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @else
+                                        <tr>
+                                            <td class="fw-bold py-1">Status Verifikasi</td>
+                                            <td class="py-1">: <span class="badge bg-secondary">Belum Melengkapi Pendaftaran</span></td>
+                                        </tr>
+                                    @endif
+
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
+</div>
                 <!-- ========== End Info Cards ========== -->
 
 

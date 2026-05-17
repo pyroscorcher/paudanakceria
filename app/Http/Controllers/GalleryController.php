@@ -10,7 +10,9 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::latest()->get();
+        // Using paginate instead of get() prevents the admin page from lagging 
+        // if you eventually upload 100+ photos.
+        $galleries = Gallery::latest()->paginate(10);
         return view('admin.gallery.index', compact('galleries'));
     }
 
@@ -42,7 +44,12 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $gallery = Gallery::findOrFail($id);
-        Storage::disk('public')->delete($gallery->photo);
+
+        // Safety Check: Only attempt to delete the file if it actually exists on the disk
+        if (Storage::disk('public')->exists($gallery->photo)) {
+            Storage::disk('public')->delete($gallery->photo);
+        }
+
         $gallery->delete();
 
         return redirect()->route('gallery.index')

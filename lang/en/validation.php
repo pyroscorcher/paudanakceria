@@ -285,7 +285,7 @@ return [
         ],
         'jarak'=> [
             'required' => 'Jarak wajib diisi.',
-            'integer' => 'Isi angka saja',
+            'integer' => 'Isi angka bulat tanpa koma',
         ],
         'waktu'=> [
             'required' => 'Waktu wajib diisi.',
