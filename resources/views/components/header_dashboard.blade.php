@@ -14,13 +14,13 @@
                         <div class="header-right">
                             <!-- profile start -->
                             <div class="profile-box ml-15">
-                                <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                                <button class="bg-transparent border-0" type="button" id="profile"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="profile-info">
                                         <div class="info">
-                                            {{-- <div class="image">
+                                            <div class="image">
                                                 <img src="assets/images/profile/profile-image.png" alt="" />
-                                            </div> --}}
+                                            </div>
                                             <div>
                                                 <h6 class="fw-500">{{ Auth::user()->name ?? 'User' }}</h6>
                                             </div>

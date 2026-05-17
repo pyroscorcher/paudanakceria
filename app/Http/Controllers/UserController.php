@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    // COMPANY PROFILE CONTROLLER
     public function ShowInfo()
     {
         return view('user.info', [
@@ -58,10 +60,18 @@ class UserController extends Controller
         ]);
     }
 
+    // USER DASHBOARD CONTROLLER
+
     public function userDashboard(){
+
+        $enrollments = Pendaftaran::with('user')
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
+
         return view('user.dashboard_user', [
             'side_navbar' => 'Slide Menu',
-            'header_dashboard' => 'Header Dashboard'
+            'header_dashboard' => 'Header Dashboard',
+            'enrollments' => $enrollments
         ]);
     }
 
@@ -124,7 +134,7 @@ class UserController extends Controller
 
             // 4. Redirect to the secure user dashboard
             // FIXED: Pointing to the correct route name
-            return redirect()->intended(route('user.dashboard')); 
+            return redirect()->intended(route('user.dashboard'));
         }
 
         // 5. If authentication fails, redirect back
@@ -143,6 +153,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')
+        ->with('success', 'Kamu Berhasil Keluar dari Dashboard!');
     }
 }

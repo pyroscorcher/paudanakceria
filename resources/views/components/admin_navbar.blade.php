@@ -1,13 +1,13 @@
     <aside class="sidebar-nav-wrapper">
         <div class="navbar-logo">
-            <a href="/user/dashboard_user">
+            <a href="{{ route('admin.dashboard')}}">
                 <img style="width: 128px; justify-content: center;"
                     src="{{ asset('images/all-img/logo-paudanakceria.png') }}" alt="logo" />
             </a>
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li class="nav-item">
+                <li class="admin-nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard')}}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -21,7 +21,7 @@
                         <span class="text">Menu Utama</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="admin-nav-item {{ request()->routeIs('news.*') ? 'active' : '' }}">
                     <a href="{{ route('news.index')}}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -35,7 +35,7 @@
                         <span class="text">Berita</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="admin-nav-item {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
                     <a href="{{ route('gallery.index')}}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"

@@ -133,6 +133,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="button-size mt-3">
+                                        <button type="submit"
+                                            class="main-btn primary-btn-outline btn-hover">Simpan</button>
+                                    </div>
 
                                 </div>
                             </div>

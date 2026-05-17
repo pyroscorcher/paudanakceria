@@ -58,20 +58,7 @@
     <!-- END NAVBAR -->
 
     <!-- START SECTION TOP -->
-    <section class="section-top">
-        <div class="container">
-            <div class="col-lg-10 offset-lg-1 text-center">
-                <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
-                    data-wow-offset="0">
-                    <h1>Single Blog</h1>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li> / Single Blog</li>
-                    </ul>
-                </div><!-- //.HERO-TEXT -->
-            </div><!--- END COL -->
-        </div><!--- END CONTAINER -->
-    </section>
+
     <!-- END SECTION TOP -->
     </div><!-- END  TOP HEADER CLASS -->
 
@@ -79,11 +66,16 @@
     <section class="blog-page section-padding">
         <div class="container">
             <div class="row">
+                <div class="arti_title">
+                    <h1>Kegiatan Mewarnai untuk Mengasah Kreativitas Anak di PAUD Anak Ceria</h1>
+                </div>
                 <div class="col-lg-7 col-sm-12 col-xs-12">
+
                     <div class="arti_single">
+
                         <div class="arti_img_two">
                             <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
-                            alt="image" />
+                                alt="image" />
                         </div>
                         <div class="arti_content ">
                             <p>I almost couldn’t believe it was real! For my first test I had generate some website copy
@@ -94,15 +86,6 @@
                                 business name. generated two variants of copy each with several paragraphs of
                                 professional sounding copy. I immediately shared the results with a friend who couldn’t
                                 believe it was written by an AI. is worth every Yaley and then some!</p>
-                        </div>
-                        <div class="arti_sp">
-                            <h2>Enhancing Your E-commerce Store With AI Writing Assistants</h2>
-                            <img src="assets/images/blog/1.png" class="img-fluid" alt="Blog image" />
-                            <p>I immediately shared the results with a friend who couldn’t believe it was written by an
-                                AI. is worth every Yaley and then some. Describe my business along with my business
-                                name. generated two variants of copy each with several paragraphs of professional
-                                sounding copy. I immediately shared the results with a friend who couldn’t believe it
-                                was written by an AI. is worth every Yaley and then some!</p>
                         </div>
                     </div><!-- END ARTI SINGLE  -->
                 </div><!-- END COL-->

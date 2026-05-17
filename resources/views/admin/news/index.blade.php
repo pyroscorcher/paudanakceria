@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }} type="image/x-icon" />
     <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
-    <title>Admin Dashboard - Galeri</title>
+    <title>News - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -75,7 +75,7 @@
                                     <form action="{{ route('news.showUpdate', $new->id) }}" method="GET">
                                         @csrf
                                         <button type="submit"
-                                            class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">
+                                            class="bg-[#009CE0] text-white px-3 py-1 rounded hover:bg-[#007bb5] transition">
                                             Update
                                         </button>
                                     </form>

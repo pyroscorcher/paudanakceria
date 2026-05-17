@@ -8,7 +8,7 @@
         <nav class="sidebar-nav">
             <ul>
                 <li class="nav-item">
-                    <a href="/user/dashboard">
+                    <a href="{{ route('user.dashboard') }}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/data_anak">
+                    <a href="{{ route('user.data_anak') }}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/data_orangtua">
+                    <a href="{{ route('user.data_orangtua') }}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/data_periodik">
+                    <a href="{{ route('user.data_periodik') }}">
                         <span class="icon">
                             <!-- Ruler Icon -->
                             <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +77,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/user/data_prestasi">
+                    <a href="{{ route('user.data_prestasi') }}">
                         <span class="icon">
                             <!-- Trophy / Achievement Icon -->
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/upload_dokumen">
+                    <a href="{{ route('user.upload_dokumen') }}">
                         <span class="icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +109,8 @@
                         <span class="text">Upload Dokumen</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('user.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <li class="nav-item logout-btn">
+                    <a href="{{ route('user.logout') }}" onclick="event.preventDefault(); confirmLogout();">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -127,7 +127,8 @@
                         <span class="text">Keluar</span>
                     </a>
 
-                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST"
+                        style="display: none;">
                         @csrf
                     </form>
                 </li>

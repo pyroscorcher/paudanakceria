@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }} type="image/x-icon" />
     <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
-    <title>Admin Dashboard - Enrollment System</title>
+    <title>Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -70,18 +70,25 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#009CE0]">
                         <h3 class="text-gray-500 text-sm font-semibold uppercase tracking-wider">Total Pendaftaran</h3>
                         <p class="text-3xl font-bold text-gray-800 mt-2">{{ $enrollments->total() }}</p>
                     </div>
                     <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
                         <h3 class="text-gray-500 text-sm font-semibold uppercase tracking-wider">Perlu Review</h3>
-                        <p class="text-3xl font-bold text-gray-800 mt-2">--</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">
+                            {{ $enrollments->where('status', 'Menunggu')->count() }}</p>
                     </div>
                     <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
                         <h3 class="text-gray-500 text-sm font-semibold uppercase tracking-wider">Diterima</h3>
-                        <p class="text-3xl font-bold text-gray-800 mt-2">--</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">
+                            {{ $enrollments->where('status', 'Diterima')->count() }}</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+                        <h3 class="text-gray-500 text-sm font-semibold uppercase tracking-wider">Ditolak</h3>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">
+                            {{ $enrollments->where('status', 'Ditolak')->count() }}</p>
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboard\DataAnakController;
 use App\Http\Controllers\UserDashboard\DataOrangtuaController;
-use App\Http\Controllers\UserDashboard\DataPeriodikController; 
+use App\Http\Controllers\UserDashboard\DataPeriodikController;
 use App\Http\Controllers\UserDashboard\DataPrestasiController;
 
 Route::get('/', function () {
@@ -26,7 +26,7 @@ Route::get('/daftar', [EnrollmentController::class, 'create'])->name('pendaftara
 Route::post('/daftar', [EnrollmentController::class, 'store'])->name('pendaftaran.store');
 
 // Admin dashboard routes
-Route::middleware(['auth:admin'])->group(function () {
+Route::middleware(['auth:admins'])->group(function () {
     Route::get('/admin', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
     Route::get('/admin/enrollment/{id}', [AdminDashboardController::class, 'show'])->name('admin.enrollment.show');
@@ -74,15 +74,15 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 Route::middleware(['auth'])->group(function () {
     // Core Dashboard
     Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
-    
+
     // Data Anak (Using your new dedicated controller)
     Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');
     Route::put('/user/data_anak', [DataAnakController::class, 'update'])->name('user.data_anak.update'); // Removed {id} for security
-    
+
     // Data Orangtua
     Route::get('/user/data_orangtua', [DataOrangtuaController::class, 'index'])->name('user.data_orangtua');
     Route::put('/user/data_orangtua', [DataOrangtuaController::class, 'update'])->name('user.data_orangtua.update');
-    
+
     // Data Periodik
     Route::get('/user/data_periodik', [DataPeriodikController::class, 'index'])->name('user.data_periodik');
     Route::put('/user/data_periodik', [DataPeriodikController::class, 'update'])->name('user.data_periodik.update');
@@ -94,10 +94,10 @@ Route::middleware(['auth'])->group(function () {
     // Documents & Profile
     Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
     Route::get('/user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
-    
+
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
-    
+
     Route::get('/user/change-password', [UserController::class, 'ShowChangePassword'])->name('user.change-password');
     Route::post('/user/change-password', [UserController::class, 'ChangePassword'])->name('user.change-password.update');
 

@@ -1,97 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Application #{{ $enrollment->id }}</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }} type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
+    <title>Review Pendaftaran {{ $enrollment->id }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ========== All CSS files linkup ========= -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/lineicons.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/materialdesignicons.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <nav class="bg-blue-800 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-xl tracking-wider">🎓 PPDB Admin Portal</span>
+    <header class="header">
+        <div class="container-fluid px-4">
+            <div class="row flex items-center">
+                <!-- Left Section -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="header-left">
+                        <span class="font-bold text-xl tracking-wider">Halaman Review</span>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <a href="{{ route('admin.dashboard') }}" class="text-white hover:text-blue-200">&larr; Back to Dashboard</a>
+
+                <!-- Right Section -->
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="header-right flex items-center justify-end space-x-4">
+                        <span>{{ Auth::guard('admins')->user()->nama_admin ?? 'Admin' }}</span>
+                        <button type="submit" class="main-btn">
+                            <a href="{{ route('admin.dashboard') }}">Kembali ke Dashboard</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        @if(session('success'))
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        @if (session('success'))
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
                 <p>{{ session('success') }}</p>
             </div>
         @endif
 
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <div class="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
-                <div>
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Application Information</h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application status.</p>
-                </div>
-                <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full 
+        <!-- Header Section -->
+        <div class="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Header -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h1 class="text-3xl font-bold text-gray-900">Review Pendaftar {{ $enrollment->nama }}</h1>
+                        <span
+                            class="px-4 py-2 inline-flex text-sm leading-5 font-semibold rounded-full
                     {{ $enrollment->status === 'Diterima' ? 'bg-green-100 text-green-800' : '' }}
                     {{ $enrollment->status === 'Ditolak' ? 'bg-red-100 text-red-800' : '' }}
                     {{ $enrollment->status === 'Menunggu' ? 'bg-yellow-100 text-yellow-800' : '' }}">
-                    {{ $enrollment->status }}
-                </span>
-            </div>
+                            {{ $enrollment->status }}
+                        </span>
+                    </div>
+                    <p class="text-gray-600">Halaman melakukan review terhadap data pendaftar sebelum menerima murid</p>
+                </div>
 
-            <div class="border-t border-gray-200">
-                <dl>
-                    <div class="bg-gray-50 px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Full name</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->nama }}</dd>
-                    </div>
-                    <div class="bg-white px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">NISN</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->nisn }}</dd>
-                    </div>
-                    <div class="bg-gray-50 px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Gender</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan' }}</dd>
-                    </div>
-                    <div class="bg-white px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Place & Date of Birth</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->tempat_lahir }}, {{ $enrollment->tanggal_lahir->format('d F Y') }}</dd>
-                    </div>
-                    <div class="bg-gray-50 px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Parent's Name</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->nama_orangtua }}</dd>
-                    </div>
-                    <div class="bg-white px-6 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm font-medium text-gray-500">Account Email</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $enrollment->user->email ?? 'N/A' }}</dd>
-                    </div>
-                </dl>
-            </div>
+                <!-- Main Review Stepper Container -->
+                <div class="flex flex-col lg:flex-row gap-6">
 
-            <div class="bg-gray-50 px-6 py-5 border-t border-gray-200">
-                <h4 class="text-sm font-medium text-gray-900 mb-4">Admin Actions</h4>
-                
-                <form action="{{ route('admin.enrollment.update-status', $enrollment->id) }}" method="POST" class="flex items-center space-x-4">
-                    @csrf
-                    @method('PATCH')
-                    
-                    <select name="status" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
-                        <option value="Menunggu" {{ $enrollment->status === 'Menunggu' ? 'selected' : '' }}>Pending</option>
-                        <option value="Diterima" {{ $enrollment->status === 'Diterima' ? 'selected' : '' }}>Accepted</option>
-                        <option value="Ditolak" {{ $enrollment->status === 'Ditolak' ? 'selected' : '' }}>Rejected</option>
-                    </select>
+                    <!-- Desktop Vertical Stepper (Hidden on mobile) -->
+                    <div class="hidden lg:block lg:w-64 flex-shrink-0">
+                        <nav class="space-y-4 sticky top-8" id="desktop-stepper">
+                            <!-- Steps will be generated by JavaScript -->
+                        </nav>
+                    </div>
 
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        Update Status
-                    </button>
-                </form>
+                    <!-- Mobile Horizontal Stepper (Visible on mobile) -->
+                    <div class="lg:hidden mb-6">
+                        <div class="flex overflow-x-auto gap-2 pb-2" id="mobile-stepper">
+                            <!-- Steps will be generated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Review Content -->
+                    <div class="flex-1">
+
+                        <!-- Step 1: Data Anak -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="1">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Data Anak</h3>
+                                <p class="mt-1 text-sm text-gray-100">Informasi pribadi calon murid</p>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nama Lengkap</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->nama }}</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">NISN</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->nisn }}</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">NIS</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->nis ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Jenis Kelamin</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Tempat Lahir</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->tempat_lahir }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Tanggal Lahir</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ \Carbon\Carbon::parse($enrollment->tanggal_lahir)->locale('id')->translatedFormat('d F Y') }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">NIS</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->nis ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nomor Seri Ijazah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->nomorseriijazah ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nomor Seri Ijazah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->nomorseriskhun ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nomor Seri Ijazah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->nomorseriun ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">NIK</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->nik ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">NPSN</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->npsn ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Asal Sekolah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->asal_sekolah ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Agama</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ $enrollment->agama ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Kebutuhan Khusus</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->kebutuhankhusus ?? 'Tidak Ada' }}</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg md:col-span-2">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Alamat Rumah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->alamat_rumah ?? '-' }}</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nomor Telepon</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->telp ?? '-' }}
+                                        </p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Email Pribadi</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->email_pribadi ?? '-' }}</p>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Transportasi</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->transportasi ?? '-' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Data Orang Tua (with tabs) -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="2">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Data Orang Tua</h3>
+                                <p class="mt-1 text-sm text-gray-100">Informasi orang tua/wali calon murid</p>
+                            </div>
+
+                            <!-- Tabs Navigation -->
+                            <div class="border-b border-gray-200 bg-gray-50">
+                                <div class="flex flex-wrap">
+                                    <button type="button"
+                                        class="parent-tab flex-1 min-w-fit py-4 px-6 text-center font-medium border-b-2 border-transparent hover:border-[#009ce01a] focus:outline-none transition"
+                                        data-tab="ayah">
+                                        Ayah
+                                    </button>
+                                    <button type="button"
+                                        class="parent-tab flex-1 min-w-fit py-4 px-6 text-center font-medium border-b-2 border-transparent hover:border-[#009ce01a] focus:outline-none transition"
+                                        data-tab="ibu">
+                                        Ibu
+                                    </button>
+                                    <button type="button"
+                                        class="parent-tab flex-1 min-w-fit py-4 px-6 text-center font-medium border-b-2 border-transparent hover:border-[#009ce01a] focus:outline-none transition"
+                                        data-tab="wali">
+                                        Wali
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <!-- Ayah Tab -->
+                                <div class="parent-tab-content hidden" id="ayah-tab">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Nama Ayah</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->nama_ayah ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pendidikan Ayah</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $orangtuas->pendidikan_ayah ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pekerjaan Ayah</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $orangtuas->pekerjaan_ayah ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Telepon Ayah</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $orangtuas->telp_ayah ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Penghasilan Ayah</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $orangtuas->penghasilan_ayah ?? '-' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ibu Tab -->
+                                <div class="parent-tab-content hidden" id="ibu-tab">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Nama Ibu</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->nama_ibu ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pendidikan Ibu</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->pendidikan_ibu ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pekerjaan Ibu</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->pekerjaan_ibu ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Telepon Ibu</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->telp_ibu ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Penghasilan Ibu</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->penghasilan_ibu ?? '-' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Wali Tab -->
+                                <div class="parent-tab-content hidden" id="wali-tab">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Nama Wali</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->nama_wali ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pendidikan Wali</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->pendidikan_wali ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Pekerjaan Wali</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->pekerjaan_wali ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Telepon Wali</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->telp_wali ?? '-' }}</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-4 rounded-lg">
+                                            <p class="text-xs font-medium text-gray-600 mb-1">Penghasilan Wali</p>
+                                            <p class="text-sm font-semibold text-gray-900">
+                                                {{ $enrollment->penghasilan_wali ?? '-' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Data Prestasi -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="3">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Data Prestasi</h3>
+                                <p class="mt-1 text-sm text-gray-100">Data prestasi atau penghargaan calon murid</p>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Jenis Prestasi</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->jenis ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Tingkat</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->tingkat ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Nama</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->nama ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Tahun</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->tahun ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Penyelenggara</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->penyelenggara ?? '-' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Data Periodik -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="4">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Data Periodik</h3>
+                                <p class="mt-1 text-sm text-gray-100">Informasi tambahan
+                                </p>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Tinggi Badan</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->tinggi_badan ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Berat Badan</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->berat_badan ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Jarak ke Sekolah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->jarak ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Wawktu ke Sekolah</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->waktu ?? '-' }}</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <p class="text-xs font-medium text-gray-600 mb-1">Jumlah Saudara</p>
+                                        <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->jumlahsaudara ?? '-' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Upload Documents -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="5">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Dokumen</h3>
+                                <p class="mt-1 text-sm text-gray-100">Dokumen pendukung yang diajukan dalam pendaftaran
+                                </p>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    @if ($enrollment->documents && count($enrollment->documents) > 0)
+                                        @foreach ($enrollment->documents as $doc)
+                                            <div
+                                                class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition bg-gray-50">
+                                                <div class="flex items-start">
+                                                    <div class="flex-shrink-0">
+                                                        <svg class="h-8 w-8 text-blue-500" fill="currentColor"
+                                                            viewBox="0 0 20 20">
+                                                            <path
+                                                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="ml-3 flex-1">
+                                                        <p class="text-sm font-medium text-gray-900">
+                                                            {{ $doc->nama_dokumen }}</p>
+                                                        <p class="mt-1 text-xs text-gray-500">
+                                                            Uploaded:
+                                                            {{ \Carbon\Carbon::parse($doc->created_at)->format('d M Y') }}
+                                                        </p>
+                                                        <a href="{{ asset('storage/' . $doc->file_path) }}"
+                                                            target="_blank"
+                                                            class="mt-2 inline-flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium">
+                                                            Download <span class="ml-1">→</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="col-span-full py-12 text-center">
+                                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor"
+                                                fill="none" viewBox="0 0 48 48">
+                                                <path d="M28 8H12a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V20l-8-12z"
+                                                    stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="mt-2 text-sm text-gray-600">Dokumen belum tersedia</p>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Admin Actions -->
+                        <div class="review-step-container bg-white shadow rounded-lg overflow-hidden hidden"
+                            data-step="6">
+                            <div class="px-6 py-5 border-b border-gray-200 bg-[#009CE0]">
+                                <h3 class="text-lg leading-6 font-medium text-white">Keputusan</h3>
+                                <p class="mt-1 text-sm text-gray-100">Berikan keputusan dan mengubah status verifikasi
+                                    pendaftaran</p>
+                            </div>
+
+                            <div class="px-6 py-6">
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5"
+                                            fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <p class="text-sm text-blue-800">Pastikan semua informasi data dalam melakukan
+                                            review sudah semua dan sesuai permintaan serta syarat.</p>
+                                    </div>
+                                </div>
+
+                                <form action="{{ route('admin.enrollment.update-status', $enrollment->id) }}"
+                                    method="POST" class="space-y-4">
+                                    @csrf
+                                    @method('PATCH')
+
+                                    <div>
+                                        <label for="status"
+                                            class="block text-sm font-medium text-gray-700 mb-3">Mentapkan
+                                            Status</label>
+                                        <select name="status" id="status"
+                                            class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009CE0] focus:border-transparent">
+                                            <option value="Menunggu"
+                                                {{ $enrollment->status === 'Menunggu' ? 'selected' : '' }}>⏳ Menunggu
+                                            </option>
+                                            <option value="Diterima"
+                                                {{ $enrollment->status === 'Diterima' ? 'selected' : '' }}>✅ Diterima
+                                            </option>
+                                            <option value="Ditolak"
+                                                {{ $enrollment->status === 'Ditolak' ? 'selected' : '' }}>❌ Ditolak
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit"
+                                        class="w-full inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-[#009CE0] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                                        Memperbarui Status
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Sticky Bottom Navigation -->
+                <div class=" hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                        <div class="flex justify-between items-center">
+                            <button type="button" id="prevBtn"
+                                class="hidden px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
+                                ← Back
+                            </button>
+                            <div class="hidden lg:block text-sm text-gray-600">
+                                Step <span id="current-step">1</span> of 6
+                            </div>
+                            <button type="button" id="nextBtn"
+                                class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
+                                Next →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add bottom padding to account for fixed button -->
+                <div class="h-24"></div>
+
             </div>
         </div>
-    </main>
 
+    </main>
+    <style>
+        .review-step-container {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-active {
+            @apply border-l-4 border-[#009CE0] bg-[#009CE01a];
+            background-color: #009CE0;
+            color: #fff
+        }
+
+        .stepper-mobile-active {
+            @apply border-b-2 border-[#009CE0] text-[#009CE0];
+        }
+
+        .parent-tab.active {
+            @apply border-b-2 border-[#009CE0] text-[#009CE0] bg-white;
+            border-color: #009CE0;
+            color: #009CE0;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const STEPS = 6;
+            let currentStep = 1;
+
+            const steps = [{
+                    id: 1,
+                    name: 'Data Anak',
+                    icon: '<i class="fas fa-user"></i>'
+                },
+                {
+                    id: 2,
+                    name: 'Data Orang Tua',
+                    icon: '<i class="fas fa-people-roof"></i>'
+                },
+                {
+                    id: 3,
+                    name: 'Data Prestasi',
+                    icon: '<i class="fas fa-trophy"></i>'
+                },
+                {
+                    id: 4,
+                    name: 'Data Periodik',
+                    icon: '<i class="fas fa-chart-bar"></i>'
+                },
+                {
+                    id: 5,
+                    name: 'Dokumen',
+                    icon: '<i class="fas fa-file"></i>'
+                },
+                {
+                    id: 6,
+                    name: 'Keputusan',
+                    icon: '<i class="fas fa-check-circle"></i>'
+                }
+            ];
+
+            function initSteppers() {
+                const desktopStepper = document.getElementById('desktop-stepper');
+                const mobileStepper = document.getElementById('mobile-stepper');
+
+                steps.forEach(step => {
+                    // Desktop vertical stepper
+                    const desktopStep = document.createElement('button');
+                    desktopStep.type = 'button';
+                    desktopStep.className =
+                        `stepper-btn w-full text-left px-4 py-3 rounded-lg transition ${step.id === 1 ? 'step-active' : 'hover:bg-[#009ce01a]'}`;
+                    desktopStep.setAttribute('data-step', step.id);
+                    desktopStep.innerHTML = `
+                                        <div class="flex items-center gap-3">
+                                            <span class="flex items-center justify-center text-lg w-5 h-5">
+                                                ${step.icon}
+                                            </span>
+                                            <span>${step.name}</span>
+                                        </div>
+                                    `;
+                    desktopStep.addEventListener('click', () => goToStep(step.id));
+                    desktopStepper.appendChild(desktopStep);
+
+                    // Mobile horizontal stepper
+                    const mobileStep = document.createElement('button');
+                    mobileStep.type = 'button';
+                    mobileStep.className =
+                        `stepper-btn-mobile flex-shrink-0 py-2 px-3 border-b-2 border-gray-300 transition text-sm whitespace-nowrap ${step.id === 1 ? 'stepper-mobile-active text-[#009CE0]' : 'text-gray-600'}`;
+                    mobileStep.setAttribute('data-step', step.id);
+                    mobileStep.innerHTML = `${step.icon}`;
+                    mobileStep.addEventListener('click', () => goToStep(step.id));
+                    mobileStepper.appendChild(mobileStep);
+                });
+            }
+
+            function showStep(stepNum) {
+                // Hide all steps
+                document.querySelectorAll('.review-step-container').forEach(el => el.classList.add('hidden'));
+
+                // Show current step
+                const currentContainer = document.querySelector(`.review-step-container[data-step="${stepNum}"]`);
+                if (currentContainer) {
+                    currentContainer.classList.remove('hidden');
+                }
+
+                // Update stepper buttons
+                document.querySelectorAll('.stepper-btn').forEach(btn => {
+                    btn.classList.remove('step-active');
+                    btn.classList.add('hover:bg-[#009ce01a]');
+                    if (parseInt(btn.getAttribute('data-step')) === stepNum) {
+                        btn.classList.add('step-active');
+                        btn.classList.remove('hover:bg-[#009ce01a]');
+                    }
+                });
+
+                document.querySelectorAll('.stepper-btn-mobile').forEach(btn => {
+                    btn.classList.remove('stepper-mobile-active', 'text-blue-600');
+                    btn.classList.add('text-gray-600', 'border-gray-300');
+                    if (parseInt(btn.getAttribute('data-step')) === stepNum) {
+                        btn.classList.add('stepper-mobile-active', 'text-blue-600');
+                        btn.classList.remove('text-gray-600', 'border-gray-300');
+                    }
+                });
+
+                // Update current step display
+                document.getElementById('current-step').textContent = stepNum;
+
+                // Update button visibility
+                document.getElementById('prevBtn').classList.toggle('hidden', stepNum === 1);
+                document.getElementById('nextBtn').textContent = stepNum === STEPS ? 'Done ✓' : 'Next →';
+
+                // Handle step 2 first tab
+                if (stepNum === 2) {
+                    const firstTab = document.querySelector('.parent-tab[data-tab="ayah"]');
+                    if (firstTab) {
+                        openParentTab('ayah');
+                    }
+                }
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            function goToStep(stepNum) {
+                currentStep = stepNum;
+                showStep(stepNum);
+            }
+
+            function openParentTab(tabName) {
+                // Hide all tabs
+                document.querySelectorAll('.parent-tab-content').forEach(el => el.classList.add('hidden'));
+
+                // Remove active from all buttons
+                document.querySelectorAll('.parent-tab').forEach(btn => {
+                    btn.classList.remove('active', 'border-blue-600', 'text-blue-600', 'bg-white');
+                    btn.classList.add('border-transparent', 'text-gray-700');
+                });
+
+                // Show selected tab
+                const tabContent = document.getElementById(`${tabName}-tab`);
+                if (tabContent) {
+                    tabContent.classList.remove('hidden');
+                }
+
+                // Set active button
+                const activeBtn = document.querySelector(`.parent-tab[data-tab="${tabName}"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active', 'border-blue-600', 'text-blue-600', 'bg-white');
+                    activeBtn.classList.remove('border-transparent', 'text-gray-700');
+                }
+            }
+
+            // Attach parent tab listeners
+            document.querySelectorAll('.parent-tab').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openParentTab(btn.getAttribute('data-tab'));
+                });
+            });
+
+            // Navigation buttons
+            document.getElementById('nextBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentStep < STEPS) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+
+            document.getElementById('prevBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+
+            // Initialize
+            initSteppers();
+            showStep(1);
+        });
+    </script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dynamic-pie-chart.js') }}"></script>
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/fullcalendar.js') }}"></script>
+    <script src="{{ asset('assets/js/jvectormap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/world-merc.js') }}"></script>
+    <script src="{{ asset('assets/js/polyfill.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
+
 </html>

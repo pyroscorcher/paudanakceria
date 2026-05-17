@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }} type="image/x-icon" />
     <link rel="icon" type="image/x-icon" href="{{ asset('images/all-img/logo-paudanakceria.png') }}">
-    <title>Admin Dashboard - Galeri</title>
+    <title>Galeri - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
