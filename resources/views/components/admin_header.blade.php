@@ -22,7 +22,7 @@
                                     @csrf
                                     <div>
                                     <button type="submit" class="main-btn btn-hover">
-                                        Logout
+                                        Keluar
                                     </button>
                                     </div>
                                 </form>

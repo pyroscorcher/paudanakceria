@@ -59,7 +59,8 @@
                     <div class="row align-items-center">
                         <div class="col-lg-8">
                             <div class="welcome-content">
-                                <h3 class="mb-2">Selamat Datang, Orang Tua/Wali 👋</h3>
+                                <h3 class="mb-2">Selamat Datang, Orang Tua/Wali {{ Auth::user()->name ?? 'User' }}👋
+                                </h3>
                                 <p class="text-medium">
                                     Pantau informasi pendaftaran, perkembangan data siswa,
                                     serta pengumuman terbaru melalui dashboard ini.
@@ -79,23 +80,8 @@
 
                 <!-- ========== Info Cards ========== -->
                 <div class="row">
-
-                    <!-- Status -->
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card-style mb-30">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h6>Status Pendaftaran</h6>
-                                <span class="badge bg-success">Aktif</span>
-                            </div>
-
-                            <p class="text-medium">
-                                Data pendaftaran telah berhasil dikirim dan sedang dalam proses verifikasi.
-                            </p>
-                        </div>
-                    </div>
-
                     <!-- Pengumuman -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-6 col-md-6">
                         <div class="card-style mb-30">
                             <h6 class="mb-3">Pengumuman</h6>
 
@@ -112,25 +98,53 @@
                     </div>
 
                     <!-- Informasi Anak -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-6 col-md-6">
                         <div class="card-style mb-30">
                             <h6 class="mb-3">Data Siswa</h6>
-
-                            <div class="mb-2">
-                                <strong>Nama:</strong> -
-                            </div>
-
-                            <div class="mb-2">
-                                <strong>NISN:</strong> -
-                            </div>
-
-                            <div class="mb-2">
-                                <strong>Status:</strong>
-                                <span class="text-success">Terverifikasi</span>
-                            </div>
+                            <table class="table table-sm table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold py-1" style="width: 150px;">
+                                            Nama
+                                        </td>
+                                        <td class="py-1">
+                                            : {{ Auth::user()->name ?? 'User' }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold py-1">
+                                            NISN
+                                        </td>
+                                        <td class="py-1">
+                                            : {{ Auth::user()->nisn ?? '-' }}
+                                        </td>
+                                    </tr>
+                                    @foreach ($enrollments as $enrollment)
+                                        <tr>
+                                            <td class="fw-bold py-1">
+                                                Status Verifikasi
+                                            </td>
+                                            <td class="py-1">
+                                                @if ($enrollment->status == 'Diterima')
+                                                    <span class="badge bg-success">
+                                                        Diterima
+                                                    </span>
+                                                @elseif($enrollment->status == 'Menunggu')
+                                                    <span class="badge bg-warning text-dark">
+                                                        Menunggu
+                                                    </span>
+                                                @elseif($enrollment->status == 'Ditolak')
+                                                    <span class="badge bg-danger">
+                                                        Ditolak
+                                                    </span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
                 </div>
                 <!-- ========== End Info Cards ========== -->
 
@@ -139,15 +153,15 @@
                 <div class="card-style mb-30">
                     <h5 class="mb-25">Progress Pendaftaran</h5>
 
-                    <div class="row text-center">
+                    <div class="row text-center d-flex">
 
                         <div class="col">
                             <div class="border rounded p-3">
                                 <h6>1</h6>
                                 <p class="text-sm">Isi Formulir</p>
                                 <ol class="custom-bar">
-                                    <li class="is-complete"><span>Data Anak</span></li>
-                                    <li class="is-active"><span>Data Orang Tua</span></li>
+                                    <li class="is-active"><span>Data Anak</span></li>
+                                    <li><span>Data Orang Tua</span></li>
                                     <li><span>Data Periodik</span></li>
                                     <li><span>Data Prestasi</span></li>
                                 </ol>
@@ -158,9 +172,15 @@
                             <div class="border rounded p-3">
                                 <h6>2</h6>
                                 <p class="text-sm">Upload Dokumen</p>
-                                <ol class="custom-bar">
-                                    <li class="is-active"><span>Belum</span></li>
-                                    <li class=""><span>Sudah</span></li>
+
+                                <ol class="custom-bar two-step">
+                                    <li class="is-active">
+                                        <span>Belum</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Sudah</span>
+                                    </li>
                                 </ol>
                             </div>
                         </div>
@@ -169,6 +189,15 @@
                             <div class="border rounded p-3">
                                 <h6>3</h6>
                                 <p class="text-sm">Verifikasi</p>
+                                <ol class="custom-bar two-step">
+                                    <li class="is-active">
+                                        <span>Belum</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Sudah</span>
+                                    </li>
+                                </ol>
                             </div>
                         </div>
 
@@ -218,6 +247,27 @@
     <script src="{{ asset('assets/js/world-merc.js') }}"></script>
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function confirmLogout() {
+
+            Swal.fire({
+                title: 'Keluar?',
+                text: 'Anda yakin ingin keluar dashboard?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Keluar',
+                confirmButtonColor: '#009CE0',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
 
 </body>
 

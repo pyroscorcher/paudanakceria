@@ -309,6 +309,65 @@ p {
     background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%208%208%22%3E%3Cpath%20fill%3D%22%23ed1c24%22%20d%3D%22M4%200l4%208H0z%22%2F%3E%3C%2Fsvg%3E');
 }
 
+/* SPECIAL VERSION FOR ONLY 2 ITEMS */
+/* TWO STEP VERSION */
+.custom-bar.two-step {
+    justify-content: center;
+    gap: 100px;
+    position: relative;
+}
+
+/* SINGLE CONNECTED LINE */
+.custom-bar.two-step::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    border-bottom: 2px solid grey;
+    z-index: 1;
+}
+
+/* ACTIVE / COMPLETE LINE */
+.custom-bar.two-step.has-progress::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    border-bottom: 2px solid green;
+    z-index: 2;
+}
+
+.custom-bar.two-step li {
+    flex: unset;
+    width: auto;
+    border-bottom: none;
+    position: relative;
+    z-index: 3;
+    text-align: center !important;
+}
+
+/* DOT POSITION */
+.custom-bar.two-step li:before {
+    left: calc(50% - 5px) !important;
+    right: auto !important;
+}
+
+/* REMOVE OLD PROGRESS SYSTEM */
+.custom-bar.two-step .is-complete:not(:first-child):after,
+.custom-bar.two-step .is-active:not(:first-child):after {
+    display: none;
+}
+
+/* FIX LAST TEXT */
+.custom-bar.two-step li:last-child span {
+    width: auto;
+    position: static;
+}
+
 .error-box {
     max-width: 330px;
     margin: 65px auto;
@@ -4621,6 +4680,58 @@ only screen and (min-width: 768px) and (max-width: 991px),
 .sidebar-nav-wrapper.style-2 .sidebar-nav ul .nav-item.nav-item-has-children ul li a:hover span.pro-badge {
     background: #fff;
     color: #009CE0;
+}
+
+/* ===== ADMIN SIDEBAR ===== */
+
+/* ===== ADMIN SIDEBAR ===== */
+
+.sidebar-nav {
+    padding: 0 12px;
+}
+
+.sidebar-nav .admin-nav-item {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav .admin-nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 11px 14px;
+
+    border-radius: 12px;
+
+    color: #5d657b;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+/* ICON */
+.sidebar-nav .admin-nav-item a .icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: currentColor;
+    transition: all 0.25s ease;
+}
+
+/* HOVER */
+.sidebar-nav .admin-nav-item:hover a {
+    background: rgba(0, 156, 224, 0.10);
+    color: #009CE0;
+}
+
+/* ACTIVE */
+.sidebar-nav .admin-nav-item.active a {
+    background: #009CE0;
+    color: #fff;
+
+    box-shadow: 0 6px 16px rgba(0, 156, 224, 0.18);
 }
 
 .overlay {

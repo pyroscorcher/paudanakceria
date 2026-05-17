@@ -54,7 +54,7 @@
     @include('components.navbar', ['navbar' => $navbar])
 	<!-- END NAVBAR -->
 
-	<!-- START SECTION TOP -->
+	{{-- <!-- START SECTION TOP -->
 	<section class="section-top">
 		<div class="container">
 			<div class="col-lg-10 offset-lg-1 text-center">
@@ -66,7 +66,7 @@
 		</div><!--- END CONTAINER -->
 	</section>
 	<!-- END SECTION TOP -->
-	</div><!-- END  TOP HEADER CLASS -->
+	</div><!-- END  TOP HEADER CLASS --> --}}
 
 
 	<!-- START LOGIN AND REGISTER -->
@@ -75,7 +75,7 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 col-xs-12">
                     <div class="register">
-                        <h4 class="login_register_title">Formulir Pendaftaran Sekolah</h4>
+                        <h4 class="login_register_title">Formulir Pendaftaran PAUD Anak Ceria</h4>
                         <form action="{{ route('pendaftaran.store') }}" method="POST">
                             @csrf
                             <div class="row">

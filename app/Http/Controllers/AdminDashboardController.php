@@ -15,7 +15,8 @@ class AdminDashboardController extends Controller
 
         return view('admin.dashboard', [
             'admin_navbar' => 'My Menu',
-            'admin_header' => 'Header'],
+            'admin_header' => 'Header',
+            'enrollments' => $enrollments],
             compact('enrollments'));
     }
 
@@ -43,6 +44,8 @@ class AdminDashboardController extends Controller
     {
         $enrollment = Pendaftaran::with('user')->findOrFail($id);
 
-        return view('admin.show', compact('enrollment'));
+        return view('admin.show', [
+            'admin_header' => 'Header',
+        ], compact('enrollment'));
     }
 }

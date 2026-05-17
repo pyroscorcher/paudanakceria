@@ -276,39 +276,49 @@
                 <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
                     data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
-                        <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
-                            alt="image" />
+                        <div class="single_blog_img">
+                            <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
+                                alt="image" />
+                        </div>
                         <div class="content_box">
                             <h2><a href="/user/news">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
                             <p>Anak-anak PAUD Anak Ceria mengikuti kegiatan mewarnai bersama di kelas. Melalui aktivitas
                                 ini, anak-anak belajar mengenal warna, melatih motorik halus, serta mengekspresikan
                                 imajinasi mereka dengan cara yang menyenangkan. Suasana kelas penuh dengan keceriaan dan
-                                kreativitas.</p>
+                                kreativitas.
+                            </p>
+                            <p>12 Mei 2026</p>
                         </div>
                     </div>
                 </div><!-- END COL-->
                 <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
                     data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
+                        <div class="single_blog_img">
                         <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid" alt="image" />
+                        </div>
                         <div class="content_box">
                             <h2><a href="/user/news">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
                             <p>Dalam kegiatan pembelajaran minggu ini, anak-anak diajak menanam tanaman di halaman
                                 sekolah. Anak-anak belajar mengenal bagian tanaman, cara merawatnya, serta pentingnya
                                 menjaga lingkungan. Kegiatan ini membantu anak belajar sambil bermain di alam terbuka.
                             </p>
+                            <p>5 Mei 2026</p>
                         </div>
                     </div>
                 </div><!-- END COL-->
                 <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
                     data-wow-delay="0.3s" data-wow-offset="0">
                     <div class="single_blog">
+                        <div class="single_blog_img">
                         <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid" alt="image" />
+                        </div>
                         <div class="content_box">
                             <h2><a href="/user/news">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
                             <p>PAUD Anak Ceria merayakan Hari Kartini dengan kegiatan mengenakan pakaian adat dan
                                 berbagai aktivitas seru. Anak-anak belajar mengenal budaya Indonesia sekaligus
                                 meningkatkan rasa percaya diri saat tampil di depan teman-temannya.</p>
+                            <p>3 Mei 2026</p>
                         </div><!--- END Col -->
                     </div>
                 </div>
@@ -317,6 +327,34 @@
         </div><!-- END CONTAINER  -->
     </section>
     <!-- END BLOG -->
+
+    <section id="gallery" class="gallery_area section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h1>Galeri Kegiatan</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
+                    data-wow-offset="0">
+                    <div class="single_gallery">
+                        <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="image" />
+                    </div>
+                </div><!-- END COL-->
+                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
+                    data-wow-offset="0">
+                    <div class="single_gallery">
+                        <img src="{{ asset('images/all-img/home-program2.png') }}" class="img-fluid" alt="image" />
+                    </div>
+                </div><!-- END COL-->
+                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
+                    data-wow-offset="0">
+                    <div class="single_gallery">
+                        <img src="{{ asset('images/all-img/home-program3.png') }}" class="img-fluid" alt="image" />
+                    </div>
+                </div><!-- END COL-->
+            </div><!-- END ROW -->
+        </div><!-- END CONTAINER -->
+        </section>>
 
 
 
