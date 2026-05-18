@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -39,10 +40,10 @@
                 <div class="max-w-7xl mx-auto mt-10 p-6">
 
                     <div class="flex justify-between items-center mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900">Photo Gallery</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Foto Galleri</h1>
                         <a href="{{ route('gallery.create') }}"
-                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                            + Upload New Photo
+                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition inline-flex items-center gap-2">
+                            <i class="bi bi-plus"></i>Upload Foto Baru
                         </a>
                     </div>
 
@@ -75,7 +76,7 @@
                         @empty
                             <div
                                 class="col-span-full text-center py-12 bg-white rounded-lg shadow-sm border border-gray-200">
-                                <p class="text-gray-500">No photos have been uploaded yet.</p>
+                                <p class="text-gray-500">Belum ada foto yang diunggah.</p>
                             </div>
                         @endforelse
                     </div>

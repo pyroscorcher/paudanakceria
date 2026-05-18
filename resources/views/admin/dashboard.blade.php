@@ -63,7 +63,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="title">
-                                <h2 class="text-2xl font-bold text-gray-900">🎓 PPDB Admin Portal</h2>
+                                <h2 class="text-2xl font-bold text-gray-900">PPDB Admin Portal</h2>
                                 <p class="text-gray-600">Portal manajemen pendaftaran murid PAUD Anak Ceria.</p>
                             </div>
                         </div>
@@ -174,8 +174,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-6 py-4 text-center text-gray-500">No applications
-                                            found.
+                                        <td colspan="5" class="px-6 py-4 text-center text-gray-500">Belum ada pendaftaran yang masuk.</td>
                                         </td>
                                     </tr>
                                 @endforelse

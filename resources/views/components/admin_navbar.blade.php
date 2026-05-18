@@ -1,11 +1,11 @@
-    <aside class="sidebar-nav-wrapper">
+    <aside class="sidebar-nav-wrapper sidebar-nav-wrapper-admin">
         <div class="navbar-logo">
             <a href="{{ route('admin.dashboard')}}">
                 <img style="width: 128px; justify-content: center;"
                     src="{{ asset('images/all-img/logo-paudanakceria.png') }}" alt="logo" />
             </a>
         </div>
-        <nav class="sidebar-nav">
+        <nav class="sidebar-nav sidebar-nav-admin">
             <ul>
                 <li class="admin-nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard')}}">

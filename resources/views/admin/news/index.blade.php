@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -39,10 +40,10 @@
                 <div class="max-w-7xl mx-auto mt-10 p-6">
 
                     <div class="flex justify-between items-center mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900">News</h1>
+                        <h1 class="text-3xl font-bold text-gray-900">Berita</h1>
                         <a href="{{ route('news.create') }}"
-                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                            + Create News
+                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition inline-flex items-center gap-2">
+                            <i class="bi bi-plus"></i>Buat Berita
                         </a>
                     </div>
 
@@ -62,7 +63,7 @@
                                     <p class="text-gray-700 text-sm">{{ Str::limit($new->content, 100) }}</p>
                                 </div>
                                 <div class="p-3 bg-gray-50 text-xs text-gray-500 text-center border-t border-gray-100">
-                                    Dibuat: {{ $new->created_at->format('M d, Y') }}
+                                    Dibuat: {{ $new->created_at->locale('id')->translatedFormat('d F Y') }}
                                 </div>
                                 <div class="p-3 bg-gray-100 text-center grid grid-cols-2 gap-2">
                                     <form action="{{ route('news.destroy', $new->id) }}" method="POST"
@@ -71,14 +72,14 @@
                                         @method('DELETE')
                                         <button type="submit"
                                             class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition">
-                                            Delete
+                                            Hapus
                                         </button>
                                     </form>
                                     <form action="{{ route('news.showUpdate', $new->id) }}" method="GET">
                                         @csrf
                                         <button type="submit"
                                             class="bg-[#009CE0] text-white px-3 py-1 rounded hover:bg-[#007bb5] transition">
-                                            Update
+                                            Perbarui
                                         </button>
                                     </form>
                                 </div>
@@ -86,7 +87,7 @@
                         @empty
                             <div
                                 class="col-span-full text-center py-12 bg-white rounded-lg shadow-sm border border-gray-200">
-                                <p class="text-gray-500">No news items have been created yet.</p>
+                                <p class="text-gray-500">Belum ada berita yang diunggah.</p>
                             </div>
                         @endforelse
                     </div>

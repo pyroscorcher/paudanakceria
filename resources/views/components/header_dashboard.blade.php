@@ -18,9 +18,9 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="profile-info">
                                         <div class="info">
-                                            <div class="image">
+                                            {{-- <div class="image">
                                                 <img src="assets/images/profile/profile-image.png" alt="" />
-                                            </div>
+                                            </div> --}}
                                             <div>
                                                 <h6 class="fw-500">{{ Auth::user()->name ?? 'User' }}</h6>
                                             </div>

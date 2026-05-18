@@ -58,7 +58,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 col-xs-12">
                     <div class="login">
-                        <h4 class="login_register_title">Login</h4>
+                        <h4 class="login_register_title">Masuk ke Dashboard Pendaftaran</h4>
 
                         <form action="{{ route('user.login.submit') }}" method="POST">
 

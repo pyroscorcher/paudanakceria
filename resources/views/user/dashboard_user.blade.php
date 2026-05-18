@@ -69,13 +69,192 @@
                         </div>
 
                         <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-                            <a href="#" class="main-btn primary-btn btn-hover">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="main-btn
+                                primary-btn btn-hover">
                                 Lihat Status Pendaftaran
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <!-- ========== End Welcome Card ========== -->
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Status Pendaftaran</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                @if ($enrollment)
+
+                                    {{-- STATUS HEADER --}}
+                                    <div class="text-center mb-4">
+
+                                        @if ($enrollment->status == 'Diterima')
+                                            <div class="mb-3">
+                                                <i class="fas fa-check-circle text-success fs-1"></i>
+                                            </div>
+
+                                            <span class="badge bg-success px-3 py-2 fs-6">
+                                                Diterima
+                                            </span>
+                                        @elseif($enrollment->status == 'Menunggu')
+                                            <div class="mb-3">
+                                                <i class="fas fa-clock text-warning fs-1"></i>
+                                            </div>
+
+                                            <span class="badge bg-warning text-dark px-3 py-2 fs-6">
+                                                Menunggu Verifikasi
+                                            </span>
+                                        @elseif($enrollment->status == 'Ditolak')
+                                            <div class="mb-3">
+                                                <i class="fas fa-times-circle text-danger fs-1"></i>
+                                            </div>
+
+                                            <span class="badge bg-danger px-3 py-2 fs-6">
+                                                Ditolak
+                                            </span>
+                                        @endif
+
+                                    </div>
+
+                                    {{-- TABLE --}}
+                                    <div class="table-responsive">
+
+                                        <table class="table table-borderless align-middle mb-4">
+
+                                            <tbody>
+
+                                                <tr>
+                                                    <td class="fw-bold text-nowrap" style="width: 180px;">
+                                                        Nama Anak
+                                                    </td>
+
+                                                    <td>
+                                                        : {{ Auth::user()->name ?? 'User' }}
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="fw-bold text-nowrap">
+                                                        NISN
+                                                    </td>
+
+                                                    <td>
+                                                        : {{ Auth::user()->nisn ?? '-' }}
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="fw-bold text-nowrap">
+                                                        Tanggal Pendaftaran
+                                                    </td>
+
+                                                    <td>
+                                                        : {{ $enrollment->created_at->locale('id')->translatedFormat('d F Y') }}
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="fw-bold text-nowrap">
+                                                        Status Saat Ini
+                                                    </td>
+
+                                                    <td>
+                                                        : <strong>{{ $enrollment->status }}</strong>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                    {{-- INFORMATION --}}
+                                    <div
+                                        class="alert bg-opacity-10 border-0 rounded-3 text-center mb-4"
+                                        style="background-color: #009CE0; color: #fff"
+                                        >
+
+                                        @if ($enrollment->status == 'Diterima')
+                                            <strong>Selamat!</strong>
+                                            Anak Anda telah diterima di PAUD Anak Ceria.
+                                            Silakan mengikuti proses daftar ulang dan informasi selanjutnya.
+                                        @elseif($enrollment->status == 'Menunggu')
+                                            Pendaftaran anak Anda sedang dalam proses verifikasi admin.
+                                            Pastikan seluruh dokumen telah lengkap.
+                                        @elseif($enrollment->status == 'Ditolak')
+                                            Mohon maaf, pendaftaran belum dapat diterima.
+                                            Silakan periksa kembali data dan dokumen yang telah diunggah.
+                                        @else
+                                            Silakan hubungi pihak sekolah untuk informasi lebih lanjut.
+                                        @endif
+
+                                    </div>
+
+                                    {{-- PROGRESS --}}
+                                    <div class="mt-4">
+
+                                        <h6 class="fw-bold mb-3">
+                                            Progress Pendaftaran
+                                        </h6>
+
+                                        <div class="progress" style="height: 10px;">
+
+                                            <div class="progress-bar
+                                                @if ($enrollment->status == 'Diterima') bg-success
+                                                @elseif($enrollment->status == 'Menunggu')
+                                                    bg-warning
+                                                @elseif($enrollment->status == 'Ditolak')
+                                                    bg-danger @endif
+                                            "
+                                                                            role="progressbar"
+                                                                            style="
+                                                    width:
+                                                    @if ($enrollment->status == 'Diterima') 100%
+                                                    @elseif($enrollment->status == 'Menunggu')
+                                                        60%
+                                                    @elseif($enrollment->status == 'Ditolak')
+                                                        100%
+                                                    @else
+                                                        30% @endif
+                                                ">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                @else
+                                    <div class="text-center py-4">
+
+                                        <i class="fas fa-folder-open text-secondary fs-1 mb-3"></i>
+
+                                        <h5 class="fw-bold">
+                                            Belum Ada Pendaftaran
+                                        </h5>
+
+                                        <p class="text-muted">
+                                            Anda belum melengkapi proses pendaftaran anak.
+                                            Silakan isi formulir dan unggah dokumen yang diperlukan.
+                                        </p>
+
+                                    </div>
+
+                                @endif
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                 <!-- ========== Info Cards ========== -->
@@ -131,7 +310,8 @@
                                     @else
                                         <tr>
                                             <td class="fw-bold py-1">Status Verifikasi</td>
-                                            <td class="py-1">: <span class="badge bg-secondary">Belum Melengkapi Pendaftaran</span></td>
+                                            <td class="py-1">: <span class="badge bg-secondary">Belum Melengkapi
+                                                    Pendaftaran</span></td>
                                         </tr>
                                     @endif
 
@@ -139,84 +319,86 @@
                             </table>
                         </div>
                     </div>
-                <!-- ========== End Info Cards ========== -->
+                    <!-- ========== End Info Cards ========== -->
 
 
-                <!-- ========== Timeline / Progress ========== -->
-                <div class="row">
-                    @php
-                        // Fetch the currently authenticated user and check their completion status
-                        // using the helper methods we added to the User model
-                        $user = Auth::user();
-                        
-                        $anakComplete       = $user->isDataAnakComplete();
-                        $ortuComplete       = $user->isDataOrangtuaComplete();
-                        $periodikComplete   = $user->isDataPeriodikComplete();
-                        $dokumenComplete    = $user->isDokumenComplete();
-                        $verifikasiComplete = $user->isVerifikasiComplete();
-                    @endphp
+                    <!-- ========== Timeline / Progress ========== -->
+                    <div class="row">
+                        @php
+                            // Fetch the currently authenticated user and check their completion status
+                            // using the helper methods we added to the User model
+                            $user = Auth::user();
 
-                    <!-- STEP 1: ISI FORMULIR -->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="border rounded p-4 bg-white shadow-sm h-100">
-                            <h6 class="text-primary mb-1">Langkah 1</h6>
-                            <p class="text-sm font-weight-bold mb-4">Isi Formulir Pendaftaran</p>
-                            
-                            <ol class="custom-bar">
-                                <li class="{{ $anakComplete ? 'is-complete' : 'is-active' }}">
-                                    <span>Data Anak</span>
-                                </li>
-                                <li class="{{ $ortuComplete ? 'is-complete' : ($anakComplete ? 'is-active' : '') }}">
-                                    <span>Data Orang Tua</span>
-                                </li>
-                                <li class="{{ $periodikComplete ? 'is-complete' : ($ortuComplete ? 'is-active' : '') }}">
-                                    <span>Data Periodik</span>
-                                </li>
-                                <li class="{{ $periodikComplete ? 'is-complete' : '' }}">
-                                    <span>Data Prestasi</span>
-                                </li>
-                            </ol>
+                            $anakComplete = $user->isDataAnakComplete();
+                            $ortuComplete = $user->isDataOrangtuaComplete();
+                            $periodikComplete = $user->isDataPeriodikComplete();
+                            $dokumenComplete = $user->isDokumenComplete();
+                            $verifikasiComplete = $user->isVerifikasiComplete();
+                        @endphp
+
+                        <!-- STEP 1: ISI FORMULIR -->
+                        <div class="col-lg-4 col-md-12 mb-4">
+                            <div class="border rounded p-4 bg-white shadow-sm h-100">
+                                <h6 class="text-primary mb-1">Langkah 1</h6>
+                                <p class="text-sm font-weight-bold mb-4">Isi Formulir Pendaftaran</p>
+
+                                <ol class="custom-bar">
+                                    <li class="{{ $anakComplete ? 'is-complete' : 'is-active' }}">
+                                        <span>Data Anak</span>
+                                    </li>
+                                    <li
+                                        class="{{ $ortuComplete ? 'is-complete' : ($anakComplete ? 'is-active' : '') }}">
+                                        <span>Data Orang Tua</span>
+                                    </li>
+                                    <li
+                                        class="{{ $periodikComplete ? 'is-complete' : ($ortuComplete ? 'is-active' : '') }}">
+                                        <span>Data Periodik</span>
+                                    </li>
+                                    <li class="{{ $periodikComplete ? 'is-complete' : '' }}">
+                                        <span>Data Prestasi</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: UPLOAD DOKUMEN -->
+                        <div class="col-lg-4 col-md-12 mb-4">
+                            <div class="border rounded p-4 bg-white shadow-sm h-100">
+                                <h6 class="text-primary mb-1">Langkah 2</h6>
+                                <p class="text-sm font-weight-bold mb-4">Upload Dokumen Pendukung</p>
+
+                                <ol class="custom-bar two-step">
+                                    <li class="{{ $dokumenComplete ? 'is-complete' : 'is-active' }}">
+                                        <span>Belum</span>
+                                    </li>
+                                    <li class="{{ $dokumenComplete ? 'is-complete' : '' }}">
+                                        <span>Sudah</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: VERIFIKASI -->
+                        <div class="col-lg-4 col-md-12 mb-4">
+                            <div class="border rounded p-4 bg-white shadow-sm h-100">
+                                <h6 class="text-primary mb-1">Langkah 3</h6>
+                                <p class="text-sm font-weight-bold mb-4">Verifikasi Pendaftaran</p>
+
+                                <ol class="custom-bar two-step">
+                                    <li class="{{ $verifikasiComplete ? 'is-complete' : 'is-active' }}">
+                                        <span>Belum</span>
+                                    </li>
+                                    <li class="{{ $verifikasiComplete ? 'is-complete' : '' }}">
+                                        <span>Sudah</span>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
+                    <!-- ========== End Timeline ========== -->
 
-                    <!-- STEP 2: UPLOAD DOKUMEN -->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="border rounded p-4 bg-white shadow-sm h-100">
-                            <h6 class="text-primary mb-1">Langkah 2</h6>
-                            <p class="text-sm font-weight-bold mb-4">Upload Dokumen Pendukung</p>
 
-                            <ol class="custom-bar two-step">
-                                <li class="{{ $dokumenComplete ? 'is-complete' : 'is-active' }}">
-                                    <span>Belum</span>
-                                </li>
-                                <li class="{{ $dokumenComplete ? 'is-complete' : '' }}">
-                                    <span>Sudah</span>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3: VERIFIKASI -->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="border rounded p-4 bg-white shadow-sm h-100">
-                            <h6 class="text-primary mb-1">Langkah 3</h6>
-                            <p class="text-sm font-weight-bold mb-4">Verifikasi Pendaftaran</p>
-                            
-                            <ol class="custom-bar two-step">
-                                <li class="{{ $verifikasiComplete ? 'is-complete' : 'is-active' }}">
-                                    <span>Belum</span>
-                                </li>
-                                <li class="{{ $verifikasiComplete ? 'is-complete' : '' }}">
-                                    <span>Sudah</span>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
                 </div>
-                <!-- ========== End Timeline ========== -->
-
-
-            </div>
         </section>
         <!-- ========== section end ========== -->
 
@@ -252,6 +434,12 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const myModalEl = document.getElementById('exampleModal')
+        myModalEl.addEventListener('show.bs.modal', event => {
+            // do something...
+        })
+    </script>
 
     <script>
         function confirmLogout() {

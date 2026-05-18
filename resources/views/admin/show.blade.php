@@ -476,14 +476,14 @@
                         <div class="flex justify-between items-center">
                             <button type="button" id="prevBtn"
                                 class="hidden px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
-                                ← Back
+                                ← Kembali
                             </button>
                             <div class="hidden lg:block text-sm text-gray-600">
-                                Step <span id="current-step">1</span> of 6
+                                Langkah <span id="current-step">1</span> of 6
                             </div>
                             <button type="button" id="nextBtn"
                                 class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
-                                Next →
+                                Selanjutnya →
                             </button>
                         </div>
                     </div>

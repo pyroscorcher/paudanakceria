@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-lg-6 col-md-6 col-12 order-2 order-md-1">
+                <div class="col-sm-6 col-12 order-2 order-sm-1">
 
                     <div class="home_content">
 
@@ -80,7 +80,7 @@
                         </a>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-lg-6 col-sm-6 col-xs-12 order-1 order-sm-2">
+                <div class="col-sm-6 col-12 order-1 order-sm-1">
                     <div class="home_me_img">
 
                         <img src="{{ asset('images/all-img/home-banner.png') }}" class="img-fluid" alt="Banner">
@@ -299,7 +299,7 @@
                                     <h2><a href="{{ route('user.news.detail', ['id' => $item->id]) }}">{{ $item->title }}</a></h2>
                                     <p>{{ Str::limit($item->content, 150, '...') }}</p>
                                 </div>
-                                
+
                                 <!-- Automatically outputs localized Indonesian dates (e.g., 18 Mei 2026) -->
                                 <p class="mt-3 text-muted" style="font-size: 0.85em;">
                                     {{ $item->created_at->locale('id')->translatedFormat('d F Y') }}
