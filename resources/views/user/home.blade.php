@@ -282,59 +282,38 @@
                 <h1>Kabar Terbaru</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
-                    data-wow-delay="0.1s" data-wow-offset="0">
-                    <div class="single_blog">
-                        <div class="single_blog_img">
-                            <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
-                                alt="image" />
+                @forelse($news as $item)
+                    <!-- Dynamic News Block -->
+                    <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex mb-4" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                        <div class="single_blog d-flex flex-column w-100">
+                            <div class="single_blog_img">
+                                @if($item->image)
+                                    <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="{{ $item->title }}" style="width: 100%; height: 220px; object-fit: cover;" />
+                                @else
+                                    <!-- Fallback image if a news post does not have an uploaded picture -->
+                                    <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="default image" style="width: 100%; height: 220px; object-fit: cover;" />
+                                @endif
+                            </div>
+                            <div class="content_box flex-grow-1 d-flex flex-column justify-content-between">
+                                <div>
+                                    <h2><a href="{{ route('user.news') }}">{{ $item->title }}</a></h2>
+                                    <p>{{ Str::limit($item->content, 150, '...') }}</p>
+                                </div>
+                                
+                                <!-- Automatically outputs localized Indonesian dates (e.g., 18 Mei 2026) -->
+                                <p class="mt-3 text-muted" style="font-size: 0.85em;">
+                                    {{ $item->created_at->locale('id')->translatedFormat('d F Y') }}
+                                </p>
+                            </div>
                         </div>
-                        <div class="content_box">
-                            <h2><a href="{{ route('user.news')}}">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
-                            <p>Anak-anak PAUD Anak Ceria mengikuti kegiatan mewarnai bersama di kelas. Melalui aktivitas
-                                ini, anak-anak belajar mengenal warna, melatih motorik halus, serta mengekspresikan
-                                imajinasi mereka dengan cara yang menyenangkan. Suasana kelas penuh dengan keceriaan dan
-                                kreativitas.
-                            </p>
-                            <p>12 Mei 2026</p>
-                        </div>
+                    </div><!-- END COL-->
+                @empty
+                    <!-- Fallback display if the database is clean/empty -->
+                    <div class="col-12 text-center text-muted py-5">
+                        <p>Belum ada kabar terbaru atau berita yang diterbitkan.</p>
                     </div>
-                </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
-                    data-wow-delay="0.1s" data-wow-offset="0">
-                    <div class="single_blog">
-                        <div class="single_blog_img">
-                            <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid"
-                                alt="image" />
-                        </div>
-                        <div class="content_box">
-                            <h2><a href="{{ route('user.news')}}">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
-                            <p>Dalam kegiatan pembelajaran minggu ini, anak-anak diajak menanam tanaman di halaman
-                                sekolah. Anak-anak belajar mengenal bagian tanaman, cara merawatnya, serta pentingnya
-                                menjaga lingkungan. Kegiatan ini membantu anak belajar sambil bermain di alam terbuka.
-                            </p>
-                            <p>5 Mei 2026</p>
-                        </div>
-                    </div>
-                </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s"
-                    data-wow-delay="0.3s" data-wow-offset="0">
-                    <div class="single_blog">
-                        <div class="single_blog_img">
-                            <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid"
-                                alt="image" />
-                        </div>
-                        <div class="content_box">
-                            <h2><a href="{{ route('user.news')}}">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
-                            <p>PAUD Anak Ceria merayakan Hari Kartini dengan kegiatan mengenakan pakaian adat dan
-                                berbagai aktivitas seru. Anak-anak belajar mengenal budaya Indonesia sekaligus
-                                meningkatkan rasa percaya diri saat tampil di depan teman-temannya.</p>
-                            <p>3 Mei 2026</p>
-                        </div><!--- END Col -->
-                    </div>
-                </div>
-            </div><!-- END COL-->
-        </div><!-- / END ROW -->
+                @endforelse
+            </div><!-- / END ROW -->
         </div><!-- END CONTAINER  -->
     </section>
     <!-- END BLOG -->

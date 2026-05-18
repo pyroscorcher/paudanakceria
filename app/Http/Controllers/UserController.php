@@ -50,9 +50,12 @@ class UserController extends Controller
             // Fetch the 6 most recent gallery images to display on the home page
             $galleries = \App\Models\Gallery::latest()->take(6)->get();
 
+            $news = \App\Models\News::latest()->take(3)->get();
+
             return view('user.home', [
                 'navbar'    => 'My Menu',
-                'galleries' => $galleries // Pass the data to the Blade view here
+                'galleries' => $galleries, // Pass the data to the Blade view here
+                'news'      => $news,
             ]);
         }
 
