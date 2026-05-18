@@ -38,7 +38,13 @@
 
                 <div class="col-auto d-none d-lg-block text-end align-self-center">
                     <div class="call_to_action">
-                        <a class="btn_two" href="{{ route('user.login') }}">Masuk<i class="fa-solid fa-arrow-right"></i></a>
+                        @auth
+                            <!-- Renders if the user IS logged in -->
+                            <a class="btn_two" href="{{ route('user.dashboard') }}">Dasbor <i class="fa-solid fa-arrow-right"></i></a>
+                        @else
+                            <!-- Renders if the user is NOT logged in -->
+                            <a class="btn_two" href="{{ route('user.login') }}">Masuk <i class="fa-solid fa-arrow-right"></i></a>
+                        @endauth
                     </div><!--- END SOCIAL PROFILE -->
                 </div><!--- END Col -->
 
