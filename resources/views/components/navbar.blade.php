@@ -49,8 +49,7 @@
                 </div><!--- END Col -->
 
                 <ul class="mobile_menu">
-                    <li><a href="{{ route('user.home') }}">Beranda</a>
-                    </li>
+                    <li><a href="{{ route('user.home') }}">Beranda</a></li>
                     <li><a href="{{ route('user.info') }}">Info Pendaftaran</a></li>
                     <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a>
                     </li>
