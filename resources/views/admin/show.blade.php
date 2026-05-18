@@ -113,6 +113,7 @@
                                     <div class="bg-gray-50 p-4 rounded-lg">
                                         <p class="text-xs font-medium text-gray-600 mb-1">Tempat, Tanggal Lahir</p>
                                         <p class="text-sm font-semibold text-gray-900">
+                                            {{ $enrollment->user->tempatlahir ?? '-' }},
                                             {{ $enrollment->tanggal_lahir ? \Carbon\Carbon::parse($enrollment->tanggal_lahir)->locale('id')->translatedFormat('d F Y') : '-' }}
                                         </p>
                                     </div>
