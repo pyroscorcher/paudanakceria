@@ -3950,6 +3950,24 @@ blockquote::before,
 
 }
 
+.single_blog_news {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.single_blog_news img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+
 .single_blog_img {
     width: 100%;
     height: 220px;
@@ -3966,7 +3984,29 @@ blockquote::before,
     transition: 0.6s;
 }
 
-.single_blog:hover .single_blog_img img {
+.single_blog:hover .single_blog_img_news img {
+    transform: scale(1.1);
+}
+
+.single_blog_img_news {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 20px;
+    /* This crops the image when it scales up */
+}
+
+/* 2. Target image inside the new wrapper */
+.single_blog_img_news img {
+    width: 100%;
+    height: 100%;
+    /* Fills the 220px wrapper */
+    object-fit: cover;
+    transition: 0.6s;
+    border-radius: 20px;
+}
+
+.single_blog:hover .single_blog_img_news img {
     transform: scale(1.1);
 }
 

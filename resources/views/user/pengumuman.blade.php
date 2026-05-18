@@ -60,7 +60,7 @@
             <div class="col-lg-10 offset-lg-1 text-center">
                 <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
                     data-wow-offset="0">
-                    <h1>Pengumuman</h1>
+                    <h1>Berita</h1>
                 </div><!-- //.HERO-TEXT -->
             </div><!--- END COL -->
         </div><!--- END CONTAINER -->
@@ -69,23 +69,42 @@
     </div><!-- END  TOP HEADER CLASS -->
 
     <!--START COURSE -->
-    <section class="ab_one section-padding">
+    <section id="blog" class="blog_area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
-                    <div class="announcement_box">
-                        <strong style="margin-bottom: 30px"> Pendaftaran: Sedang Diproses</strong>
+                @forelse($all_news as $item)
+                    <!-- Dynamic News Block -->
+                    <div class="col-lg-3 col-sm-4 col-xs-12 wow fadeInUp d-flex mb-4" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                        <div class="single_blog_news d-flex flex-column w-100">
+                            <div class="single_blog_img single_blog_img_news">
+                                @if($item->image)
+                                    <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="{{ $item->title }}" style="width: 100%; height: 220px; object-fit: cover;" />
+                                @else
+                                    <!-- Fallback image if a news post does not have an uploaded picture -->
+                                    <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="default image" style="width: 100%; height: 220px; object-fit: cover;" />
+                                @endif
+                            </div>
+                            <div class="content_box flex-grow-1 d-flex flex-column justify-content-between">
+                                <div>
+                                    <h2><a href="{{ route('user.news.detail', ['id' => $item->id]) }}">{{ $item->title }}</a></h2>
+                                    <p>{{ Str::limit($item->content, 150, '...') }}</p>
+                                </div>
 
-                        </p>Terima kasih kasih telah melakukan pendaftaran di PAUD Anak Ceria. Saat ini data dan dokumen yang
-                            Anda kirimkan sedang dalam proses verifikasi oleh pihak sekolah.</p><br>
-
-                            Silakan menunggu hingga pengumuman hasil seleksi diumumkan sesuai jadwal yang telah
-                            ditentukan. Informasi lebih lanjut akan ditampilkan pada halaman ini.</p>
+                                <!-- Automatically outputs localized Indonesian dates (e.g., 18 Mei 2026) -->
+                                <p class="mt-3 pt-3 text-muted border-top" style="font-size: 0.85em;">
+                                    {{ $item->created_at->locale('id')->translatedFormat('d F Y') }}
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- END COL-->
+                @empty
+                    <!-- Fallback display if the database is clean/empty -->
+                    <div class="col-12 text-center text-muted py-5">
+                        <p>Belum ada kabar terbaru atau berita yang diterbitkan.</p>
                     </div>
-                </div><!-- END COL -->
-            </div><!--- END ROW -->
-        </div><!--- END CONTAINER -->
+                @endforelse
+            </div><!-- / END ROW -->
+        </div><!-- END CONTAINER  -->
     </section>
     </div>
     <!--END COURSE -->
