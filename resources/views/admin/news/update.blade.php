@@ -49,24 +49,49 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-gray-900">Update News</h2>
         </div>
+        
         <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
+            <!-- Image Field -->
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">News Image</label>
+                
+                <!-- Display the existing image so the admin knows what is currently there -->
+                @if($news->image)
+                    <div class="mb-3">
+                        <p class="text-xs text-gray-500 mb-1">Gambar saat ini:</p>
+                        <img src="{{ asset('storage/' . $news->image) }}" alt="Current News Image" class="h-32 w-auto object-cover rounded border border-gray-200">
+                    </div>
+                @endif
+                
+                <input type="file" name="image" id="image" class="block w-full border border-gray-300 rounded p-2">
+                <p class="text-xs text-gray-500 mt-1">Biarkan kosong jika tidak ingin mengubah gambar.</p>
+                
+                @error('image')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Title Field -->
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">News Title</label>
                 <input type="text" name="title" id="title"
                     class="block w-full border border-gray-300 rounded p-2" value="{{ old('title', $news->title) }}">
-
-                <label for="content" class="block text-sm font-medium text-gray-700 mt-4 mb-2">News Content</label>
-                <textarea name="content" id="content" rows="5" class="block w-full border border-gray-300 rounded p-2">{{ old('content', $news->content) }}</textarea>
-
+                
                 @error('title')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
+            </div>
 
+            <!-- Content Field -->
+            <div class="mb-4">
+                <label for="content" class="block text-sm font-medium text-gray-700 mb-2">News Content</label>
+                <textarea name="content" id="content" rows="5" class="block w-full border border-gray-300 rounded p-2">{{ old('content', $news->content) }}</textarea>
+                
                 @error('content')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -74,7 +99,9 @@
                 class="w-full bg-[#009CE0] text-white font-bold py-2 px-4 rounded hover:bg-[#007bb5] transition duration-200">
                 Update News
             </button>
+        </form> <!-- The form is now properly closed -->
     </div>
+    
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/js/dynamic-pie-chart.js') }}"></script>

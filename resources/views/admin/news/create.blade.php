@@ -55,12 +55,19 @@
             @csrf
 
             <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">News Image</label>
+                <input type="file" name="image" id="image" class="block w-full border border-gray-300 rounded p-2">
+
                 <label for="title" class="block text-sm font-medium text-gray-700 mb-2">News Title</label>
                 <input type="text" name="title" id="title"
                     class="block w-full border border-gray-300 rounded p-2" value="{{ old('title') }}">
 
                 <label for="content" class="block text-sm font-medium text-gray-700 mt-4 mb-2">News Content</label>
                 <textarea name="content" id="content" rows="5" class="block w-full border border-gray-300 rounded p-2">{{ old('content') }}</textarea>
+
+                @error('image')
+                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                @enderror
 
                 @error('title')
                     <p class="text-red-500 text-xs mt-2">{{ $message }}</p>

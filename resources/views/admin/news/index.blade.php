@@ -56,6 +56,8 @@
                         @forelse($news as $new)
                             <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
                                 <div class="p-4">
+                                    <img src="{{ asset('storage/' . $new->image) }}" alt="{{ $new->title }}"
+                                        class="w-full h-48 object-cover rounded mb-4">
                                     <h2 class="text-lg font-semibold text-gray-900 mb-2">{{ $new->title }}</h2>
                                     <p class="text-gray-700 text-sm">{{ Str::limit($new->content, 100) }}</p>
                                 </div>
