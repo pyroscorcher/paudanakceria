@@ -131,83 +131,82 @@
                                     @else
                                         <tr>
                                             <td class="fw-bold py-1">Status Verifikasi</td>
-                                            <td class="py-1">: <span class="badge bg-secondary">Belum Melengkapi
-                                                    Pendaftaran</span></td>
+                                            <td class="py-1">: <span class="badge bg-secondary">Belum Melengkapi Pendaftaran</span></td>
                                         </tr>
                                     @endif
 
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <!-- ========== End Info Cards ========== -->
+</div>
+                <!-- ========== End Info Cards ========== -->
 
 
-                    <!-- ========== Timeline / Progress ========== -->
-                    <div class="card-style mb-30">
-                        <h5 class="mb-25">Progress Pendaftaran</h5>
+                <!-- ========== Timeline / Progress ========== -->
+                <div class="card-style mb-30">
+                    <h5 class="mb-25">Progress Pendaftaran</h5>
 
-                        <div class="row text-center d-flex">
+                    <div class="row text-center d-flex">
 
-                            <div class="col">
-                                <div class="border rounded p-3">
-                                    <h6>1</h6>
-                                    <p class="text-sm">Isi Formulir</p>
-                                    <ol class="custom-bar">
-                                        <li class="is-active"><span>Data Anak</span></li>
-                                        <li><span>Data Orang Tua</span></li>
-                                        <li><span>Data Periodik</span></li>
-                                        <li><span>Data Prestasi</span></li>
-                                    </ol>
-                                </div>
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>1</h6>
+                                <p class="text-sm">Isi Formulir</p>
+                                <ol class="custom-bar">
+                                    <li class="is-active"><span>Data Anak</span></li>
+                                    <li><span>Data Orang Tua</span></li>
+                                    <li><span>Data Periodik</span></li>
+                                    <li><span>Data Prestasi</span></li>
+                                </ol>
                             </div>
-
-                            <div class="col">
-                                <div class="border rounded p-3">
-                                    <h6>2</h6>
-                                    <p class="text-sm">Upload Dokumen</p>
-
-                                    <ol class="custom-bar two-step">
-                                        <li class="is-active">
-                                            <span>Belum</span>
-                                        </li>
-
-                                        <li>
-                                            <span>Sudah</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="border rounded p-3">
-                                    <h6>3</h6>
-                                    <p class="text-sm">Verifikasi</p>
-                                    <ol class="custom-bar two-step">
-                                        <li class="is-active">
-                                            <span>Belum</span>
-                                        </li>
-
-                                        <li>
-                                            <span>Sudah</span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="border rounded p-3">
-                                    <h6>4</h6>
-                                    <p class="text-sm">Selesai</p>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>2</h6>
+                                <p class="text-sm">Upload Dokumen</p>
+
+                                <ol class="custom-bar two-step">
+                                    <li class="is-active">
+                                        <span>Belum</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Sudah</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>3</h6>
+                                <p class="text-sm">Verifikasi</p>
+                                <ol class="custom-bar two-step">
+                                    <li class="is-active">
+                                        <span>Belum</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Sudah</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="border rounded p-3">
+                                <h6>4</h6>
+                                <p class="text-sm">Selesai</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <!-- ========== End Timeline ========== -->
-
-
                 </div>
+                <!-- ========== End Timeline ========== -->
+
+
+            </div>
         </section>
         <!-- ========== section end ========== -->
 
