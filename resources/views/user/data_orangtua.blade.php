@@ -82,7 +82,7 @@
                 @endif
                 <form action="{{ route('user.data_orangtua.update') }}" method="POST">
                     @csrf
-                    @method('PUT') 
+                    @method('PUT')
 
                     <div class="card-style mb-4">
                         <h4 class="mb-3">Data Ayah Kandung</h4>
@@ -248,6 +248,24 @@
         <!-- ========== footer end =========== -->
     </main>
     <!-- ======== main-wrapper end =========== -->
+        <script>
+        function confirmLogout() {
+
+            Swal.fire({
+                title: 'Keluar?',
+                text: 'Anda yakin ingin keluar dashboard?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Keluar',
+                confirmButtonColor: '#009CE0',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
 
     <!-- ========= All Javascript files linkup ======== -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -259,6 +277,7 @@
     <script src="{{ asset('assets/js/world-merc.js') }}"></script>
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -56,25 +56,25 @@
                 <!-- ========== title-wrapper end ========== -->
 
                 <!-- ========== form-elements-wrapper start ========== -->
-                @if(session('success'))
+                @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
-                @if(session('error'))
+                @if (session('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ session('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
-                @if($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Pembaruan dibatalkan!</strong> Silakan periksa kesalahan berikut:
                         <ul class="mb-0 mt-1">
-                            @foreach($errors->all() as $error)
+                            @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
@@ -84,7 +84,7 @@
 
                 <form action="{{ route('user.data_prestasi.update') }}" method="POST">
                     @csrf
-                    @method('PUT') 
+                    @method('PUT')
 
                     <div id="prestasi-wrapper">
                         @forelse ($user->prestasi as $index => $prestasi)
@@ -97,35 +97,45 @@
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Jenis Prestasi</label>
-                                            <input type="text" placeholder="Jenis Prestasi" value="{{ old('prestasi.' . $index . '.jenis', $prestasi->jenis) }}" name="prestasi[{{ $index }}][jenis]">
+                                            <input type="text" placeholder="Jenis Prestasi"
+                                                value="{{ old('prestasi.' . $index . '.jenis', $prestasi->jenis) }}"
+                                                name="prestasi[{{ $index }}][jenis]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Tingkat</label>
-                                            <input type="text" placeholder="Tingkat" value="{{ old('prestasi.' . $index . '.tingkat', $prestasi->tingkat) }}" name="prestasi[{{ $index }}][tingkat]">
+                                            <input type="text" placeholder="Tingkat"
+                                                value="{{ old('prestasi.' . $index . '.tingkat', $prestasi->tingkat) }}"
+                                                name="prestasi[{{ $index }}][tingkat]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Nama Prestasi</label>
-                                            <input type="text" placeholder="Nama Prestasi" value="{{ old('prestasi.' . $index . '.nama', $prestasi->nama) }}" name="prestasi[{{ $index }}][nama]">
+                                            <input type="text" placeholder="Nama Prestasi"
+                                                value="{{ old('prestasi.' . $index . '.nama', $prestasi->nama) }}"
+                                                name="prestasi[{{ $index }}][nama]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Tahun</label>
-                                            <input type="text" placeholder="Tahun" value="{{ old('prestasi.' . $index . '.tahun', $prestasi->tahun) }}" name="prestasi[{{ $index }}][tahun]">
+                                            <input type="text" placeholder="Tahun"
+                                                value="{{ old('prestasi.' . $index . '.tahun', $prestasi->tahun) }}"
+                                                name="prestasi[{{ $index }}][tahun]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Penyelenggara</label>
-                                            <input type="text" placeholder="Penyelenggara" value="{{ old('prestasi.' . $index . '.penyelenggara', $prestasi->penyelenggara) }}" name="prestasi[{{ $index }}][penyelenggara]">
+                                            <input type="text" placeholder="Penyelenggara"
+                                                value="{{ old('prestasi.' . $index . '.penyelenggara', $prestasi->penyelenggara) }}"
+                                                name="prestasi[{{ $index }}][penyelenggara]">
                                         </div>
                                     </div>
                                 </div>
@@ -140,35 +150,41 @@
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Jenis Prestasi</label>
-                                            <input type="text" placeholder="Jenis Prestasi" value="{{ old('prestasi.0.jenis') }}" name="prestasi[0][jenis]">
+                                            <input type="text" placeholder="Jenis Prestasi"
+                                                value="{{ old('prestasi.0.jenis') }}" name="prestasi[0][jenis]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Tingkat</label>
-                                            <input type="text" placeholder="Tingkat" value="{{ old('prestasi.0.tingkat') }}" name="prestasi[0][tingkat]">
+                                            <input type="text" placeholder="Tingkat"
+                                                value="{{ old('prestasi.0.tingkat') }}" name="prestasi[0][tingkat]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Nama Prestasi</label>
-                                            <input type="text" placeholder="Nama Prestasi" value="{{ old('prestasi.0.nama') }}" name="prestasi[0][nama]">
+                                            <input type="text" placeholder="Nama Prestasi"
+                                                value="{{ old('prestasi.0.nama') }}" name="prestasi[0][nama]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Tahun</label>
-                                            <input type="text" placeholder="Tahun" value="{{ old('prestasi.0.tahun') }}" name="prestasi[0][tahun]">
+                                            <input type="text" placeholder="Tahun"
+                                                value="{{ old('prestasi.0.tahun') }}" name="prestasi[0][tahun]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-style-1">
                                             <label>Penyelenggara</label>
-                                            <input type="text" placeholder="Penyelenggara" value="{{ old('prestasi.0.penyelenggara') }}" name="prestasi[0][penyelenggara]">
+                                            <input type="text" placeholder="Penyelenggara"
+                                                value="{{ old('prestasi.0.penyelenggara') }}"
+                                                name="prestasi[0][penyelenggara]">
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +193,8 @@
                     </div>
 
                     <div class="d-flex gap-3 mt-4">
-                        <button type="button" id="btn-add-prestasi" class="main-btn primary-btn-outline btn-hover">+ Tambah Prestasi</button>
+                        <button type="button" id="btn-add-prestasi" class="main-btn primary-btn-outline btn-hover">+
+                            Tambah Prestasi</button>
                         <button type="submit" class="main-btn primary-btn btn-hover">Simpan Semua</button>
                     </div>
                 </form>
@@ -206,6 +223,24 @@
         <!-- ========== footer end =========== -->
     </main>
     <!-- ======== main-wrapper end =========== -->
+    <script>
+        function confirmLogout() {
+
+            Swal.fire({
+                title: 'Keluar?',
+                text: 'Anda yakin ingin keluar dashboard?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Keluar',
+                confirmButtonColor: '#009CE0',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
 
     <!-- ========= All Javascript files linkup ======== -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -217,6 +252,7 @@
     <script src="{{ asset('assets/js/world-merc.js') }}"></script>
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 <script>
@@ -229,13 +265,13 @@
         addButton.addEventListener('click', function() {
             // Clone the first element in the wrapper
             let newRow = wrapper.firstElementChild.cloneNode(true);
-            
+
             // Clear the input values and update the name attributes with the new index
             let inputs = newRow.querySelectorAll('input');
             inputs.forEach(input => {
                 input.value = '';
                 // Update the name attribute dynamically (e.g., prestasi[0][jenis] -> prestasi[1][jenis])
-                input.name = input.name.replace(/\[\d+\]/, '[' + indexCounter + ']'); 
+                input.name = input.name.replace(/\[\d+\]/, '[' + indexCounter + ']');
             });
 
             // Add the new row to the DOM
@@ -249,7 +285,8 @@
                 if (wrapper.children.length > 1) {
                     e.target.closest('.prestasi-item').remove();
                 } else {
-                    alert('Anda harus menyisakan setidaknya satu baris formulir. Jika tidak memiliki prestasi, kosongkan saja kolomnya.');
+                    alert(
+                        'Anda harus menyisakan setidaknya satu baris formulir. Jika tidak memiliki prestasi, kosongkan saja kolomnya.');
                 }
             }
         });

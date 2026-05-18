@@ -166,3 +166,21 @@
             </ul>
         </nav>
     </aside>
+    <script>
+        function confirmLogout() {
+
+            Swal.fire({
+                title: 'Keluar?',
+                text: 'Anda yakin ingin keluar dashboard?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Keluar',
+                confirmButtonColor: '#009CE0',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>

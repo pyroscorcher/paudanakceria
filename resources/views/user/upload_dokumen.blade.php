@@ -82,7 +82,7 @@
                 @endif
                 <form action="{{ route('user.upload_dokumen.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')   
+                    @method('PUT')
                     <div class="form-elements-wrapper">
                         <div class="row">
                             <div class="col-lg-12">
@@ -201,7 +201,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Simpan Dokumen</button>
+                                            <button type="submit" class="main-btn primary-btn btn-hover">Simpan Dokumen</button>
                                         </div>
 
                                     </div>
@@ -236,6 +236,24 @@
         <!-- ========== footer end =========== -->
     </main>
     <!-- ======== main-wrapper end =========== -->
+        <script>
+        function confirmLogout() {
+
+            Swal.fire({
+                title: 'Keluar?',
+                text: 'Anda yakin ingin keluar dashboard?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Keluar',
+                confirmButtonColor: '#009CE0',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+    </script>
     <script>
         function previewFile(event, previewId) {
             const file = event.target.files[0];
@@ -269,6 +287,7 @@
     <script src="{{ asset('assets/js/world-merc.js') }}"></script>
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
