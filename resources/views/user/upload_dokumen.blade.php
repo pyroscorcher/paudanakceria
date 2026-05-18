@@ -80,6 +80,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
+                <!-- Form untuk upload dokumen -->
                 <form action="{{ route('user.upload_dokumen.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -112,6 +114,7 @@
                                             @enderror
                                         </div>
 
+                                        <!-- Kartu Keluarga (KK) -->
                                         <div class="col-12 mb-4">
                                             <label class="form-label fw-bold">Kartu Keluarga (KK)</label>
                                             @if(isset($user->dokumen) && $user->dokumen->kk)
@@ -134,6 +137,7 @@
                                             @enderror
                                         </div>
 
+                                        <!-- Foto Anak -->
                                         <div class="col-12 mb-4">
                                             <label class="form-label fw-bold">Foto Anak</label>
                                             @if(isset($user->dokumen) && $user->dokumen->foto_anak)
@@ -156,6 +160,7 @@
                                             @enderror
                                         </div>
 
+                                        <!-- KTP Orang Tua -->
                                         <div class="col-12 mb-4">
                                             <label class="form-label fw-bold">KTP Orang Tua</label>
                                             @if(isset($user->dokumen) && $user->dokumen->ktp)
@@ -178,6 +183,24 @@
                                             @enderror
                                         </div>
 
+                                        <!-- INFORMASI PEMBAYARAN BOX (NEW) -->
+                                        <div class="col-12 mb-4">
+                                            <div class="p-3 rounded" style="background-color: #f8f9fa; border-left: 4px solid #009CE0;">
+                                                <h6 class="fw-bold mb-2" style="color: #009CE0;">
+                                                    <i class="fa-solid fa-circle-info me-1"></i> Informasi Pembayaran
+                                                </h6>
+                                                <p class="mb-2 text-sm text-muted">
+                                                    Silakan lakukan transfer biaya pendaftaran sebesar <strong>Rp 150.000</strong> ke rekening berikut sebelum mengunggah bukti pembayaran:
+                                                </p>
+                                                <ul class="mb-0 text-sm list-unstyled">
+                                                    <li><strong>Bank:</strong> Bank Rakyat Indonesia (BRI)</li>
+                                                    <li><strong>No. Rekening:</strong> 1234-5678-9012-345</li>
+                                                    <li><strong>Atas Nama:</strong> PAUD Anak Ceria</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Bukti Pembayaran -->
                                         <div class="col-12 mb-4">
                                             <label class="form-label fw-bold">Bukti Pembayaran</label>
                                             @if(isset($user->dokumen) && $user->dokumen->bukti_pembayaran)
@@ -208,7 +231,8 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </form>
                     <!-- end row -->
                 </div>
                 <!-- ========== form-elements-wrapper end ========== -->
