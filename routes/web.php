@@ -89,7 +89,7 @@ Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logou
 // ==========================================
 Route::middleware(['auth'])->group(function () {
     // Core Dashboard
-    Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
+    Route::get('/user', [UserController::class, 'UserDashboard'])->name('user.dashboard');
 
     // Data Anak (Using your new dedicated controller)
     Route::get('/user/data_anak', [DataAnakController::class, 'index'])->name('user.data_anak');

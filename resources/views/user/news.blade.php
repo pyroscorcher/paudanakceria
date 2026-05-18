@@ -100,8 +100,8 @@
                         
                         <!-- UX Touch: Navigation Back Button -->
                         <div class="mt-5 border-top pt-4">
-                            <a href="{{ route('user.home') }}" class="btn btn-primary text-white" style="background-color: #009CE0; border-color: #009CE0; padding: 10px 24px; border-radius: 5px;">
-                                ← Kembali ke Beranda
+                            <a href="{{ url()->previous() }}" class="btn btn-primary text-white" style="background-color: #009CE0; border-color: #009CE0; padding: 10px 24px; border-radius: 5px;">
+                                ← Kembali
                             </a>
                         </div>
 
