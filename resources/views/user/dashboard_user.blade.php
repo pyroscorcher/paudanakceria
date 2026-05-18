@@ -138,69 +138,79 @@
                                 </tbody>
                             </table>
                         </div>
-</div>
+                    </div>
                 <!-- ========== End Info Cards ========== -->
 
 
                 <!-- ========== Timeline / Progress ========== -->
-                <div class="card-style mb-30">
-                    <h5 class="mb-25">Progress Pendaftaran</h5>
+                <div class="row">
+                    @php
+                        // Fetch the currently authenticated user and check their completion status
+                        // using the helper methods we added to the User model
+                        $user = Auth::user();
+                        
+                        $anakComplete       = $user->isDataAnakComplete();
+                        $ortuComplete       = $user->isDataOrangtuaComplete();
+                        $periodikComplete   = $user->isDataPeriodikComplete();
+                        $dokumenComplete    = $user->isDokumenComplete();
+                        $verifikasiComplete = $user->isVerifikasiComplete();
+                    @endphp
 
-                    <div class="row text-center d-flex">
-
-                        <div class="col">
-                            <div class="border rounded p-3">
-                                <h6>1</h6>
-                                <p class="text-sm">Isi Formulir</p>
-                                <ol class="custom-bar">
-                                    <li class="is-active"><span>Data Anak</span></li>
-                                    <li><span>Data Orang Tua</span></li>
-                                    <li><span>Data Periodik</span></li>
-                                    <li><span>Data Prestasi</span></li>
-                                </ol>
-                            </div>
+                    <!-- STEP 1: ISI FORMULIR -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="border rounded p-4 bg-white shadow-sm h-100">
+                            <h6 class="text-primary mb-1">Langkah 1</h6>
+                            <p class="text-sm font-weight-bold mb-4">Isi Formulir Pendaftaran</p>
+                            
+                            <ol class="custom-bar">
+                                <li class="{{ $anakComplete ? 'is-complete' : 'is-active' }}">
+                                    <span>Data Anak</span>
+                                </li>
+                                <li class="{{ $ortuComplete ? 'is-complete' : ($anakComplete ? 'is-active' : '') }}">
+                                    <span>Data Orang Tua</span>
+                                </li>
+                                <li class="{{ $periodikComplete ? 'is-complete' : ($ortuComplete ? 'is-active' : '') }}">
+                                    <span>Data Periodik</span>
+                                </li>
+                                <li class="{{ $periodikComplete ? 'is-complete' : '' }}">
+                                    <span>Data Prestasi</span>
+                                </li>
+                            </ol>
                         </div>
+                    </div>
 
-                        <div class="col">
-                            <div class="border rounded p-3">
-                                <h6>2</h6>
-                                <p class="text-sm">Upload Dokumen</p>
+                    <!-- STEP 2: UPLOAD DOKUMEN -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="border rounded p-4 bg-white shadow-sm h-100">
+                            <h6 class="text-primary mb-1">Langkah 2</h6>
+                            <p class="text-sm font-weight-bold mb-4">Upload Dokumen Pendukung</p>
 
-                                <ol class="custom-bar two-step">
-                                    <li class="is-active">
-                                        <span>Belum</span>
-                                    </li>
-
-                                    <li>
-                                        <span>Sudah</span>
-                                    </li>
-                                </ol>
-                            </div>
+                            <ol class="custom-bar two-step">
+                                <li class="{{ $dokumenComplete ? 'is-complete' : 'is-active' }}">
+                                    <span>Belum</span>
+                                </li>
+                                <li class="{{ $dokumenComplete ? 'is-complete' : '' }}">
+                                    <span>Sudah</span>
+                                </li>
+                            </ol>
                         </div>
+                    </div>
 
-                        <div class="col">
-                            <div class="border rounded p-3">
-                                <h6>3</h6>
-                                <p class="text-sm">Verifikasi</p>
-                                <ol class="custom-bar two-step">
-                                    <li class="is-active">
-                                        <span>Belum</span>
-                                    </li>
-
-                                    <li>
-                                        <span>Sudah</span>
-                                    </li>
-                                </ol>
-                            </div>
+                    <!-- STEP 3: VERIFIKASI -->
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="border rounded p-4 bg-white shadow-sm h-100">
+                            <h6 class="text-primary mb-1">Langkah 3</h6>
+                            <p class="text-sm font-weight-bold mb-4">Verifikasi Pendaftaran</p>
+                            
+                            <ol class="custom-bar two-step">
+                                <li class="{{ $verifikasiComplete ? 'is-complete' : 'is-active' }}">
+                                    <span>Belum</span>
+                                </li>
+                                <li class="{{ $verifikasiComplete ? 'is-complete' : '' }}">
+                                    <span>Sudah</span>
+                                </li>
+                            </ol>
                         </div>
-
-                        <div class="col">
-                            <div class="border rounded p-3">
-                                <h6>4</h6>
-                                <p class="text-sm">Selesai</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <!-- ========== End Timeline ========== -->

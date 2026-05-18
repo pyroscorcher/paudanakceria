@@ -87,4 +87,49 @@ class User extends Authenticatable
     {
         return $this->hasOne(Dokumen::class);
     }
+
+    /**
+     * Check if Data Anak is complete
+     */
+    public function isDataAnakComplete()
+    {
+        // If these required fields are filled, it means they passed the DataAnakController validation
+        return !empty($this->nisn) && !empty($this->tempatlahir) && !empty($this->alamat_rumah);
+    }
+
+    /**
+     * Check if Data Orang Tua is complete
+     */
+    public function isDataOrangtuaComplete()
+    {
+        // Check if the relation exists AND a required field is filled
+        return $this->orangtua && !empty($this->orangtua->nama_ayah) && !empty($this->orangtua->penghasilan_ayah);
+    }
+
+    /**
+     * Check if Data Periodik is complete
+     */
+    public function isDataPeriodikComplete()
+    {
+        // Check if the relation exists AND a required field is filled
+        return $this->data_periodik && !empty($this->data_periodik->tinggi_badan);
+    }
+
+    /**
+     * Check if Upload Dokumen is complete
+     */
+    public function isDokumenComplete()
+    {
+        // Check if the relation exists and at least one mandatory document (like KK) is filled
+        return $this->dokumen && !empty($this->dokumen->kk);
+    }
+
+    /**
+     * Check if Admin has Verified the application
+     */
+    public function isVerifikasiComplete()
+    {
+        // Check if the pendaftaran relation exists and status is either Diterima or Ditolak
+        return $this->pendaftaran && in_array($this->pendaftaran->status, ['Diterima', 'Ditolak']);
+    }
 }
