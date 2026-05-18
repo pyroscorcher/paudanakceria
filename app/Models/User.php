@@ -82,4 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(DataPeriodik::class);
     }
+
+    public function dokumen()
+    {
+        return $this->hasOne(Dokumen::class);
+    }
 }

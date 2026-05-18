@@ -50,7 +50,7 @@ class DataAnakController extends Controller
             'kebutuhankhusus' => 'nullable|string|max:100',
             'alamat_rumah'    => 'required|string',
             'transportasi'    => 'required|string|max:100',
-            'telp'            => 'required|integer',
+            'telp'            => 'required|string|max:20',
             'emailpribadi'    => 'required|email|max:255',
             'kks'             => 'nullable|integer',
             'kps'             => 'nullable|integer',

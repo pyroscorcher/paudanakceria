@@ -11,6 +11,7 @@ use App\Http\Controllers\UserDashboard\DataAnakController;
 use App\Http\Controllers\UserDashboard\DataOrangtuaController;
 use App\Http\Controllers\UserDashboard\DataPeriodikController;
 use App\Http\Controllers\UserDashboard\DataPrestasiController;
+use App\Http\Controllers\UserDashboard\UserDocumentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -92,9 +93,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/user/data_prestasi', [DataPrestasiController::class, 'update'])->name('user.data_prestasi.update');
 
     // Documents & Profile
-    Route::get('/user/dokumen', [UserController::class, 'ShowDokumen'])->name('user.dokumen');
-    Route::get('/user/upload_dokumen', [UserController::class, 'uploadDokumen'])->name('user.upload_dokumen');
-
+    Route::get('/user/upload_dokumen', [UserDocumentController::class, 'index'])->name('user.upload_dokumen');
+    Route::put('/user/upload_dokumen', [UserDocumentController::class, 'update'])->name('user.upload_dokumen.update');
+    
     Route::get('/user/profile', [UserController::class, 'ShowProfile'])->name('user.profile');
     Route::post('/user/profile', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
 

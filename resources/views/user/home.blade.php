@@ -70,24 +70,17 @@
                             mandiri, dan siap menghadapi jenjang pendidikan berikutnya.
                             Bersama orang tua, kami menciptakan lingkungan belajar yang aman dan penuh kasih.
                         </p>
-
-                        <div class="home_btn">
-                            <a href="register.html" class="cta">
-                                <span>Daftar Sekarang!</span>
-
-                                <svg width="13px" height="10px" viewBox="0 0 13 10">
-                                    <path d="M1,5 L11,5"></path>
-                                    <polyline points="8 1 12 5 8 9"></polyline>
-                                </svg>
-                            </a>
-                        </div>
-
                     </div>
-
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
-
+                    <div class="home_btn">
+                        <a href="{{ route('user.daftar') }}" class="cta"><span>Daftar Sekarang!</span>
+                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div><!-- END COL-->
+                <div class="col-lg-6 col-sm-6 col-xs-12 order-1 order-sm-2">
                     <div class="home_me_img">
 
                         <img src="{{ asset('images/all-img/home-banner.png') }}" class="img-fluid" alt="Banner">
@@ -346,36 +339,27 @@
     </section>
     <!-- END BLOG -->
 
+    <!-- Gallery section -->
     <section id="gallery" class="gallery_area section-padding">
         <div class="container">
             <div class="section-title">
                 <h1>Galeri Kegiatan</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                    data-wow-offset="0">
-                    <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
-                            alt="image" />
+                @forelse($galleries as $gallery)
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                        <div class="single_gallery mb-4">
+                            <img src="{{ asset('storage/' . $gallery->photo) }}" class="img-fluid rounded shadow-sm" alt="Galeri Kegiatan" style="width: 100%; height: 250px; object-fit: cover;" />
+                        </div>
                     </div>
-                </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
-                    data-wow-offset="0">
-                    <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program2.png') }}" class="img-fluid"
-                            alt="image" />
+                @empty
+                    <div class="col-12 text-center text-muted">
+                        <p>Belum ada foto kegiatan yang diunggah.</p>
                     </div>
-                </div><!-- END COL-->
-                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
-                    data-wow-offset="0">
-                    <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program3.png') }}" class="img-fluid"
-                            alt="image" />
-                    </div>
-                </div><!-- END COL-->
-            </div><!-- END ROW -->
-        </div><!-- END CONTAINER -->
-    </section>>
+                @endforelse
+            </div>
+        </div>
+    </section>
 
 
 

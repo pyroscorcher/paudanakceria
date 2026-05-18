@@ -46,11 +46,15 @@ class UserController extends Controller
     }
 
     public function ShowBeranda()
-    {
-        return view('user.home', [
-        'navbar' => 'My Menu'
-        ]);
-    }
+        {
+            // Fetch the 6 most recent gallery images to display on the home page
+            $galleries = \App\Models\Gallery::latest()->take(6)->get();
+
+            return view('user.home', [
+                'navbar'    => 'My Menu',
+                'galleries' => $galleries // Pass the data to the Blade view here
+            ]);
+        }
 
     public function ShowNews()
     {
@@ -62,16 +66,19 @@ class UserController extends Controller
 
     // USER DASHBOARD CONTROLLER
 
-    public function userDashboard(){
+    public function userDashboard()
+    {
+        // 1. Get the currently logged-in user
+        $user = auth()->user();
 
-        $enrollments = Pendaftaran::with('user')
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+        // 2. Fetch ONLY their specific enrollment data using the relationship
+        $enrollment = $user->pendaftaran;
 
         return view('user.dashboard_user', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard',
-            'enrollments' => $enrollments
+            'user'             => $user,
+            'enrollment'       => $enrollment // Pass the single record, not a paginated list
         ]);
     }
 
@@ -134,7 +141,7 @@ class UserController extends Controller
 
             // 4. Redirect to the secure user dashboard
             // FIXED: Pointing to the correct route name
-            return redirect()->intended(route('user.dashboard'));
+            return redirect()->route('user.dashboard');
         }
 
         // 5. If authentication fails, redirect back

@@ -285,7 +285,7 @@ return [
         ],
         'jarak'=> [
             'required' => 'Jarak wajib diisi.',
-            'integer' => 'Isi angka saja',
+            'integer' => 'Isi angka bulat tanpa koma',
         ],
         'waktu'=> [
             'required' => 'Waktu wajib diisi.',
@@ -402,6 +402,44 @@ return [
             'required' => 'Penyelenggara prestasi wajib diisi.',
             'string' => 'Penyelenggara prestasi harus berupa teks.',
             'max' => 'Penyelenggara prestasi tidak boleh lebih dari 255 karakter.',
+        ],
+
+        // Upload Dokumen
+        'dokumen.*' => [
+            'file' => 'Setiap dokumen harus berupa file.',
+            'mimes' => 'Setiap dokumen harus memiliki format: :values.',
+            'max' => 'Setiap dokumen tidak boleh lebih dari :max kilobytes.',
+        ],
+
+        'akta_kelahiran'=> [
+            'required' => 'Akta kelahiran wajib diisi.',
+            'file' => 'Akta kelahiran harus berupa file.',
+            'mimes' => 'Akta kelahiran harus memiliki format: :values.',
+            'max' => 'Akta kelahiran tidak boleh lebih dari :max kilobytes.',
+        ],
+        'kk'=> [
+            'required' => 'Kartu Keluarga wajib diisi.',
+            'file' => 'Kartu Keluarga harus berupa file.',
+            'mimes' => 'Kartu Keluarga harus memiliki format: :values.',
+            'max' => 'Kartu Keluarga tidak boleh lebih dari :max kilobytes.',
+        ],
+        'foto_anak'=> [
+            'required' => 'Foto anak wajib diisi.',
+            'file' => 'Foto anak harus berupa file.',
+            'mimes' => 'Foto anak harus memiliki format: :values.',
+            'max' => 'Foto anak tidak boleh lebih dari :max kilobytes.',
+        ],
+        'ktp'=> [
+            'required' => 'KTP wajib diisi.',
+            'file' => 'KTP harus berupa file.',
+            'mimes' => 'KTP harus memiliki format: :values.',
+            'max' => 'KTP tidak boleh lebih dari :max kilobytes.',
+        ],
+        'bukti_pembayaran'=> [
+            'required' => 'Bukti pembayaran wajib diisi.',
+            'file' => 'Bukti pembayaran harus berupa file.',
+            'mimes' => 'Bukti pembayaran harus memiliki format: :values.',
+            'max' => 'Bukti pembayaran tidak boleh lebih dari :max kilobytes.',
         ],
     ],
 
