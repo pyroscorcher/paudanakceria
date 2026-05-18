@@ -55,33 +55,49 @@
     <!-- START HOME -->
     <section id="home" class="home_bg">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-6 col-xs-12 order-2 order-sm-1">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 col-md-6 col-12 order-2 order-md-1">
+
                     <div class="home_content">
-                        <h1>A Happy Start for Every Child</h1>
-                        <p>Kami percaya awal yang bahagia akan membentuk anak yang percaya diri, mandiri, dan siap
-                            menghadapi jenjang pendidikan berikutnya. Bersama orang tua, kami menciptakan lingkungan
-                            belajar yang aman dan penuh kasih, agar Ayah dan Bunda merasa tenang mempercayakan tumbuh
-                            kembang buah hati kepada kami.
+
+                        <h1>
+                            A Happy Start for Every Child
+                        </h1>
+
+                        <p>
+                            Kami percaya awal yang bahagia akan membentuk anak yang percaya diri,
+                            mandiri, dan siap menghadapi jenjang pendidikan berikutnya.
+                            Bersama orang tua, kami menciptakan lingkungan belajar yang aman dan penuh kasih.
                         </p>
+
+                        <div class="home_btn">
+                            <a href="register.html" class="cta">
+                                <span>Daftar Sekarang!</span>
+
+                                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+
                     </div>
-                    <div class="home_btn">
-                        <a href="register.html" class="cta"><span>Daftar Sekarang!</span>
-                            <svg width="13px" height="10px" viewBox="0 0 13 10">
-                                <path d="M1,5 L11,5"></path>
-                                <polyline points="8 1 12 5 8 9"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </div><!-- END COL-->
-                <div class="col-lg-6 col-sm-6 col-xs-12 order-1 order-sm-2">
+
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
+
                     <div class="home_me_img">
-                        <img src="{{ asset('images/all-img/home-banner.png') }}" style="border-radius: 15px;"
-                            class="img-fluid" alt="" />
+
+                        <img src="{{ asset('images/all-img/home-banner.png') }}" class="img-fluid" alt="Banner">
+
                     </div>
-                </div><!-- END COL-->
-            </div><!--- END ROW -->
-        </div><!--- END CONTAINER -->
+
+                </div>
+
+            </div>
+        </div>
     </section>
     <!-- END  HOME -->
     </div>
@@ -295,7 +311,8 @@
                     data-wow-delay="0.1s" data-wow-offset="0">
                     <div class="single_blog">
                         <div class="single_blog_img">
-                        <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid" alt="image" />
+                            <img src="{{ asset('images/all-img/home-kabar1.png') }}" class="img-fluid"
+                                alt="image" />
                         </div>
                         <div class="content_box">
                             <h2><a href="/user/news">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
@@ -311,7 +328,8 @@
                     data-wow-delay="0.3s" data-wow-offset="0">
                     <div class="single_blog">
                         <div class="single_blog_img">
-                        <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid" alt="image" />
+                            <img src="{{ asset('images/all-img/home-kabar2.png') }}" class="img-fluid"
+                                alt="image" />
                         </div>
                         <div class="content_box">
                             <h2><a href="/user/news">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
@@ -337,24 +355,27 @@
                 <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
                     data-wow-offset="0">
                     <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="image" />
+                        <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
+                            alt="image" />
                     </div>
                 </div><!-- END COL-->
                 <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
                     data-wow-offset="0">
                     <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program2.png') }}" class="img-fluid" alt="image" />
+                        <img src="{{ asset('images/all-img/home-program2.png') }}" class="img-fluid"
+                            alt="image" />
                     </div>
                 </div><!-- END COL-->
                 <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s"
                     data-wow-offset="0">
                     <div class="single_gallery">
-                        <img src="{{ asset('images/all-img/home-program3.png') }}" class="img-fluid" alt="image" />
+                        <img src="{{ asset('images/all-img/home-program3.png') }}" class="img-fluid"
+                            alt="image" />
                     </div>
                 </div><!-- END COL-->
             </div><!-- END ROW -->
         </div><!-- END CONTAINER -->
-        </section>>
+    </section>>
 
 
 

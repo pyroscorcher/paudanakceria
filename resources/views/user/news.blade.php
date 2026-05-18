@@ -69,7 +69,7 @@
                 <div class="arti_title">
                     <h1>Kegiatan Mewarnai untuk Mengasah Kreativitas Anak di PAUD Anak Ceria</h1>
                 </div>
-                <div class="col-lg-7 col-sm-12 col-xs-12">
+                <div class="col-auto col-sm-12 col-xs-12 justify-items-center mr-2 ml-2">
 
                     <div class="arti_single">
 
@@ -89,39 +89,6 @@
                         </div>
                     </div><!-- END ARTI SINGLE  -->
                 </div><!-- END COL-->
-                <div class="col-lg-5 col-sm-12 col-xs-12">
-                    <div class="sidebar-post">
-                        <div class="sidebar_title">
-                            <h4>Popular post</h4>
-                        </div>
-                        <div class="single_popular">
-                            <a href="single_blog.html"><img src="assets/images/blog/blog-1.png" alt="" /></a>
-                            <h5><a href="single_blog.html">Supercharging Your SEO Game with AI Writing Assistants</a>
-                            </h5>
-                        </div><!-- END SINGLE POPULAR POST -->
-                        <div class="single_popular">
-                            <a href="single_blog.html"><img src="assets/images/blog/blog-2.png" alt="" /></a>
-                            <h5><a href="single_blog.html">AI Writing Assistants and the Future of Content
-                                    Marketing</a>
-                            </h5>
-                        </div><!-- END SINGLE POPULAR POST -->
-                        <div class="single_popular">
-                            <a href="single_blog.html"><img src="assets/images/blog/blog-3.png" alt="" /></a>
-                            <h5><a href="single_blog.html">Enhancing Your E-commerce Store With AI Writing
-                                    Assistants.</a></h5>
-                        </div><!-- END SINGLE POPULAR POST -->
-                        <div class="single_popular">
-                            <a href="single_blog.html"><img src="assets/images/blog/blog-4.png" alt="" /></a>
-                            <h5><a href="single_blog.html">Building your content strategy cannot get easier than
-                                    this.</a></h5>
-                        </div><!-- END SINGLE POPULAR POST -->
-                        <div class="single_popular">
-                            <a href="single_blog.html"><img src="assets/images/blog/blog-5.png" alt="" /></a>
-                            <h5><a href="single_blog.html">This is the only read you would need before sitting down to
-                                    prepare</a></h5>
-                        </div><!-- END SINGLE POPULAR POST -->
-                    </div><!-- END SIDEBAR POST -->
-                </div><!--- END COL -->
             </div><!-- END ROW-->
         </div><!-- END CONTAINER-->
     </section>
