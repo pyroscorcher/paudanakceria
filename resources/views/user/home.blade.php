@@ -296,7 +296,7 @@
                             </div>
                             <div class="content_box flex-grow-1 d-flex flex-column justify-content-between">
                                 <div>
-                                    <h2><a href="{{ route('user.news') }}">{{ $item->title }}</a></h2>
+                                    <h2><a href="{{ route('user.news.detail', ['id' => $item->id]) }}">{{ $item->title }}</a></h2>
                                     <p>{{ Str::limit($item->content, 150, '...') }}</p>
                                 </div>
                                 

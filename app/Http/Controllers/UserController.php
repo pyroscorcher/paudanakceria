@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // COMPANY PROFILE CONTROLLER
+    // ==========================================
+    // COMPANY PROFILE CONTROLLERS
+    // ==========================================
+    
     public function ShowInfo()
     {
         return view('user.info', [
@@ -30,11 +33,32 @@ class UserController extends Controller
         return view('user.login');
     }
 
+    /**
+     * Menampilkan semua berita/pengumuman (Halaman Grid Archive)
+     */
     public function ShowPengumuman()
     {
+        $all_news = \App\Models\News::latest()->paginate(9);
+
         return view('user.pengumuman', [
+            'navbar'   => 'My Menu',
+            'footer'   => 'My Footer',
+            'all_news' => $all_news
+        ]);
+    }
+
+
+    /**
+     * Menampilkan detail single artikel berita berdasarkan ID
+     */
+    public function ShowNewsDetail($id)
+    {
+        $news = \App\Models\News::findOrFail($id);
+
+        return view('user.news', [
             'navbar' => 'My Menu',
-            'footer' => 'My Footer'
+            'footer' => 'My Footer',
+            'news'   => $news
         ]);
     }
 
@@ -46,76 +70,70 @@ class UserController extends Controller
     }
 
     public function ShowBeranda()
-        {
-            // Fetch the 6 most recent gallery images to display on the home page
-            $galleries = \App\Models\Gallery::latest()->take(6)->get();
-
-            $news = \App\Models\News::latest()->take(3)->get();
-
-            return view('user.home', [
-                'navbar'    => 'My Menu',
-                'galleries' => $galleries, // Pass the data to the Blade view here
-                'news'      => $news,
-            ]);
-        }
-
-    public function ShowNews()
     {
-        return view('user.news', [
-            'navbar' => 'My Menu',
-            'footer' => 'My Footer'
+        $galleries = \App\Models\Gallery::latest()->take(6)->get();
+        $news = \App\Models\News::latest()->take(3)->get();
+
+        return view('user.home', [
+            'navbar'    => 'My Menu',
+            'galleries' => $galleries,
+            'news'      => $news,
         ]);
     }
 
-    // USER DASHBOARD CONTROLLER
+    // ==========================================
+    // PROTECTED USER DASHBOARD CONTROLLERS
+    // ==========================================
 
     public function userDashboard()
     {
-        // 1. Get the currently logged-in user
         $user = auth()->user();
-
-        // 2. Fetch ONLY their specific enrollment data using the relationship
         $enrollment = $user->pendaftaran;
 
         return view('user.dashboard_user', [
             'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard',
             'user'             => $user,
-            'enrollment'       => $enrollment // Pass the single record, not a paginated list
+            'enrollment'       => $enrollment 
         ]);
     }
 
-    public function dataAnak(){
+    public function dataAnak()
+    {
         return view('user.data_anak', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
     }
 
-    public function dataOrangTua(){
+    public function dataOrangTua()
+    {
         return view('user.data_orangtua', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
     }
 
-    public function dataPeriodik(){
+    public function dataPeriodik()
+    {
         return view('user.data_periodik', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
     }
 
-    public function dataPrestasi(){
+    public function dataPrestasi()
+    {
         return view('user.data_prestasi', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
     }
 
-    public function uploadDokumen(){
+    public function uploadDokumen()
+    {
         return view('user.upload_dokumen', [
-            'side_navbar' => 'Slide Menu',
+            'side_navbar'      => 'Slide Menu',
             'header_dashboard' => 'Header Dashboard'
         ]);
     }
@@ -128,34 +146,27 @@ class UserController extends Controller
         ]);
     }
 
-    // user login method
+    // ==========================================
+    // AUTHENTICATION METHODS
+    // ==========================================
+
     public function login(Request $request)
     {
-        // 1. Validate the incoming request payload
         $credentials = $request->validate([
             'nisn'     => ['required', 'string'],
             'password' => ['required'],
         ]);
 
-        // 2. Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            // 3. Prevent session fixation attacks
             $request->session()->regenerate();
-
-            // 4. Redirect to the secure user dashboard
-            // FIXED: Pointing to the correct route name
             return redirect()->route('user.dashboard');
         }
 
-        // 5. If authentication fails, redirect back
         return back()->withErrors([
             'nisn' => __('auth.failed_user'),
         ])->onlyInput('nisn');
     }
 
-    /**
-     * Log the user out of the application.
-     */
     public function logout(Request $request)
     {
         Auth::logout();
@@ -164,6 +175,6 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/')
-        ->with('success', 'Kamu Berhasil Keluar dari Dashboard!');
+            ->with('success', 'Kamu Berhasil Keluar dari Dashboard!');
     }
 }

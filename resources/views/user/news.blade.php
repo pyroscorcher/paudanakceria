@@ -66,27 +66,45 @@
     <section class="blog-page section-padding">
         <div class="container">
             <div class="row">
-                <div class="arti_title">
-                    <h1>Kegiatan Mewarnai untuk Mengasah Kreativitas Anak di PAUD Anak Ceria</h1>
+                <!-- Dynamic News Title -->
+                <div class="arti_title mb-4">
+                    <h1>{{ $news->title }}</h1>
+                    
+                    <!-- Added Dynamic Publication Date for a professional layout -->
+                    <p class="text-muted mt-2" style="font-size: 0.9em;">
+                        <i class="purple fa-regular fa-calendar-days me-1"></i> 
+                        Diterbitkan pada: {{ $news->created_at->locale('id')->translatedFormat('d F Y') }}
+                    </p>
                 </div>
+                
                 <div class="col-auto col-sm-12 col-xs-12 justify-items-center mr-2 ml-2">
-
                     <div class="arti_single">
 
-                        <div class="arti_img_two">
-                            <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid"
-                                alt="image" />
+                        <!-- Dynamic Image Box with Fallback Mechanism -->
+                        <div class="arti_img_two mb-4">
+                            @if($news->image)
+                                <img src="{{ asset('storage/' . $news->image) }}" class="img-fluid rounded shadow" alt="{{ $news->title }}" style="width: 100%; max-height: 480px; object-fit: cover;" />
+                            @else
+                                <!-- Fallback standard image if no image was provided -->
+                                <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid rounded shadow" alt="Default Image" style="width: 100%; max-height: 480px; object-fit: cover;" />
+                            @endif
                         </div>
-                        <div class="arti_content ">
-                            <p>I almost couldn’t believe it was real! For my first test I had generate some website copy
-                                for me. I provided about 50 words to describe my business along with my business name.
-                                generated two variants of copy each with several paragraphs of professional sounding
-                                copy. I immediately shared the results with a friend who couldn’t believe it was written
-                                by an AI. is worth every Yaley and then some. Describe my business along with my
-                                business name. generated two variants of copy each with several paragraphs of
-                                professional sounding copy. I immediately shared the results with a friend who couldn’t
-                                believe it was written by an AI. is worth every Yaley and then some!</p>
+                        
+                        <!-- Dynamic Content Area -->
+                        <div class="arti_content">
+                            <!-- e() escapes harmful inputs while nl2br preserves original paragraph spacings -->
+                            <div class="news-body text-justify" style="line-height: 1.8; font-size: 1.1em; color: #4a5568;">
+                                {!! nl2br(e($news->content)) !!}
+                            </div>
                         </div>
+                        
+                        <!-- UX Touch: Navigation Back Button -->
+                        <div class="mt-5 border-top pt-4">
+                            <a href="{{ route('user.home') }}" class="btn btn-primary text-white" style="background-color: #009CE0; border-color: #009CE0; padding: 10px 24px; border-radius: 5px;">
+                                ← Kembali ke Beranda
+                            </a>
+                        </div>
+
                     </div><!-- END ARTI SINGLE  -->
                 </div><!-- END COL-->
             </div><!-- END ROW-->

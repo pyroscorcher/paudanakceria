@@ -57,11 +57,26 @@ Route::middleware(['auth:admins'])->group(function () {
 // PUBLIC USER ROUTES (No login required)
 // ==========================================
 Route::get('/', [UserController::class, 'ShowBeranda'])->name('user.home');
-Route::get('/user/info', [UserController::class, 'ShowInfo'])->name('user.info');
-Route::get('/user/daftar', [UserController::class, 'ShowDaftar'])->name('user.daftar');
-Route::get('/user/pengumuman', [UserController::class, 'ShowPengumuman'])->name('user.pengumuman');
-Route::get('/user/kontak', [UserController::class, 'ShowKontak'])->name('user.kontak');
-Route::get('/user/news', [UserController::class, 'ShowNews'])->name('user.news');
+
+// Grouped Public User Sub-pages
+// Automatically attaches '/user' to URLs and 'user.' to route names
+Route::prefix('user')->name('user.')->group(function () {
+    
+    // Informational Pages
+    Route::get('/info', [UserController::class, 'ShowInfo'])->name('info');
+    Route::get('/daftar', [UserController::class, 'ShowDaftar'])->name('daftar');
+    Route::get('/news', [UserController::class, 'ShowPengumuman'])->name('pengumuman');
+    Route::get('/kontak', [UserController::class, 'ShowKontak'])->name('kontak');
+
+    // Dynamic News Feed & Individual Articles
+    Route::get('/news/{id}', [UserController::class, 'ShowNewsDetail'])->name('news.detail');
+
+    // Authentication Gateways (Unprotected)
+    Route::get('/login', [UserController::class, 'ShowLogin'])->name('login');
+    Route::post('/login', [UserController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    
+});
 
 // User Login & Logout
 Route::get('/user/login', [UserController::class, 'ShowLogin'])->name('user.login');
