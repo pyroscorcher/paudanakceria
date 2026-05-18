@@ -36,7 +36,7 @@ class AdminDashboardController extends Controller
 
         // 4. Redirect back to the dashboard with a success flash message
         return redirect()->route('admin.dashboard')
-                         ->with('success', "Status Verifikasi {$enrollment->nama} diperbarui menjadi {$validated['status']}.");
+                         ->with('success', "Status verifikasi {$enrollment->nama} diperbarui menjadi {$validated['status']}.");
     }
 
     // show pendaftaran etails

@@ -38,7 +38,7 @@ class NewsController extends Controller
         // 3. Create the record (This will now include the image path)
         News::create($validatedData);
 
-        return redirect()->route('news.index')->with('success', 'News created successfully!');
+        return redirect()->route('news.index')->with('success', 'Berita berhasil dibuat!');
     }
 
     public function update(Request $request, $id)
@@ -70,7 +70,7 @@ class NewsController extends Controller
         // 3. Perform the update
         $news->update($validatedData);
 
-        return redirect()->route('news.index')->with('success', 'News updated successfully!');
+        return redirect()->route('news.index')->with('success', 'Berita berhasil diperbarui!');
     }
 
     public function showUpdate($id)

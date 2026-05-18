@@ -37,6 +37,6 @@ class DataPeriodikController extends Controller
             ['user_id' => $user->id], // The condition to match the record
             $validatedData            // The array of data to update or insert
         );
-        return redirect()->back()->with('success', 'Data Periodik berhasil diperbarui.');
+        return redirect()->back()->with('success', 'Data periodik berhasil diperbarui.');
     }
 }

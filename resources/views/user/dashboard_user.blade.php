@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/lineicons.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/materialdesignicons.min.css') }}" rel="stylesheet"
         type="text/css" />
-    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 </head>
 
@@ -266,7 +264,8 @@
 
                             <ul class="list-unstyled">
                                 <li class="mb-2">
-                                    Jadwal verifikasi berkas dimulai tanggal 15 Mei 2026.
+                                    Jadwal verifikasi berkas dimulai tanggal 
+                                    <strong>15 Mei 2026</strong>
                                 </li>
 
                                 <li class="mb-2">
@@ -427,7 +426,6 @@
     <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
     <script src="{{ asset('assets/js/dynamic-pie-chart.js') }}"></script>
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/fullcalendar.js') }}"></script>
     <script src="{{ asset('assets/js/jvectormap.min.js') }}"></script>
     <script src="{{ asset('assets/js/world-merc.js') }}"></script>
     <script src="{{ asset('assets/js/polyfill.js') }}"></script>

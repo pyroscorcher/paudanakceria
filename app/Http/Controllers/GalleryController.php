@@ -35,7 +35,7 @@ class GalleryController extends Controller
             ]);
 
             return redirect()->route('gallery.index')
-                             ->with('success', 'Photo uploaded successfully!');
+                             ->with('success', 'Foto berhasil diunggah!');
         }
 
         return back()->withErrors(['photo' => 'Failed to upload photo.']);
@@ -53,6 +53,6 @@ class GalleryController extends Controller
         $gallery->delete();
 
         return redirect()->route('gallery.index')
-                         ->with('success', 'Photo deleted successfully!');
+                         ->with('success', 'Foto berhasil dihapus!');
     }
 }
