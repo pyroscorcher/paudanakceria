@@ -290,7 +290,7 @@
                                 alt="image" />
                         </div>
                         <div class="content_box">
-                            <h2><a href="/user/news">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
+                            <h2><a href="{{ route('user.news')}}">Kegiatan Mewarnai untuk Mengasah Kreativitas Anak</a></h2>
                             <p>Anak-anak PAUD Anak Ceria mengikuti kegiatan mewarnai bersama di kelas. Melalui aktivitas
                                 ini, anak-anak belajar mengenal warna, melatih motorik halus, serta mengekspresikan
                                 imajinasi mereka dengan cara yang menyenangkan. Suasana kelas penuh dengan keceriaan dan
@@ -308,7 +308,7 @@
                                 alt="image" />
                         </div>
                         <div class="content_box">
-                            <h2><a href="/user/news">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
+                            <h2><a href="{{ route('user.news')}}">Belajar Mengenal Tanaman Melalui Kegiatan Menanam</a></h2>
                             <p>Dalam kegiatan pembelajaran minggu ini, anak-anak diajak menanam tanaman di halaman
                                 sekolah. Anak-anak belajar mengenal bagian tanaman, cara merawatnya, serta pentingnya
                                 menjaga lingkungan. Kegiatan ini membantu anak belajar sambil bermain di alam terbuka.
@@ -325,7 +325,7 @@
                                 alt="image" />
                         </div>
                         <div class="content_box">
-                            <h2><a href="/user/news">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
+                            <h2><a href="{{ route('user.news')}}">Perayaan Hari Kartini di PAUD Anak Ceria </a></h2>
                             <p>PAUD Anak Ceria merayakan Hari Kartini dengan kegiatan mengenakan pakaian adat dan
                                 berbagai aktivitas seru. Anak-anak belajar mengenal budaya Indonesia sekaligus
                                 meningkatkan rasa percaya diri saat tampil di depan teman-temannya.</p>
