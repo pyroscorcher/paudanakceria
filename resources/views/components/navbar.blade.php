@@ -27,7 +27,7 @@
                             <li><a href="{{ route('user.home')}}">Beranda</a>
                             </li>
                             <li><a href="{{ route('user.info') }}">Info Pendaftaran</a></li>
-                            <li><a href="{{ route('user.pengumuman') }}">Pengumuman</a>
+                            <li><a href="{{ route('user.pengumuman') }}">Berita</a>
                             </li>
                             <li><a href="{{ route('user.daftar') }}">Mulai Daftar</a>
                             </li>
