@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-sm-6 col-12 order-2 order-sm-1">
+                <div class="order-2 col-sm-6 col-12 order-sm-1">
 
                     <div class="home_content">
 
@@ -80,7 +80,7 @@
                         </a>
                     </div>
                 </div><!-- END COL-->
-                <div class="col-sm-6 col-12 order-1 order-sm-1">
+                <div class="order-1 col-sm-6 col-12 order-sm-1">
                     <div class="home_me_img">
 
                         <img src="{{ asset('images/all-img/home-banner.png') }}" class="img-fluid" alt="Banner">
@@ -284,7 +284,7 @@
             <div class="row">
                 @forelse($news as $item)
                     <!-- Dynamic News Block -->
-                    <div class="col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex mb-4" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                    <div class="mb-4 col-lg-4 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
                         <div class="single_blog d-flex flex-column w-100">
                             <div class="single_blog_img">
                                 @if($item->image)
@@ -294,7 +294,7 @@
                                     <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="default image" style="width: 100%; height: 220px; object-fit: cover;" />
                                 @endif
                             </div>
-                            <div class="content_box flex-grow-1 d-flex flex-column justify-content-between">
+                            <div class="content_box grow d-flex flex-column justify-content-between">
                                 <div>
                                     <h2><a href="{{ route('user.news.detail', ['id' => $item->id]) }}">{{ $item->title }}</a></h2>
                                     <p>{{ Str::limit($item->content, 150, '...') }}</p>
@@ -309,7 +309,7 @@
                     </div><!-- END COL-->
                 @empty
                     <!-- Fallback display if the database is clean/empty -->
-                    <div class="col-12 text-center text-muted py-5">
+                    <div class="py-5 text-center col-12 text-muted">
                         <p>Belum ada kabar terbaru atau berita yang diterbitkan.</p>
                     </div>
                 @endforelse
@@ -327,12 +327,12 @@
             <div class="row">
                 @forelse($galleries as $gallery)
                     <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
-                        <div class="single_gallery mb-4">
-                            <img src="{{ asset('storage/' . $gallery->photo) }}" class="img-fluid rounded shadow-sm" alt="Galeri Kegiatan" style="width: 100%; height: 250px; object-fit: cover;" />
+                        <div class="mb-4 single_gallery">
+                            <img src="{{ asset('storage/' . $gallery->photo) }}" class="rounded shadow-sm" alt="Galeri Kegiatan" />
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 text-center text-muted">
+                    <div class="text-center col-12 text-muted">
                         <p>Belum ada foto kegiatan yang diunggah.</p>
                     </div>
                 @endforelse

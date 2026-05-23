@@ -57,7 +57,7 @@
 	{{-- <!-- START SECTION TOP -->
 	<section class="section-top">
 		<div class="container">
-			<div class="col-lg-10 offset-lg-1 text-center">
+			<div class="text-center col-lg-10 offset-lg-1">
 				<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
 					data-wow-offset="0">
 					<h1>Pendaftaran</h1>
@@ -73,13 +73,13 @@
 	<section class="login_register section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-xs-12">
+                <div class="col-lg-10 offset-lg-1 col-12">
                     <div class="register">
                         <h4 class="login_register_title">Formulir Pendaftaran PAUD Anak Ceria</h4>
                         <form action="{{ route('pendaftaran.store') }}" method="POST">
                             @csrf
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="nama">Nama Lengkap Anak</label>
                                         <input type="text" id="nama" class="form-control requiredField input-label"
@@ -87,17 +87,17 @@
                                         @error('nama') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                                        <input type="date" id="tanggal_lahir" class="form-control requiredField input-label"
+                                        <input type="date" lang="id" id="tanggal_lahir" class="form-control requiredField input-label"
                                             name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required>
                                         @error('tanggal_lahir') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="nama_ayah">Nama Ayah</label>
                                         <input type="text" id="nama_ayah" class="form-control requiredField input-label"
@@ -105,7 +105,7 @@
                                         @error('nama_ayah') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="nama_ibu">Nama Ibu</label>
                                         <input type="text" id="nama_ibu" class="form-control requiredField input-label"
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="telp">Nomor Telepon</label>
                                         <input type="tel" id="telp" class="form-control requiredField input-label"
@@ -123,7 +123,7 @@
                                         @error('telp') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="jenis_kelamin">Jenis Kelamin</label>
                                         <select id="jenis_kelamin" name="jenis_kelamin" class="form-control requiredField input-label" required>

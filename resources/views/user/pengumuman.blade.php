@@ -53,11 +53,12 @@
     <!-- END PRELOADER -->
 
     @include('components.navbar', ['navbar' => $navbar])
+    <!--INI ADALAH HALAMAN BERITA KARENA PERUBAHAN KEBUTUHAN MAKANYA DIUBAH -->
 
     <!-- START SECTION TOP -->
     <section class="section-top">
         <div class="container">
-            <div class="col-lg-10 offset-lg-1 text-center">
+            <div class="text-center col-lg-10 offset-lg-1">
                 <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
                     data-wow-offset="0">
                     <h1>Berita</h1>
@@ -74,7 +75,7 @@
             <div class="row">
                 @forelse($all_news as $item)
                     <!-- Dynamic News Block -->
-                    <div class="col-lg-3 col-sm-4 col-xs-12 wow fadeInUp d-flex mb-4" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                    <div class="mb-4 col-lg-3 col-sm-4 col-xs-12 wow fadeInUp d-flex" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
                         <div class="single_blog_news d-flex flex-column w-100">
                             <div class="single_blog_img single_blog_img_news">
                                 @if($item->image)
@@ -84,14 +85,14 @@
                                     <img src="{{ asset('images/all-img/home-program1.png') }}" class="img-fluid" alt="default image" style="width: 100%; height: 220px; object-fit: cover;" />
                                 @endif
                             </div>
-                            <div class="content_box flex-grow-1 d-flex flex-column justify-content-between">
+                            <div class="content_box grow d-flex flex-column justify-content-between">
                                 <div>
                                     <h2><a href="{{ route('user.news.detail', ['id' => $item->id]) }}">{{ $item->title }}</a></h2>
                                     <p>{{ Str::limit($item->content, 150, '...') }}</p>
                                 </div>
 
                                 <!-- Automatically outputs localized Indonesian dates (e.g., 18 Mei 2026) -->
-                                <p class="mt-3 pt-3 text-muted border-top" style="font-size: 0.85em;">
+                                <p class="pt-3 mt-3 text-muted border-top" style="font-size: 0.85em;">
                                     {{ $item->created_at->locale('id')->translatedFormat('d F Y') }}
                                 </p>
                             </div>
@@ -99,7 +100,7 @@
                     </div><!-- END COL-->
                 @empty
                     <!-- Fallback display if the database is clean/empty -->
-                    <div class="col-12 text-center text-muted py-5">
+                    <div class="py-5 text-center col-12 text-muted">
                         <p>Belum ada kabar terbaru atau berita yang diterbitkan.</p>
                     </div>
                 @endforelse

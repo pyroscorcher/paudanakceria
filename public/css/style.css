@@ -4582,27 +4582,28 @@ blockquote::before,
 .single_gallery {
     max-width: 780px;
     /* Limits how wide the image can get */
-    height: 350px;
+    height: 250px;
     /* Sets a strict, compact height for the blog */
     width: 100%;
     /* Allows responsiveness on smaller screens */
-    margin: 0 auto 25px;
-    /* Center aligns the image box; adds bottom margin */
+    /* margin: 0 auto 25px;
+    Center aligns the image box; adds bottom margin */
     overflow: hidden;
     /* Crops out everything that exceeds the dimensions */
     border-radius: 6px;
     /* Optional: gives soft, modern corners */
+    position: relative;
 }
 
-/* 2. The Image Element: Fills the container cleanly without distortion */
 .single_gallery img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* Crops scale nicely without squishing your photo */
-    object-position: center;
-    /* Ensures the center of the image is always visible */
-    transition: 0.6s;
+    /* object-position: center;
+    Ensures the center of the image is always visible */
+    display: block;
+    transition: 0.6s ease;
 }
 
 .single_gallery:hover img {
@@ -5403,7 +5404,6 @@ blockquote::before,
 }
 
 .register input {
-    margin-bottom: 30px;
     background: #fff;
     height: 55px;
 }
@@ -5415,6 +5415,21 @@ blockquote::before,
 }
 
 .register input::placeholder {
+    opacity: 0.6;
+}
+
+.register select {
+    background: #fff;
+    height: 55px;
+}
+
+.register select:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.register select::placeholder {
     opacity: 0.6;
 }
 
@@ -5451,9 +5466,58 @@ blockquote::before,
     color: #009CE0;
 }
 
-.register input::placeholder {
-    opacity: 0.6;
+.form-group {
+    margin-bottom: 18px;;
 }
+
+/* Tablet */
+@media (max-width: 991px) {
+
+    .register {
+        padding: 20px;
+    }
+
+    .register input,
+    .register select {
+        margin-bottom: 20px;
+        height: 50px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .register {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .register input,
+    .register select {
+        height: 45px;
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+
+    .register label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+        .register .row {
+        display: block;
+        margin: 0;
+    }
+
+    .register .row > div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -5563,10 +5627,41 @@ blockquote::before,
     line-height: 1.6;
 }
 
-/* spacing antar card di mobile */
-@media (max-width: 788px) {
+/* Tablet */
+@media (max-width: 991px) {
+
+    .single_address {
+        padding: 30px 20px;
+    }
+
+    .single_address h4 {
+        font-size: 24px;
+    }
+
+    .single_address p {
+        font-size: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
     .single_address {
         margin-bottom: 20px;
+        padding: 25px 18px;
+    }
+
+    .single_address h4 {
+        font-size: 22px;
+    }
+
+    .single_address p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .single_address i {
+        font-size: 30px;
     }
 }
 
