@@ -19,8 +19,8 @@ class AdminSeeder extends Seeder
 
         DB::table('admins')->insert([
             'nama_admin' => 'System Administrator',
-            'username'   => 'admin',
-            'password'   => Hash::make('123'), // Required for Laravel Auth
+            'username'   => 'administratingiswhatido',
+            'password'   => Hash::make('20010911'), // Required for Laravel Auth
             'created_at' => Carbon::now(
                 
             ),
