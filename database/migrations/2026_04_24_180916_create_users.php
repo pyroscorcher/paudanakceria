@@ -12,16 +12,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('nisn')->unique();
+            $table->string('nisn')->unique()->nullable();
             $table->string('password');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('tempatlahir')->nullable();
             $table->string('nis', 20)->unique()->nullable();
             $table->string('nomorseriijazah')->nullable();
-            $table->string('nomorseriskhun')->nullable();
-            $table->string('nomorseriun')->nullable();
-            $table->string('nik')->nullable();
+            $table->string('nik', 16)->unique();
             $table->string('npsn')->nullable();
             $table->string('asal_sekolah')->nullable();
             $table->string('agama')->nullable();

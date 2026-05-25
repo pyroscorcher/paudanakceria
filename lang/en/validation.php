@@ -179,9 +179,15 @@ return [
     */
 
     'custom' => [
+        // Pendaftaran
         'nik' => [
-            'size' => 'Nomor Induk Kependudukan (NIK) tidak valid. Harus tepat 16 karakter.',
+            'required' => 'NIK wajib diisi.',
+            'digits' => 'Nomor Induk Kependudukan (NIK) harus terdiri dari 16 digit.',
             'unique' => 'NIK ini sudah terdaftar di sistem kami.',
+        ],
+        'password' => [
+            'required' => 'Password wajib diisi.',
+            'min' => 'Password minimal harus 8 karakter.',
         ],
 
         // Data Anak
@@ -211,20 +217,10 @@ return [
             'required' => 'Nomor seri ijazah wajib diisi.',
             'integer' => 'Nomor seri ijazah harus berupa angka.',
         ],
-        'nomorseriskhun' => [
-            'required' => 'Nomor seri SKHUN wajib diisi.',
-            'integer' => 'Nomor seri SKHUN harus berupa angka.',
-        ],
-        'nomorseriun' => [
-            'required' => 'Nomor seri UN wajib diisi.',
-            'integer' => 'Nomor seri UN harus berupa angka.',
-        ],
         'npsn' => [
-            'required' => 'NPSN wajib diisi.',
             'integer' => 'NPSN harus berupa angka.',
         ],
         'asal_sekolah' => [
-            'required' => 'Asal sekolah wajib diisi.',
             'string' => 'Asal sekolah harus berupa teks.',
             'max' => 'Asal sekolah tidak boleh lebih dari 255 karakter.',
         ],

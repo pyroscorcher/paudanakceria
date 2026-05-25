@@ -153,7 +153,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'nisn'     => ['required', 'string'],
+            'nik'     => ['required', 'string'],
             'password' => ['required'],
         ]);
 
@@ -163,8 +163,8 @@ class UserController extends Controller
         }
 
         return back()->withErrors([
-            'nisn' => __('auth.failed_user'),
-        ])->onlyInput('nisn');
+            'nik' => __('auth.failed_user'),
+        ])->onlyInput('nik');
     }
 
     public function logout(Request $request)

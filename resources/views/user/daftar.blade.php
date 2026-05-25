@@ -142,10 +142,10 @@
                                 @error('alamat_rumah') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
-                                <label for="nisn">NISN</label>
-                                <input type="text" id="nisn" class="form-control requiredField input-label"
-                                    name="nisn" value="{{ old('nisn') }}" required placeholder="Masukkan NISN anak">
-                                @error('nisn') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
+                                <label for="nik">NIK</label>
+                                <input type="text" id="nik" class="form-control requiredField input-label"
+                                    name="nik" value="{{ old('nik') }}" required placeholder="Masukkan NIK anak">
+                                @error('nik') <span class="text-danger" style="color:red; font-size: 0.875em;">{{ $message }}</span> @enderror
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>

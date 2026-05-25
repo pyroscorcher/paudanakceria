@@ -65,11 +65,11 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="nisn">NISN</label>
-                                <input type="text" id="nisn" class="form-control requiredField input-label"
-                                    name="nisn" value="{{ old('nisn') }}" required autofocus>
+                                <label for="nik">NIK</label>
+                                <input type="text" id="nik" class="form-control requiredField input-label"
+                                    name="nik" value="{{ old('nik') }}" required autofocus>
 
-                                @error('nisn')
+                                @error('nik')
                                     <span class="text-danger" style="color:red; font-size: 0.875em;">
                                         {{ $message }}
                                     </span>

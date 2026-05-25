@@ -24,8 +24,6 @@ class User extends Authenticatable
         'tempatlahir',
         'nis',
         'nomorseriijazah',
-        'nomorseriskhun',
-        'nomorseriun',
         'nik',
         'npsn',
         'asal_sekolah',

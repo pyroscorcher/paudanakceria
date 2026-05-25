@@ -180,30 +180,6 @@
 
                             <div class="col-md-6">
                                 <div class="input-style-1">
-                                    <label>Nomor Seri SKHUN</label>
-                                    <input type="text" placeholder="*Data dari jenjang sebelumnya"
-                                        value="{{ old('nomorseriskhun', $user->nomorseriskhun ?? '') }}"
-                                        name="nomorseriskhun">
-                                    @error('nomorseriskhun')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="input-style-1">
-                                    <label>Nomor Seri UN</label>
-                                    <input type="text" placeholder="*Data dari jenjang sebelumnya"
-                                        value="{{ old('nomorseriun', $user->nomorseriun ?? '') }}"
-                                        name="nomorseriun">
-                                    @error('nomorseriun')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="input-style-1">
                                     <label>NIK</label>
                                     <input type="text" placeholder="Nomor Induk Kependudukan"
                                         value="{{ old('nik', $user->nik ?? '') }}" name="nik">

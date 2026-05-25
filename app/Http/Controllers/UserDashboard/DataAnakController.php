@@ -35,17 +35,15 @@ class DataAnakController extends Controller
             'jenis_kelamin'   => 'required|in:L,P',
             'tanggal_lahir'   => 'required|date',
             'tempatlahir'     => 'required|string|max:255',
-            'nis'             => 'required|integer',
-            'nomorseriijazah' => 'required|integer',
-            'nomorseriskhun'  => 'required|integer',
-            'nomorseriun'     => 'required|integer',
+            'nis'             => 'nullable|integer',
+            'nomorseriijazah' => 'nullable|integer',
 
             // Critical: Ignore the current user's ID to prevent unique constraint false positives
-            'nisn'            => ['required', 'string', Rule::unique('users', 'nisn')->ignore($user->id)],
+            'nisn'            => ['nullable', 'string', Rule::unique('users', 'nisn')->ignore($user->id)],
             'nik'             => ['required', 'string', 'size:16', Rule::unique('users', 'nik')->ignore($user->id)],
             
-            'npsn'            => 'required|integer',
-            'asal_sekolah'    => 'required|string|max:255',
+            'npsn'            => 'nullable|integer',
+            'asal_sekolah'    => 'nullable|string|max:255',
             'agama'           => 'required|string|max:50',
             'kebutuhankhusus' => 'nullable|string|max:100',
             'alamat_rumah'    => 'required|string',
