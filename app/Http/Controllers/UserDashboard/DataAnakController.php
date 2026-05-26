@@ -53,8 +53,8 @@ class DataAnakController extends Controller
             'kks'             => 'nullable|integer',
             'kps'             => 'nullable|integer',
             'kip'             => 'nullable|integer',
-            'lintang'         => 'nullable|string|max:50',
-            'bujur'           => 'nullable|string|max:50',
+            'lintang'         => 'nullable|string',
+            'bujur'           => 'nullable|string',
         ]);
 
         // 2. Update the database record securely

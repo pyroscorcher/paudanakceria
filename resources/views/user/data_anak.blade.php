@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+
+    <!-- Geolocation CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -245,6 +249,24 @@
                                 </div>
                             </div>
 
+                            <div class="form-group mt-4">
+                                <label>Tandai Lokasi Rumah di Peta</label>
+                                <p class="text-sm text-gray-500 mb-2">Geser pin ke lokasi persis rumah.</p>
+                                
+                                <div id="map" style="height: 300px; width: 100%; border-radius: 8px; z-index: 1;"></div>
+                                
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label for="lintang">Lintang</label>
+                                        <input type="text" id="lintang" name="lintang" class="form-control" readonly required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="bujur">Bujur</label>
+                                        <input type="text" id="bujur" name="bujur" class="form-control" readonly required>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-md-6">
                                 <div class="input-style-1">
                                     <label>Transportasi</label>
@@ -316,28 +338,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="input-style-1">
-                                    <label>Lintang</label>
-                                    <input type="text" placeholder="Lintang (koordinat lokasi rumah)"
-                                        value="{{ old('lintang', $user->lintang ?? '') }}" name="lintang">
-                                    @error('lintang')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="input-style-1">
-                                    <label>Bujur</label>
-                                    <input type="text" placeholder="Bujur (koordinat lokasi rumah)"
-                                        value="{{ old('bujur', $user->bujur ?? '') }}" name="bujur">
-                                    @error('bujur')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
                             <div class="button-size mt-3">
                                 <button type="submit" class="main-btn primary-btn-outline btn-hover">Simpan</button>
                             </div>
@@ -387,6 +387,39 @@
                 }
             });
         }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Check if user already has coordinates saved. 
+        // If not, default to the exact location of PAUD Anak Ceria.
+        var savedLat = {{ $user->lintang ? $user->lintang : '-6.3181561' }};
+        var savedLng = {{ $user->bujur ? $user->bujur : '106.7238404' }};
+
+        // 2. Initialize the map (Zoom level 16 is good for neighborhood view)
+        var map = L.map('map').setView([savedLat, savedLng], 16);
+
+        // 3. Load the OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // 4. Add the marker at the saved or default location
+        var marker = L.marker([savedLat, savedLng], {
+            draggable: true
+        }).addTo(map);
+
+        // Optional: Add a subtle visual cue so parents know where the school is
+        if (!{{ $user->lintang ? 'true' : 'false' }}) {
+            marker.bindPopup("<b>Lokasi PAUD Anak Ceria</b><br>Geser pin ini ke lokasi rumah Anda.").openPopup();
+        }
+
+        // 5. Update inputs when the marker is dragged
+        marker.on('dragend', function (event) {
+            var position = marker.getLatLng();
+            document.getElementById('lintang').value = position.lat.toFixed(7);
+            document.getElementById('bujur').value = position.lng.toFixed(7);
+        });
+    });
     </script>
 
     <!-- ========= All Javascript files linkup ======== -->
