@@ -129,7 +129,7 @@
                                 <div class="input-style-1">
                                     <label>NISN</label>
                                     <input type="text" placeholder="NISN"
-                                        value="{{ old('nisn', $user->nisn ?? '') }}" name="nisn" required>
+                                        value="{{ old('nisn', $user->nisn ?? '') }}" name="nisn">
                                     @error('nisn')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

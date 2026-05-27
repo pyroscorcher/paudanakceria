@@ -92,7 +92,7 @@ class User extends Authenticatable
     public function isDataAnakComplete()
     {
         // If these required fields are filled, it means they passed the DataAnakController validation
-        return !empty($this->nisn) && !empty($this->tempatlahir) && !empty($this->alamat_rumah);
+        return !empty($this->nik) && !empty($this->tempatlahir) && !empty($this->alamat_rumah);
     }
 
     /**
