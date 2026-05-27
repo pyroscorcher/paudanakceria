@@ -657,7 +657,10 @@
                 L.polyline(latlngs, {color: 'gray', dashArray: '5, 5'}).addTo(adminMap);
                 
                 // Adjust zoom to fit both pins perfectly
-                adminMap.fitBounds(L.polyline(latlngs).getBounds(), { padding: [30, 30] });
+                adminMap.fitBounds(L.polyline(latlngs).getBounds(), { 
+                    padding: [30, 30],
+                    maxZoom: 17
+                });
             }
 
             function showStep(stepNum) {

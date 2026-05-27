@@ -17,7 +17,7 @@
                                 <span class="font-bold text-xl tracking-wider">🎓 PPDB Admin Portal</span>
                             </div> --}}
                             <div class="flex items-center space-x-4">
-                                <span>Welcome, {{ Auth::guard('admins')->user()->nama_admin ?? 'Admin' }}</span>
+                                <span>Halo, {{ Auth::guard('admins')->user()->nama_admin ?? 'Admin' }}</span>
                                 <form method="POST" action="{{ route('admin.logout') }}">
                                     @csrf
                                     <div>
