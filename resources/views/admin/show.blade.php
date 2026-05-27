@@ -15,6 +15,8 @@
         type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -185,6 +187,20 @@
                                         <p class="text-xs font-medium text-gray-600 mb-1">Bujur</p>
                                         <p class="text-sm font-semibold text-gray-900">{{ $enrollment->user->bujur ?? '-' }}</p>
                                     </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg md:col-span-2">
+
+                                    <div class="flex justify-between items-center mb-2">
+                                            <p class="text-xs font-medium text-gray-600">Peta Lokasi Rumah</p>
+                                        </div>
+                                        
+                                        <div id="admin-map" style="height: 350px; width: 100%; border-radius: 8px; z-index: 1; border: 1px solid #e5e7eb;"></div>
+                                        
+                                        <div class="mt-2 text-xs text-gray-500">
+                                            <span class="font-semibold text-red-500">Pin Merah:</span> Rumah Calon Murid &nbsp;|&nbsp; 
+                                            <span class="font-semibold text-blue-500">Pin Biru:</span> PAUD Anak Ceria
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -595,11 +611,67 @@
                 });
             }
 
+            // --- MAP INITIALIZATION ---
+            
+            // 1. Get student coordinates (fallback to PAUD Anak Ceria if missing)
+            const studentLat = {{ $enrollment->user->lintang ? $enrollment->user->lintang : '-6.3181561' }};
+            const studentLng = {{ $enrollment->user->bujur ? $enrollment->user->bujur : '106.7238404' }};
+            
+            // 2. PAUD Anak Ceria Coordinates
+            const paudLat = -6.3181561;
+            const paudLng = 106.7238404;
+
+            // 3. Create Map
+            let adminMap = L.map('admin-map').setView([studentLat, studentLng], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(adminMap);
+
+            // 4. Add Student Home Marker (Red)
+            const redIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+            
+            L.marker([studentLat, studentLng], { icon: redIcon })
+             .addTo(adminMap)
+             .bindPopup('<b>Rumah Calon Murid</b><br>{{ $enrollment->nama }}');
+
+            // 5. Add School Marker (Default Blue)
+            L.marker([paudLat, paudLng])
+             .addTo(adminMap)
+             .bindPopup('<b>PAUD Anak Ceria</b>');
+
+            // Optional: Draw a line between the two points to visualize distance
+            if({{ $enrollment->user->lintang ? 'true' : 'false' }}) {
+                const latlngs = [
+                    [studentLat, studentLng],
+                    [paudLat, paudLng]
+                ];
+                L.polyline(latlngs, {color: 'gray', dashArray: '5, 5'}).addTo(adminMap);
+                
+                // Adjust zoom to fit both pins perfectly
+                adminMap.fitBounds(L.polyline(latlngs).getBounds(), { padding: [30, 30] });
+            }
+
             function showStep(stepNum) {
                 document.querySelectorAll('.review-step-container').forEach(el => el.classList.add('hidden'));
 
                 const currentContainer = document.querySelector(`.review-step-container[data-step="${stepNum}"]`);
                 if (currentContainer) currentContainer.classList.remove('hidden');
+
+                // Invalidate map size when showing the first step to ensure it renders correctly
+                if (stepNum === 1 && typeof adminMap !== 'undefined') {
+                    setTimeout(() => {
+                        adminMap.invalidateSize();
+                    }, 100);
+                }
 
                 document.querySelectorAll('.stepper-btn').forEach(btn => {
                     btn.classList.remove('step-active');
