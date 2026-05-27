@@ -10,7 +10,7 @@ class AdminDashboardController extends Controller
 {
     public function index()
     {
-        $enrollments = Pendaftaran::with('user')
+        $enrollments = Pendaftaran::with('user.dokumen')
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
@@ -88,11 +88,6 @@ class AdminDashboardController extends Controller
             empty($user->data_periodik->tinggi_badan) || empty($user->data_periodik->berat_badan) || 
             empty($user->data_periodik->jarak) || empty($user->data_periodik->waktu)
         ) {
-            return false;
-        }
-
-        // 4. Check Data Prestasi (Required: Must have at least 1 record)
-        if (!$user->prestasi || $user->prestasi->isEmpty()) {
             return false;
         }
 

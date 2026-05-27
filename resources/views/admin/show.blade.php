@@ -473,13 +473,13 @@
                                         <select name="status" id="status"
                                             class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#009CE0] focus:border-transparent">
                                             <option value="Menunggu"
-                                                {{ $enrollment->status === 'Menunggu' ? 'selected' : '' }}>⏳ Menunggu
+                                                {{ $enrollment->status === 'Menunggu' ? 'selected' : '' }}>Menunggu
                                             </option>
                                             <option value="Diterima"
-                                                {{ $enrollment->status === 'Diterima' ? 'selected' : '' }}>✅ Diterima
+                                                {{ $enrollment->status === 'Diterima' ? 'selected' : '' }}>Diterima
                                             </option>
                                             <option value="Ditolak"
-                                                {{ $enrollment->status === 'Ditolak' ? 'selected' : '' }}>❌ Ditolak
+                                                {{ $enrollment->status === 'Ditolak' ? 'selected' : '' }}>Ditolak
                                             </option>
                                         </select>
                                     </div>

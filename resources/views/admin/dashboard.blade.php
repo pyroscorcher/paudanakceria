@@ -114,7 +114,7 @@
                                 <tr>
                                     <th
                                         class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                        ID</th>
+                                        Foto</th>
                                     <th
                                         class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                                         Nama Pendaftar</th>
@@ -134,8 +134,16 @@
 
                                 @forelse($enrollments as $enrollment)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            #{{ $enrollment->id }}
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if(isset($enrollment->user->dokumen) && $enrollment->user->dokumen->foto_anak)
+                                                <img src="{{ asset('storage/' . $enrollment->user->dokumen->foto_anak) }}" 
+                                                    alt="Foto {{ $enrollment->nama }}" 
+                                                    class="h-10 w-10 rounded-full object-cover border border-gray-200">
+                                            @else
+                                                <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm font-bold border border-gray-300">
+                                                    {{ substr($enrollment->nama, 0, 1) }}
+                                                </div>
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
                                             {{ $enrollment->nama }}</td>
