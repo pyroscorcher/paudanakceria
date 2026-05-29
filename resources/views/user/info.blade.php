@@ -99,18 +99,17 @@
                             <li>Fotokopi Akta Kelahiran Anak (1 lembar)</li>
                             <li>Fotokopi Kartu Keluarga (KK) (1 lembar)</li>
                             <li>Fotokopi KTP Orang Tua/Wali (1 lembar)</li>
-                            <li>Pas Foto Anak ukuran 3x4 (2 lembar)</li>
+                            <li>Pas Foto Anak ukuran 3x4 (1 lembar)</li>
                             <li>Mengisi Formulir Pendaftaran yang disediakan oleh sekolah</li>
                             <li>Membayar biaya pendaftaran sesuai ketentuan sekolah</li>
+                            <li>Bukti pembayaran biaya pendaftaran (struk atau bukti transfer)</li>
                         </ol>
 
                         <p class="fw-bold mb-2">Catatan</p>
 
                         <p>
                             Usia anak minimal 3–5 tahun pada saat pendaftaran.<br>
-                            Semua dokumen harus dalam kondisi yang jelas dan dapat dibaca.<br>
-                            Semua berkas dapat diserahkan langsung ke sekolah atau diunggah
-                            melalui sistem pendaftaran online.
+                            Semua dokumen harus dalam kondisi yang jelas dan dapat dibaca.
                         </p>
                     </div>
 
@@ -135,12 +134,16 @@
                             </li>
 
                             <li>
-                                <strong>Mengunggah / Menyerahkan Dokumen</strong><br>
-                                Orang tua melengkapi dokumen persyaratan seperti
-                                akta kelahiran, kartu keluarga, dan pas foto anak.
+                                <strong>Melengkapi Data Anak dan Dokumen Persyaratan</strong><br>
+                                Pastikan semua data anak dan dokumen persyaratan
+                                sudah lengkap dan sesuai dengan ketentuan yang berlaku.
                             </li>
 
+                            <li><strong>Melakukan Pembayaran Biaya Pendaftaran</strong><br>
+                                Lakukan pembayaran biaya pendaftaran sesuai dengan
+                                informasi yang diberikan oleh sekolah.
                             <li>
+
                                 <strong>Verifikasi Data oleh Sekolah</strong><br>
                                 Pihak sekolah akan melakukan pengecekan data
                                 dan dokumen yang telah dikirimkan.
@@ -189,6 +192,11 @@
                         <p class="fw-bold mb-2">Prosedur Pendaftaran Ulang</p>
 
                         <ol class="info-list">
+                            <li>
+                                <strong>Mengisi Formulir Pendaftaran</strong><br>
+                                Orang tua/wali mengisi formulir pendaftaran ulang
+                                yang disediakan oleh sekolah. <a href="{{ route('user.daftar') }}" target="_blank" class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">Klik di sini untuk mengisi formulir pendaftaran ulang.</a>
+                            </li>
                             <li>
                                 <strong>Login ke Sistem Pendaftaran</strong><br>
                                 Orang tua/wali masuk ke akun pendaftaran
