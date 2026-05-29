@@ -7,12 +7,13 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\UserDashboard\DataAnakController;
 use App\Http\Controllers\UserDashboard\DataOrangtuaController;
 use App\Http\Controllers\UserDashboard\DataPeriodikController;
 use App\Http\Controllers\UserDashboard\DataPrestasiController;
 use App\Http\Controllers\UserDashboard\UserDocumentController;
-use App\Http\Controllers\Admin\KelasController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,11 +30,9 @@ Route::post('/daftar', [EnrollmentController::class, 'store'])->name('pendaftara
 
 // Admin dashboard routes
 Route::middleware(['auth:admins'])->group(function () {
-    Route::get('/admin', [AdminDashboardController::class, 'index'])
-        ->name('admin.dashboard');
+    Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/enrollment/{id}', [AdminDashboardController::class, 'show'])->name('admin.enrollment.show');
-    Route::patch('/admin/enrollment/{id}/status', [AdminDashboardController::class, 'updateStatus'])
-        ->name('admin.enrollment.update-status');
+    Route::patch('/admin/enrollment/{id}/status', [AdminDashboardController::class, 'updateStatus'])->name('admin.enrollment.update-status');
     Route::resource('/admin/gallery', GalleryController::class);
 
     Route::get('/admin/gallery', [GalleryController::class, 'index'])->name('gallery.index');
@@ -53,10 +52,10 @@ Route::middleware(['auth:admins'])->group(function () {
     Route::delete('/admin/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
 
     // Classroom Routes
-    Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
-    Route::post('/kelas', [KelasController::class, 'store'])->name('kelas.store');
-    Route::get('/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');
-    Route::post('/kelas/{id}/assign', [KelasController::class, 'assignStudent'])->name('kelas.assign');
+    Route::get('admin/kelas', [KelasController::class, 'index'])->name('kelas.index');
+    Route::post('admin/kelas', [KelasController::class, 'store'])->name('kelas.store');
+    Route::get('admin/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');
+    Route::post('admin/kelas/{id}/assign', [KelasController::class, 'assignStudent'])->name('kelas.assign');
 
 });
 

@@ -47,7 +47,7 @@
 
     <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-900">Update News</h2>
+            <h2 class="text-2xl font-bold text-gray-900">Perbarui Berita</h2>
         </div>
         
         <form action="{{ route('news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
@@ -56,7 +56,7 @@
 
             <!-- Image Field -->
             <div class="mb-4">
-                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">News Image</label>
+                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Gambar Berita</label>
                 
                 <!-- Display the existing image so the admin knows what is currently there -->
                 @if($news->image)
@@ -76,7 +76,7 @@
 
             <!-- Title Field -->
             <div class="mb-4">
-                <label for="title" class="block text-sm font-medium text-gray-700 mb-2">News Title</label>
+                <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Judul</label>
                 <input type="text" name="title" id="title"
                     class="block w-full border border-gray-300 rounded p-2" value="{{ old('title', $news->title) }}">
                 
@@ -87,7 +87,7 @@
 
             <!-- Content Field -->
             <div class="mb-4">
-                <label for="content" class="block text-sm font-medium text-gray-700 mb-2">News Content</label>
+                <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Isi Berita</label>
                 <textarea name="content" id="content" rows="5" class="block w-full border border-gray-300 rounded p-2">{{ old('content', $news->content) }}</textarea>
                 
                 @error('content')
@@ -97,7 +97,7 @@
 
             <button type="submit"
                 class="w-full bg-[#009CE0] text-white font-bold py-2 px-4 rounded hover:bg-[#007bb5] transition duration-200">
-                Update News
+                Perbarui Berita
             </button>
         </form> <!-- The form is now properly closed -->
     </div>
