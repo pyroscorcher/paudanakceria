@@ -83,12 +83,24 @@
                                         <span>Kapasitas: {{ $kelas->kapasitas }}</span>
                                     </div>
                                 </div>
-                                <div class="bg-gray-50 p-3">
-                                    <a href="{{ route('kelas.index', $kelas->id) }}"
-                                        class="block w-full text-center bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded text-sm font-medium transition">
+
+                                <div class="bg-gray-50 p-3 flex gap-2">
+                                    <a href="{{ route('kelas.show', $kelas->id) }}"
+                                        class="flex-1 text-center bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded text-sm font-medium transition">
                                         Kelola Siswa &nbsp;→
                                     </a>
+                                    
+                                    <form action="{{ route('kelas.destroy', $kelas->id) }}" method="POST" 
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus kelas ini? Siswa yang sudah terdaftar di dalamnya akan dikeluarkan dari kelas secara otomatis.');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" 
+                                            class="flex items-center justify-center bg-white border border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700 px-3 py-2 rounded text-sm font-medium transition" title="Hapus Kelas">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
                                 </div>
+                                
                             </div>
                         @empty
                             <div class="col-span-full text-center py-16 bg-white rounded-lg shadow-sm border border-gray-200 mt-4">
@@ -140,9 +152,9 @@
                                         <select name="kelompok_usia" id="kelompok_usia" required
                                             class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#009CE0] focus:border-[#009CE0] sm:text-sm">
                                             <option value="" disabled selected>Pilih kelompok usia...</option>
-                                            <option value="3-4 Tahun (Playgroup)">3-4 Tahun (Playgroup)</option>
-                                            <option value="4-5 Tahun (TK A)">4-5 Tahun (TK A)</option>
-                                            <option value="5-6 Tahun (TK B)">5-6 Tahun (TK B)</option>
+                                            <option value="3-4 Tahun (Kelompok Bermain)">3-4 Tahun (Kelompok Bermain)</option>
+                                            <option value="4-5 Tahun (Kelompok A)">4-5 Tahun (Kelompok A)</option>
+                                            <option value="5-6 Tahun (Kelompok B)">5-6 Tahun (Kelompok B)</option>
                                         </select>
                                     </div>
 

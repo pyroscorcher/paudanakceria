@@ -57,4 +57,13 @@ class KelasController extends Controller
 
         return redirect()->back()->with('success', "{$user->name} berhasil dimasukkan ke kelas!");
     }
+
+    // 5. Delete a class
+    public function destroy($id)
+    {
+        $kelas = Kelas::findOrFail($id);
+        $kelas->delete();
+
+        return redirect()->back()->with('success', 'Kelas berhasil dihapus!');
+    }
 }

@@ -56,6 +56,7 @@ Route::middleware(['auth:admins'])->group(function () {
     Route::post('admin/kelas', [KelasController::class, 'store'])->name('kelas.store');
     Route::get('admin/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');
     Route::post('admin/kelas/{id}/assign', [KelasController::class, 'assignStudent'])->name('kelas.assign');
+    Route::delete('admin/kelas/{id}', [KelasController::class, 'destroy'])->name('kelas.destroy');
 
 });
 
