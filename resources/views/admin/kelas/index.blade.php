@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="bg-gray-50 p-3">
-                                    <a href="{{ route('admin.kelas.show', $kelas->id) }}"
+                                    <a href="{{ route('kelas.index', $kelas->id) }}"
                                         class="block w-full text-center bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded text-sm font-medium transition">
                                         Kelola Siswa &nbsp;→
                                     </a>
@@ -126,7 +126,7 @@
                                 Buat Kelas Baru
                             </h3>
                             <div class="mt-4">
-                                <form action="{{ route('admin.kelas.store') }}" method="POST" id="createKelasForm">
+                                <form action="{{ route('kelas.store') }}" method="POST" id="createKelasForm">
                                     @csrf
                                     
                                     <div class="mb-4">
