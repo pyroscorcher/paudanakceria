@@ -119,4 +119,20 @@ class AdminDashboardController extends Controller
         // If it passes all checks, the data is complete
         return true;
     }
+
+    public function zonasiMap()
+    {
+        // Fetch all users who have coordinates AND have submitted an enrollment application
+        $students = User::whereNotNull('lintang')
+            ->whereNotNull('bujur')
+            ->whereHas('pendaftaran')
+            ->with('pendaftaran') // Eager load the enrollment data for the status
+            ->get();
+
+        return view('admin.zonasi.index', [
+            'admin_navbar' => 'My Menu', // Adjust these to match your existing components
+            'admin_header' => 'Header',
+            'students'     => $students
+        ]);
+    }
 }

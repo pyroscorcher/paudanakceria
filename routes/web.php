@@ -58,6 +58,9 @@ Route::middleware(['auth:admins'])->group(function () {
     Route::post('admin/kelas/{id}/assign', [KelasController::class, 'assignStudent'])->name('kelas.assign');
     Route::delete('admin/kelas/{id}', [KelasController::class, 'destroy'])->name('kelas.destroy');
 
+    // Zone Routes
+    Route::get('/admin/zonasi', [AdminDashboardController::class, 'zonasiMap'])->name('zonasi.index');
+
 });
 
 // ==========================================
