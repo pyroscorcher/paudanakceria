@@ -106,6 +106,19 @@
                 <div class="bg-white shadow rounded-lg overflow-hidden">
                     <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                         <h2 class="text-lg font-medium text-gray-900">Pendaftaran Terbaru</h2>
+
+                        <form action="{{ route('admin.dashboard') }}" method="GET" class="flex items-center space-x-2">
+                            <label for="year" class="text-sm font-medium text-gray-700 whitespace-nowrap">Filter Tahun:</label>
+                            <select name="year" id="year" onchange="this.form.submit()" 
+                                class="block w-full pl-3 pr-10 py-1.5 text-base border border-gray-300 focus:outline-none focus:ring-[#009CE0] focus:border-[#009CE0] sm:text-sm rounded-md bg-white">
+                                <option value="">Semua Tahun</option>
+                                @foreach($availableYears ?? [] as $year)
+                                    <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>
+                                        {{ $year }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </form>
                     </div>
 
                     <div class="overflow-x-auto">

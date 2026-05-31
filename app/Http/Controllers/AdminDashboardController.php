@@ -8,16 +8,30 @@ use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $enrollments = Pendaftaran::with('user.dokumen')
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+        // 1. Fetch available enrollment years dynamically for the dropdown
+        $availableYears = Pendaftaran::selectRaw('YEAR(created_at) as year')
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year');
+
+        // 2. Start building the query with eager loading
+        $query = Pendaftaran::with(['user.dokumen'])->orderBy('created_at', 'desc');
+
+        // 3. Apply the year filter if the user selected one
+        if ($request->filled('year')) {
+            $query->whereYear('created_at', $request->year);
+        }
+
+        // 4. Execute pagination and append the current query string (keeps the filter active on page 2, 3, etc.)
+        $enrollments = $query->paginate(15)->appends($request->query());
 
         return view('admin.dashboard', [
             'admin_navbar' => 'My Menu',
             'admin_header' => 'Header',
-            'enrollments' => $enrollments
+            'enrollments' => $enrollments,
+            'availableYears' => $availableYears
         ]);
     }
 
